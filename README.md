@@ -1,0 +1,2 @@
+# mindAi
+แข่งopenApi
