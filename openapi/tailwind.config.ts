@@ -23,9 +23,26 @@ const config: Config = {
       'yellow-100' : '#FCFFDB',
 
       //black  
-      'black-500' : '#000000',
-      'black-300' : '#424242',
-      'black-200' : '#222222',
+      'black' : '#000000',
+
+      //grey
+      'grey-400' : '#222222',
+      'grey-300' : '#424242',
+      'grey-200' : '#7A7A7A',
+      'grey-100' : '#D5D8DE',
+      'grey-50' : '#DDDDDD',
+
+      //white
+      'white' :  '#ffffff',
+
+      //red
+      'red' : '#FF0000',
+
+      //orange
+      'orange' :  '#FFA500',
+
+      //purple
+      'purple' : '#A020F0'
 
     },
     fontFamily: {
