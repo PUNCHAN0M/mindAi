@@ -1,6 +1,6 @@
-const SvgBars = () => (
+const SvgSearch = () => (
   <svg
-    className="w-6 h-6 text-gray-800 dark:text-white"
+    className="w-6 h-6 text-gray-800 text-grey-400 "
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -12,8 +12,8 @@ const SvgBars = () => (
       stroke="currentColor"
       stroke-linecap="round"
       stroke-width="2"
-      d="M5 7h14M5 12h14M5 17h14"
+      d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
     />
   </svg>
 );
-export default SvgBars;
+export default SvgSearch;

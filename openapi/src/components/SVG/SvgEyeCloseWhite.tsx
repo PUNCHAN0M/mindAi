@@ -1,6 +1,6 @@
-const SvgEyeClose = () => (
+const SvgEyeCloseWhite = () => (
   <svg
-    className="w-6 h-6 text-gray-800 dark:text-white"
+    className="w-6 h-6 text-gray-800 text-green-500"
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -17,4 +17,4 @@ const SvgEyeClose = () => (
     />
   </svg>
 );
-export default SvgEyeClose;
+export default SvgEyeCloseWhite;
