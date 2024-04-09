@@ -1,3 +1,4 @@
+import { Roboto } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -17,6 +18,7 @@ const config: Config = {
       'blue-400' : '#3CA3DD',
       'blue-300' : '#98D0EF',
       'blue-100' : '#C2FCFF',
+      'blue-50'  : '#F3FBFF',
 
       //yellow
       'yellow-200' : '#F6F6CD',
@@ -48,6 +50,7 @@ const config: Config = {
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
+      Roboto:['Roboto', "sans-serif"],
     },
     extend: {
       backgroundImage: {

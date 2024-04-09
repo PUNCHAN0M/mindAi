@@ -6,15 +6,15 @@ const Navbar = () => {
       {/* back */}
       <div className="flex ">
         <ul className="flex flex-row">
-          <li className="bg-green-500 text-white m-5 px-5 rounded-full">
+          <li className="bg-green-500 font-Roboto  text-white m-5 px-5 rounded-full">
             Login
           </li>
-          <li className="bg-blue-100 text-black m-5 px-5  rounded-full">
+          <li className="bg-blue-100 font-Roboto  text-black m-5 px-5  rounded-full">
             Sign Up
           </li>
         </ul>
       </div>
     </nav>
-  );
+  ); 
 };
 export default Navbar;

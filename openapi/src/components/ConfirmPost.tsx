@@ -1,9 +1,17 @@
+import SvgEnvelope from "./SVG/SvgEnvelope";
+import SvgEyeCloseGrey from "./SVG/SvgEyeCloseGrey";
+import SvgEyeOpenGrey from "./SVG/SvgEyeOpenGrey";
+import SvgEyeOpenWhite from "./SVG/SvgEyeOpenWhite";
+import SvgEyeOpen from "./SVG/SvgEyeOpenWhite";
+import SvgPen from "./SVG/SvgPen";
+import SvgPhone from "./SVG/SvgPhone";
+
 const ConfirmPost = () => {
   return (
     <div className="">
       {/* edit */}
-      <div>
-        <img src="" alt="" />
+      <div className="flex">
+        <SvgPen/>
         <button>แก้ไขโพสต์</button>
       </div>
 
@@ -17,41 +25,48 @@ const ConfirmPost = () => {
           </div>
           <div className="m-10 space-y-8">
             <div className="flex flex-row">
-              <button className="">eye</button>
+              <SvgEyeOpenGrey />
               <div>ชื่องานวิจัย</div>
             </div>
             <div className="flex flex-row">
-              <button>eye</button>
+              <SvgEyeOpenGrey />
               <div>ไอเดีย</div>
             </div>
             <div className="flex flex-row">
-              <button>eye</button>
+              <SvgEyeOpenGrey />
               <div>ปัญหาที่พบ</div>
             </div>
             <div className="flex flex-row">
-              <button>eye</button>
+              <SvgEyeOpenGrey />
 
               <div>ทรัพยากร</div>
             </div>
           </div>
         </div>
         <div className="flex flex-row justify-between m-10">
-          <div className="felx flex-row">
-            <div className="flex">img</div>
-            <span className="flex">นายสิทธา สหรรม</span>
-            <span className="flex">
-              <img src="" alt="" />
-              <span>085-123401234</span>
-              <button>eye</button>
-            </span>
-
-            <span>
-              <img src="" alt="" />
-              <span>sitasahahum@gmail.com</span>
-              <button>eye</button>
-            </span>
+          <div className="flex flex-row gap-10 items-center bg-red ">
+            {/* profile */}
+            <div className="flex w-[56px] h-[56px] rounded-full border-[3px] border-white">
+              img
+            </div>
+            {/* name */}
+            <div className="flex flex-row">นายสิทธา สหรรม</div>
+            {/* tel */}
+            <div className="flex flex-row">
+              <SvgPhone />
+              <div>085-123401234</div>
+              <SvgEyeOpenWhite />
+            </div>
+            {/* email */}
+            <div className="flex">
+              <SvgEnvelope />
+              <div>sitasahahum@gmail.com</div>
+              <SvgEyeOpen />
+            </div>
           </div>
-          <button>เข้าดู</button>
+
+          {/* save btn */}
+          <button className="bg-blue-50 rounded-full p-5">บันทึก</button>
         </div>
       </div>
     </div>

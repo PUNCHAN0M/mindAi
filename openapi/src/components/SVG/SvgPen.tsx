@@ -1,7 +1,7 @@
 const SvgPen = () => (
     
     <svg
-    className="w-6 h-6 text-gray-800 text-green-500"
+    className="w-6 h-6 text-black"
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="24"
