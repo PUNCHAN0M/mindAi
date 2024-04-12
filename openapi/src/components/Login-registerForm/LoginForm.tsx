@@ -24,8 +24,8 @@ const LoginForm = ({ submitLogin }: LoginProps): JSX.Element => {
       onSubmit={handleSubmitLogin}
     >
       {({ values, dirty }) => (
-        <Form className="flex flex-col space-y-2 ">
-          <div className="flex flex-col">
+        <Form className="flex flex-col space-y-2 items-center">
+          <div className="flex flex-col w-[475px] space-y-1">
             <label> อีเมล</label>
             <Field
               type="email"
@@ -38,8 +38,9 @@ const LoginForm = ({ submitLogin }: LoginProps): JSX.Element => {
               name="passwordUser"
               className=" border-[1px] rounded-full border-grey-200"
             />
+            <div className="flex justify-end">ลืมรหัสผ่าน?</div>
           </div>
-          <button className="flex bg-blue-100 rounded-full justify-center min-w-5">
+          <button className="flex bg-blue-100 rounded-full justify-center w-24 ">
             เข้าสู่ระบบ
           </button>
         </Form>
