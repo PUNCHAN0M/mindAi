@@ -33,6 +33,7 @@ const config: Config = {
       'grey-200' : '#7A7A7A',
       'grey-100' : '#D5D8DE',
       'grey-50' : '#DDDDDD',
+      'grey-25' : '#E7E7E7',
 
       //white
       'white' :  '#ffffff',
