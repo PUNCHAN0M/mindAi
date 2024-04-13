@@ -26,21 +26,21 @@ const LoginForm = ({ submitLogin }: LoginProps): JSX.Element => {
       {({ values, dirty }) => (
         <Form className="flex flex-col space-y-2 items-center">
           <div className="flex flex-col w-[475px] space-y-1">
-            <label> อีเมล</label>
+            <label className="text-[11px] ml-1"> อีเมล</label>
             <Field
               type="email"
               name="emailUser"
-              className="border-[1px] rounded-full border-grey-200 w-full"
+              className="border-[1px] rounded-full border-gray-200 w-full"
             />
-            <label>รหัสผ่าน</label>
+            <label className="text-[11px] ml-1">รหัสผ่าน</label>
             <Field
               type="text"
               name="passwordUser"
-              className=" border-[1px] rounded-full border-grey-200"
+              className=" border-[1px] rounded-full border-gray-200"
             />
-            <div className="flex justify-end">ลืมรหัสผ่าน?</div>
+            <button className="flex justify-end text-[11px] text-gray-200">ลืมรหัสผ่าน?</button>
           </div>
-          <button className="flex bg-blue-100 rounded-full justify-center w-24 ">
+          <button className="flex bg-blue-100 rounded-full justify-center w-24 text-gray-200 text-[12px]">
             เข้าสู่ระบบ
           </button>
         </Form>
