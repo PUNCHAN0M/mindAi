@@ -32,9 +32,9 @@ export default function create() {
             <div
               className={clsx(
                 "flex  w-[24px] h-[24px] rounded-full border-[3px] border-blue-400 text-center absolute justify-center items-center",
-                handlePreviousBtn === 0 ? "bg-white" : "",
-                handlePreviousBtn === 1 ? "bg-blue-400" : "",
-                handlePreviousBtn === 2 ? "bg-blue-400" : ""
+                handlePreviousBtn === 0 ? "bg-white text-black" : "",
+                handlePreviousBtn === 1 ? "bg-blue-400 text-white" : "",
+                handlePreviousBtn === 2 ? "bg-blue-400 text-white" : ""
               )}
             >
               1
@@ -49,7 +49,7 @@ export default function create() {
                   ? "border-blue-400 bg-white"
                   : "border-grey-200 bg-white",
                   handlePreviousBtn === 2 
-                  ? "border-blue-400 bg-blue-400"
+                  ? "border-blue-400 bg-blue-400 text-white"
                   : "border-grey-200 bg-white"
               )}
             >
