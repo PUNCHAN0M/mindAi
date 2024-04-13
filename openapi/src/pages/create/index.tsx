@@ -29,7 +29,14 @@ export default function create() {
             )}
           ></div>
           <div className="flex flex-col items-center w-[70px]">
-            <div className="flex bg-white w-[24px] h-[24px] rounded-full border-[3px] border-blue-400 text-center absolute justify-center items-center">
+            <div
+              className={clsx(
+                "flex  w-[24px] h-[24px] rounded-full border-[3px] border-blue-400 text-center absolute justify-center items-center",
+                handlePreviousBtn === 0 ? "bg-white" : "",
+                handlePreviousBtn === 1 ? "bg-blue-400" : "",
+                handlePreviousBtn === 2 ? "bg-blue-400" : ""
+              )}
+            >
               1
             </div>
             <div className="flex text-xs mt-7">กรอกข้อมูล</div>
@@ -37,10 +44,13 @@ export default function create() {
           <div className="flex flex-col items-center w-[70px]">
             <div
               className={clsx(
-                "flex bg-white w-[24px] h-[24px] rounded-full border-[3px] text-center  absolute justify-center items-center ",
-                handlePreviousBtn === 1 || handlePreviousBtn === 2
-                  ? "border-blue-400"
-                  : "border-grey-200"
+                "flex  w-[24px] h-[24px] rounded-full border-[3px] text-center  absolute justify-center items-center ",
+                handlePreviousBtn === 1 
+                  ? "border-blue-400 bg-white"
+                  : "border-grey-200 bg-white",
+                  handlePreviousBtn === 2 
+                  ? "border-blue-400 bg-blue-400"
+                  : "border-grey-200 bg-white"
               )}
             >
               2
