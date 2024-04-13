@@ -27,13 +27,14 @@ const config: Config = {
       //black  
       'black' : '#000000',
 
-      //grey
-      'grey-400' : '#222222',
-      'grey-300' : '#424242',
-      'grey-200' : '#7A7A7A',
-      'grey-100' : '#D5D8DE',
-      'grey-50' : '#DDDDDD',
-      'grey-25' : '#E7E7E7',
+      //gray
+      'gray-400' : '#222222',
+      'gray-300' : '#424242',
+      'gray-200' : '#7A7A7A',
+      'gray-150' : '#DADADA' ,
+      'gray-100' : '#D5D8DE',
+      'gray-50' : '#DDDDDD',
+      'gray-25' : '#E7E7E7',
 
       //white
       'white' :  '#ffffff',
