@@ -18,8 +18,8 @@ export default function login() {
           <div className="flex bg-gray-10  rounded-full w-[40px] h-[40px] justify-center items-center">
             <SvgSignUp />
           </div>
-          <div>เข้าสู่ระบบ</div>
-          <div>กรอกบัญชีอีเมลและรหัสผ่านเพื่อเข้าสู่ระบบ</div>
+          <div className="text-[18px] ">เข้าสู่ระบบ</div>
+          <div className="text-[14px] text-[#788BA5]">กรอกบัญชีอีเมลและรหัสผ่านเพื่อเข้าสู่ระบบ</div>
           <div>_____________</div>
         </div>
         <LoginForm submitLogin={handleSubmitLogin} />
