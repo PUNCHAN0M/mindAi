@@ -18,7 +18,7 @@ export default function create() {
         <div className="flex  items-center gap-x-[150px] justify-center">
           <div
             className={clsx(
-              "flex bg-grey-200 h-[3px] w-[450px]  mb-5 absolute "
+              "flex bg-gray-150 h-[3px] w-[450px]  mb-5 absolute "
             )}
           ></div>
           <div
@@ -45,12 +45,11 @@ export default function create() {
             <div
               className={clsx(
                 "flex  w-[24px] h-[24px] rounded-full border-[3px] text-center  absolute justify-center items-center ",
-                handlePreviousBtn === 1 
-                  ? "border-blue-400 bg-white"
-                  : "border-grey-200 bg-white",
-                  handlePreviousBtn === 2 
-                  ? "border-blue-400 bg-blue-400 text-white"
-                  : "border-grey-200 bg-white"
+                handlePreviousBtn === 0
+                  ? "border-gray-150 bg-gray-150 text-gray-200 "                
+                  : "",
+                handlePreviousBtn === 1 ? "border-blue-400 bg-white" : "",
+                handlePreviousBtn === 2 ? "border-blue-400 bg-blue-400 text-white" : ""
               )}
             >
               2
@@ -61,7 +60,13 @@ export default function create() {
             <div
               className={clsx(
                 "flex  bg-white w-[24px] h-[24px] rounded-full border-[3px] text-center absolute justify-center items-center ",
-                handlePreviousBtn === 2 ? "border-blue-400" : "border-grey-200"
+                handlePreviousBtn === 0
+                  ? "border-gray-150 bg-gray-150 text-gray-200"
+                  : "",
+                handlePreviousBtn === 1
+                  ? "border-gray-150 bg-gray-150 text-gray-200"
+                  : "",
+                handlePreviousBtn === 2 ? "border-blue-400 bg-blue-400" : ""
               )}
             >
               3
@@ -79,7 +84,7 @@ export default function create() {
       >
         <button
           className={clsx(
-            "bg-grey-100 rounded-full",
+            "bg-gray-100 rounded-full",
             handlePreviousBtn === 0 ? "hidden" : ""
           )}
           onClick={handlePrevious}
