@@ -35,6 +35,7 @@ const config: Config = {
       'gray-100' : '#D5D8DE',
       'gray-50' : '#DDDDDD',
       'gray-25' : '#E7E7E7',
+      'gray-10' : '#F6F8FB',
 
       //white
       'white' :  '#ffffff',
