@@ -1,6 +1,6 @@
-const SvgEyeOpenGrey = () => (
+const SvgEyeOpengray = () => (
   <svg
-    className="w-6 h-6 text-grey-400"
+    className="w-6 h-6 text-gray-400"
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -20,4 +20,4 @@ const SvgEyeOpenGrey = () => (
     />
   </svg>
 );
-export default SvgEyeOpenGrey;
+export default SvgEyeOpengray;
