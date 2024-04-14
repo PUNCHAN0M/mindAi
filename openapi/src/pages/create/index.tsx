@@ -1,3 +1,7 @@
+import ReccomendTeacher from "@/components/Confirm/ReccomendTeacher";
+import FormImage from "@/components/Form/FormImage";
+import FormText from "@/components/Form/FormText";
+import ShowDetail from "@/components/Recommend/ShowDetail";
 import clsx from "clsx";
 import { useState } from "react";
 
@@ -46,10 +50,12 @@ export default function create() {
               className={clsx(
                 "flex  w-[24px] h-[24px] rounded-full border-[3px] text-center  absolute justify-center items-center ",
                 handlePreviousBtn === 0
-                  ? "border-gray-150 bg-gray-150 text-gray-200 "                
+                  ? "border-gray-150 bg-gray-150 text-gray-200 "
                   : "",
                 handlePreviousBtn === 1 ? "border-blue-400 bg-white" : "",
-                handlePreviousBtn === 2 ? "border-blue-400 bg-blue-400 text-white" : ""
+                handlePreviousBtn === 2
+                  ? "border-blue-400 bg-blue-400 text-white"
+                  : ""
               )}
             >
               2
@@ -75,7 +81,19 @@ export default function create() {
           </div>
         </div>
       </div>
-
+      {handlePreviousBtn === 0 && (
+        <div className="flex items-start justify-center ">
+          <FormImage />
+          <FormText />
+        </div>
+      )}
+      {handlePreviousBtn === 1 && <div></div>}
+      {handlePreviousBtn === 2 && (
+        <div className="flex flex-row justify-between">
+          <ReccomendTeacher />
+          <ShowDetail />
+        </div>
+      )}
       <div
         className={clsx(
           "flex flex-row justify-end",
