@@ -5,7 +5,7 @@ import SvgEyeOpen from "../SVG/SvgEyeOpenWhite";
 import SvgPen from "../SVG/SvgPen";
 import SvgPhone from "../SVG/SvgPhone";
 
-const ReccomendTeacher = () => {
+const ProjectDetail = () => {
   return (
     <div className="">
       {/* edit */}
@@ -35,7 +35,7 @@ const ReccomendTeacher = () => {
               <SvgEyeOpengray />
               <div>ปัญหาที่พบ</div>
             </div>
-            <div className="flex flex-row">
+            <div className="flex flex-row ">
               <SvgEyeOpengray />
 
               <div>ทรัพยากร</div>
@@ -72,4 +72,4 @@ const ReccomendTeacher = () => {
   );
 };
 
-export default ReccomendTeacher;
+export default ProjectDetail;

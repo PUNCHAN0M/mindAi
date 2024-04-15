@@ -3,7 +3,7 @@ import SvgSearch from "../SVG/SvgSearch";
 
 const ListTeacher = () => {
   return (
-    <div className="">
+    <div className="bg-red">
       {/* searchbar */}
       <div className="bg-green-500 flex flex-row justify-between m-10 ">
         <div className="">อาจารย์ที่แนะนำ</div>

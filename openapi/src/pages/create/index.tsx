@@ -1,9 +1,13 @@
-import ReccomendTeacher from "@/components/Confirm/ReccomendTeacher";
+import ReccomendTeacher from "@/components/Confirm/ProjectDetail";
 import FormImage from "@/components/Form/FormImage";
 import FormText from "@/components/Form/FormText";
-import ShowDetail from "@/components/Recommend/ShowDetail";
+import ListTeacher from "@/components/Recommend/ListTeacher";
+import Navbar from "@/components/Navbar";
+import ListPending from "@/components/PendingProject/ListPending";
+import ShowDetail from "@/components/Confirm/ShowDetail";
 import clsx from "clsx";
 import { useState } from "react";
+import ProjectDetail from "@/components/Confirm/ProjectDetail";
 
 export default function create() {
   const [handleNextBtn, sethandleNextBtn] = useState<number>(0);
@@ -18,6 +22,7 @@ export default function create() {
   return (
     <div className="flex flex-col bg-white w-screen h-screen">
       {/* <Navbar /> */}
+      <Navbar/>
       <div className="flex px-5 w-full justify-center">
         <div className="flex  items-center gap-x-[150px] justify-center">
           <div
@@ -65,14 +70,14 @@ export default function create() {
           <div className="flex flex-col items-center w-[70px]">
             <div
               className={clsx(
-                "flex  bg-white w-[24px] h-[24px] rounded-full border-[3px] text-center absolute justify-center items-center ",
+                "flex  border-gray-150 w-[24px] h-[24px] rounded-full border-[3px] text-center absolute justify-center items-center ",
                 handlePreviousBtn === 0
                   ? "border-gray-150 bg-gray-150 text-gray-200"
                   : "",
                 handlePreviousBtn === 1
                   ? "border-gray-150 bg-gray-150 text-gray-200"
                   : "",
-                handlePreviousBtn === 2 ? "border-blue-400 bg-blue-400" : ""
+                handlePreviousBtn === 2 ? "border-blue-400 z-10 bg-gray-150 text-gray-200" : ""
               )}
             >
               3
@@ -87,10 +92,11 @@ export default function create() {
           <FormText />
         </div>
       )}
-      {handlePreviousBtn === 1 && <div></div>}
+      {handlePreviousBtn === 1 && <div>
+        <ListTeacher/></div>}
       {handlePreviousBtn === 2 && (
         <div className="flex flex-row justify-between">
-          <ReccomendTeacher />
+          <ProjectDetail />
           <ShowDetail />
         </div>
       )}
