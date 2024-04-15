@@ -8,6 +8,7 @@ import ShowDetail from "@/components/Confirm/ShowDetail";
 import clsx from "clsx";
 import { useState } from "react";
 import ProjectDetail from "@/components/Confirm/ProjectDetail";
+import Sidebar from "@/components/Sidebar";
 
 export default function create() {
   const [handleNextBtn, sethandleNextBtn] = useState<number>(0);
@@ -23,6 +24,7 @@ export default function create() {
     <div className="flex flex-col bg-white w-screen h-screen">
       {/* <Navbar /> */}
       <Navbar/>
+      <Sidebar/>
       <div className="flex px-5 w-full justify-center">
         <div className="flex  items-center gap-x-[150px] justify-center">
           <div
