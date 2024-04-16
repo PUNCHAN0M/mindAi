@@ -10,6 +10,7 @@ import { toFormikValidationSchema } from "zod-formik-adapter";
 import Svgimg from "../SVG/Svgimg";
 import clsx from "clsx";
 import { useState } from "react";
+import Dropdown from "./Dropdown";
 
 const initialFormValue: formTextSchema = {
   nameOfProject: "",
@@ -70,26 +71,8 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                   </div>
 
                   {/* typeproject and date*/}
-                  <div className="flex flex-col  justify-end  bg-white">
-                    <ErrorMessage name="titleOfProject" className="" />
-                    <Field
-                      name="titleOfProject"
-                      as="select"
-                      validationSchema={formProjectSchemaText}
-                      className={clsx("min-h-7 rounded-md border-[1px] border-gray-100",
-                      !touched.titleOfProject ? "border-gray-100" : "",
-                      touched.titleOfProject && errors.titleOfProject
-                        ? "border-red"
-                        : "",
-                      touched.titleOfProject && !errors.titleOfProject
-                        ? "border-green-200"
-                        : "")}
-                    >
-                      <option value="None">กรุณาเลือกหัวข้อ</option>
-                      <option value="option1">Option 1</option>
-                      <option value="option2">Option 2</option>
-                      <option value="option3">Option 3</option>
-                    </Field>
+                  <div className="flex flex-col  justify-end w-32 items-center bg-white">
+                    <Dropdown />
                   </div>
                   <div className="flex flex-col  justify-end bg-white">
                     <ErrorMessage name="periodStartOfProject" className="" />
@@ -99,12 +82,14 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                       type="date"
                       validationSchema={formProjectSchemaText}
                       className={clsx(
-                        "max-h-7 rounded-md border-[1px] border-gray-100",
+                        "max-h-7 rounded-md border-[2px] border-gray-100",
                         !touched.periodStartOfProject ? "border-gray-100" : "",
-                        touched.periodStartOfProject && errors.periodStartOfProject
+                        touched.periodStartOfProject &&
+                          errors.periodStartOfProject
                           ? "border-red"
                           : "",
-                        touched.periodStartOfProject && !errors.periodStartOfProject
+                        touched.periodStartOfProject &&
+                          !errors.periodStartOfProject
                           ? "border-green-200"
                           : ""
                       )}
@@ -117,8 +102,9 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                       name="periodEndOfProject"
                       type="date"
                       validationSchema={formProjectSchemaText}
+                      
                       className={clsx(
-                        "flex max-h-7 rounded-md border-[1px]",
+                        "flex max-h-7 rounded-md border-[2px]",
                         !touched.periodEndOfProject ? "border-gray-100" : "",
                         touched.periodEndOfProject && errors.periodEndOfProject
                           ? "border-red"
@@ -138,79 +124,76 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                   <ErrorMessage name="ideaOfProject" className="" />
                   <label>ไอเดีย</label>
                   <Field
-                      name="ideaOfProject"
-                      validateField={formProjectSchemaText}
-                      className={clsx(
-                        "flex max-h-7 min-w-80 rounded-md border-[2px]",
-                        !touched.ideaOfProject ? "border-gray-100" : "",
-                        touched.ideaOfProject && errors.ideaOfProject
-                          ? "border-red"
-                          : "",
-                        touched.ideaOfProject && !errors.ideaOfProject
-                          ? "border-green-200"
-                          : ""
-                      )}
-                    />
-                  
+                    name="ideaOfProject"
+                    validateField={formProjectSchemaText}
+                    className={clsx(
+                      "flex max-h-7 min-w-80 rounded-md border-[2px]",
+                      !touched.ideaOfProject ? "border-gray-100" : "",
+                      touched.ideaOfProject && errors.ideaOfProject
+                        ? "border-red"
+                        : "",
+                      touched.ideaOfProject && !errors.ideaOfProject
+                        ? "border-green-200"
+                        : ""
+                    )}
+                  />
                 </div>
 
                 <div className="flex flex-col">
                   <ErrorMessage name="ideaOfProject" className="" />
                   <label>ปัญหา</label>
                   <Field
-                      name="problemOfProject"
-                      validateField={formProjectSchemaText}
-                      className={clsx(
-                        "flex max-h-7 min-w-80 rounded-md border-[2px]",
-                        !touched.problemOfProject ? "border-gray-100" : "",
-                        touched.problemOfProject && errors.problemOfProject
-                          ? "border-red"
-                          : "",
-                        touched.problemOfProject && !errors.problemOfProject
-                          ? "border-green-200"
-                          : ""
-                      )}
-                    />
+                    name="problemOfProject"
+                    validateField={formProjectSchemaText}
+                    className={clsx(
+                      "flex max-h-7 min-w-80 rounded-md border-[2px]",
+                      !touched.problemOfProject ? "border-gray-100" : "",
+                      touched.problemOfProject && errors.problemOfProject
+                        ? "border-red"
+                        : "",
+                      touched.problemOfProject && !errors.problemOfProject
+                        ? "border-green-200"
+                        : ""
+                    )}
+                  />
                 </div>
 
                 <div className="flex flex-col">
-                  
                   <ErrorMessage name="resourcesOfProject" className="" />
                   <label>ทรัพยากรณ์</label>
                   <Field
-                      name="resourcesOfProject"
-                      validateField={formProjectSchemaText}
-                      className={clsx(
-                        "flex max-h-7 min-w-80 rounded-md border-[2px]",
-                        !touched.resourcesOfProject ? "border-gray-100" : "",
-                        touched.resourcesOfProject && errors.resourcesOfProject
-                          ? "border-red"
-                          : "",
-                        touched.resourcesOfProject && !errors.resourcesOfProject
-                          ? "border-green-200"
-                          : ""
-                      )}
-                    />
+                    name="resourcesOfProject"
+                    validateField={formProjectSchemaText}
+                    className={clsx(
+                      "flex max-h-7 min-w-80 rounded-md border-[2px]",
+                      !touched.resourcesOfProject ? "border-gray-100" : "",
+                      touched.resourcesOfProject && errors.resourcesOfProject
+                        ? "border-red"
+                        : "",
+                      touched.resourcesOfProject && !errors.resourcesOfProject
+                        ? "border-green-200"
+                        : ""
+                    )}
+                  />
                 </div>
 
                 <div className="flex flex-col">
-                
                   <ErrorMessage name="detailOfProject" className="" />
                   <label>รายละเอียดเพิ่มเติม</label>
                   <Field
-                      name="detailOfProject"
-                      validateField={formProjectSchemaText}
-                      className={clsx(
-                        "flex max-h-7 min-w-80 rounded-md border-[2px]",
-                        !touched.detailOfProject ? "border-gray-100" : "",
-                        touched.detailOfProject && errors.detailOfProject
-                          ? "border-red"
-                          : "",
-                        touched.detailOfProject && !errors.detailOfProject
-                          ? "border-green-200"
-                          : ""
-                      )}
-                    />
+                    name="detailOfProject"
+                    validateField={formProjectSchemaText}
+                    className={clsx(
+                      "flex max-h-7 min-w-80 rounded-md border-[2px]",
+                      !touched.detailOfProject ? "border-gray-100" : "",
+                      touched.detailOfProject && errors.detailOfProject
+                        ? "border-red"
+                        : "",
+                      touched.detailOfProject && !errors.detailOfProject
+                        ? "border-green-200"
+                        : ""
+                    )}
+                  />
                 </div>
               </div>
             </div>
