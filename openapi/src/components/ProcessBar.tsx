@@ -60,7 +60,7 @@ const ProcessBar = ({handlePreviousBtn}:handlePreviousBtn) => {
           <div className="flex flex-col items-center w-[70px]">
             <div
               className={clsx(
-                "flex  border-gray-150 w-[24px] h-[24px] rounded-full border-[3px] text-center absolute justify-center items-center ",
+                "flex w-[24px] h-[24px] rounded-full border-[3px] text-center absolute justify-center items-center ",
                 handlePreviousBtn === 0
                   ? "border-gray-150 bg-gray-150 text-gray-200"
                   : "",
@@ -68,7 +68,7 @@ const ProcessBar = ({handlePreviousBtn}:handlePreviousBtn) => {
                   ? "border-gray-150 bg-gray-150 text-gray-200"
                   : "",
                 handlePreviousBtn === 2
-                  ? "border-blue-400 z-10 bg-gray-150 text-gray-200"
+                  ? "bg-white border-blue-400 text-gray-200"
                   : ""
               )}
             >
