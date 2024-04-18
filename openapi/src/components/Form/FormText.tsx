@@ -2,10 +2,7 @@ import { formProjectSchemaText, formTextSchema } from "@/modules/form";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { z } from "zod";
 import { toFormikValidationSchema } from "zod-formik-adapter";
-import Svgimg from "../SVG/Svgimg";
 import clsx from "clsx";
-import { useState } from "react";
-import Dropdown from "./Dropdown";
 import FormImage from "./FormImage";
 
 const initialFormValue: formTextSchema = {
@@ -75,7 +72,8 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                       <label>ประเภทงานวิจัย</label>
                       <Field
                         name="titleOfProject"
-                        as="select"
+                        component="select"
+                        id="location"
                         className={clsx(
                           "h-7 rounded-md border-[2px] border-gray-100",
                           !touched.titleOfProject ? "border-gray-100" : "",
@@ -87,6 +85,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                             : ""
                         )}
                       >
+                        <option value="null">-</option>
                         <option value="math">Math</option>
                         <option value="science">Science</option>
                         <option value="com">Computer</option>
@@ -197,6 +196,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                     <ErrorMessage name="detailOfProject" className="" />
                     <label>รายละเอียดเพิ่มเติม</label>
                     <Field
+                      as="textarea"
                       name="detailOfProject"
                       className={clsx(
                         "flex max-h-7 min-w-80 rounded-md border-[2px]",
@@ -213,7 +213,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                 </div>
               </div>
             </div>
-            <div className="flex bg-white justify-end items-end">
+            <div className={clsx("flex bg-white justify-end items-end")}>
               <button
                 className={clsx("flex bg-yellow-100 rounded-full mr-10 mt-10")}
                 type="submit"
