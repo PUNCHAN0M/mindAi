@@ -10,8 +10,8 @@ const SvgBars = () => (
   >
     <path
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeWidth="2"
       d="M5 7h14M5 12h14M5 17h14"
     />
   </svg>

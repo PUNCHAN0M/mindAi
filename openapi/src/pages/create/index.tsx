@@ -10,6 +10,11 @@ import { useState } from "react";
 import ProjectDetail from "@/components/Confirm/ProjectDetail";
 import Sidebar from "@/components/Sidebar";
 import ProcessBar from "@/components/ProcessBar";
+import { formProjectSchemaText, formTextSchema } from "@/modules/form";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import Dropdown from "@/components/Form/Dropdown";
+import { toFormikValidationSchema } from "zod-formik-adapter";
+
 
 export default function create() {
   const [handlePreviousBtn, setHandlePreviousBtn] = useState<number>(0);
@@ -20,37 +25,16 @@ export default function create() {
   const handleNext = () => {
     setHandlePreviousBtn(handlePreviousBtn + 1);
   };
+
+  const handleSubmit = (values: formTextSchema): void => {
+    console.log(values);
+  };
   return (
     <div className="flex flex-col bg-white w-screen h-screen">
       {/* <Navbar /> */}
-      <Navbar/>
-      <Sidebar/>
-      <ProcessBar handlePreviousBtn={handlePreviousBtn}/>
-      <div
-        className={clsx(
-          "flex flex-row justify-end",
-          handlePreviousBtn === 0 ? "justify-end" : "justify-between"
-        )}
-      >
-        <button
-          className={clsx(
-            "bg-gray-100 rounded-full",
-            handlePreviousBtn === 0 ? "hidden" : ""
-          )}
-          onClick={handlePrevious}
-        >
-          ย้อนกลับ
-        </button>
-        <button
-          className={clsx(
-            "bg-yellow-100 rounded-full",
-            handlePreviousBtn === 2 ? "hidden" : ""
-          )}
-          onClick={handleNext}
-        >
-          ถัดไป
-        </button>
-      </div>
+      <Navbar />
+      <Sidebar />
+      <FormText submit={handleSubmit} />
     </div>
   );
 }

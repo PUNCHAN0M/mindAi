@@ -1,18 +1,18 @@
 import { z } from "zod";
 
-export const formProjectSchema = z.object({
-  imageOfProject: z.any().refine((val) => val.length > 0, "File is required"),
-  nameOfProject: z.string(),
-  titleOfProject: z.string(),
-  periodStartOfProject: z.date(),
-  periodEndOfProject: z.date(),
-  ideaOfProject: z.string(),
-  problemOfProject: z.string(),
-  resourcesOfProject: z.string(),
-  detailOfProject: z.string(),
-});
+// export const formProjectSchema = z.object({
+//   imageOfProject: z.any().refine((val) => val.length > 0, "File is required"),
+//   nameOfProject: z.string(),
+//   titleOfProject: z.string(),
+//   periodStartOfProject: z.date(),
+//   periodEndOfProject: z.date(),
+//   ideaOfProject: z.string(),
+//   problemOfProject: z.string(),
+//   resourcesOfProject: z.string(),
+//   detailOfProject: z.string(),
+// });
 
-export type formSchema = z.infer<typeof formProjectSchema>;
+// export type formSchema = z.infer<typeof formProjectSchema>;
 
 export const formProjectSchemaText = z.object({
   nameOfProject: z
@@ -22,8 +22,8 @@ export const formProjectSchemaText = z.object({
     .min(5, { message: "ต้องใส่มากกว่า 5 ตัวอักษร" })
     .max(20, { message: "ไม่เกิน 20 ตัวอักษร" }),
   titleOfProject: z.string(),
-  periodStartOfProject: z.date(),
-  periodEndOfProject: z.date(),
+  periodStartOfProject: z.string(),
+  periodEndOfProject: z.string(),
   ideaOfProject: z
     .string({
       required_error: "ต้องใส่ไอเดีย",
@@ -46,7 +46,7 @@ export const formProjectSchemaText = z.object({
     .string({
       required_error: "ต้องใส่รายละเอียดเพิ่มเติม",
     })
-    .min(5, { message: "ต้องใส่มากกว่า 1 ตัวอักษร" })
+    .min(1, { message: "ต้องใส่มากกว่า 1 ตัวอักษร" })
     .max(500, { message: "ไม่เกิน 500 ตัวอักษร" }),
 });
 
