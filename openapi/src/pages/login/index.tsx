@@ -1,5 +1,5 @@
 import LoginForm from "@/components/Login-registerForm/LoginForm";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar"; 
 import SvgSignUp from "@/components/SVG/SvgSignUp";
 import { loginSchema } from "@/modules/login-register/login";
 import { useState } from "react";
@@ -20,7 +20,6 @@ export default function login() {
           </div>
           <div className="text-[18px] ">เข้าสู่ระบบ</div>
           <div className="text-[14px] text-[#788BA5]">กรอกบัญชีอีเมลและรหัสผ่านเพื่อเข้าสู่ระบบ</div>
-          <div>_____________</div>
         </div>
         <LoginForm submitLogin={handleSubmitLogin} />
       </div>
