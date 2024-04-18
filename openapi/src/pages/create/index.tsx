@@ -17,7 +17,8 @@ export default function create() {
       {/* <Navbar /> */}
       <Navbar />
       <Sidebar />
-      <FormText submit={handleSubmit} />
+      {/* <FormText submit={handleSubmit} /> */}
+      <ListTeacher/>
     </div>
   );
 }
