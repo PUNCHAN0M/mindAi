@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import { useState } from "react";
 import Sidebar from "@/components/Sidebar";
 import {formTextSchema } from "@/modules/form";
+import ListTeacher from "@/components/Recommend/ListTeacher";
 
 
 
@@ -17,8 +18,8 @@ export default function create() {
       {/* <Navbar /> */}
       <Navbar />
       <Sidebar />
-      {/* <FormText submit={handleSubmit} /> */}
-      <ListTeacher/>
+      <FormText submit={handleSubmit} />
+      {/* <ListTeacher/> */}
     </div>
   );
 }
