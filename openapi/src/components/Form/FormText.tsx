@@ -8,8 +8,8 @@ import FormImage from "./FormImage";
 const initialFormValue: formTextSchema = {
   nameOfProject: "",
   titleOfProject: "",
-  periodStartOfProject: "",
-  periodEndOfProject: "",
+  periodStartOfProject: new Date(),
+  periodEndOfProject: new Date(),
   ideaOfProject: "",
   problemOfProject: "",
   resourcesOfProject: "",
@@ -84,8 +84,11 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                             ? "border-green-200"
                             : ""
                         )}
+                        placeholder="เลือกหัวข้อ"
                       >
-                        <option value="null">-</option>
+                        <option value="" disabled hidden>
+                          เลือกหัวข้อ
+                        </option>
                         <option value="math">Math</option>
                         <option value="science">Science</option>
                         <option value="com">Computer</option>
