@@ -85,8 +85,11 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                           touched.titleOfProject && !errors.titleOfProject
                             ? "border-green-200"
                             : ""
+
                         )}
+                        placeholder="Choose"
                       >
+                        <option value="" disabled hidden>Choose</option>
                         <option value="math">Math</option>
                         <option value="science">Science</option>
                         <option value="com">Computer</option>
@@ -94,6 +97,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                     </div>
                     <div className="flex flex-col  justify-end bg-white">
                       <ErrorMessage name="periodStartOfProject" className="" />
+                      {/* this is fix today */}
                       <label>เวลาเริ่มต้น</label>
                       <Field
                         name="periodStartOfProject"
@@ -136,6 +140,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                     </div>
                   </div>
                 </div>
+                      {/* thisssssssssssss */}
 
                 {/* text input */}
                 <div className="bg-white space-y-5">
