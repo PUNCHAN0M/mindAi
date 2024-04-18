@@ -103,6 +103,8 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                       <Field
                         name="periodStartOfProject"
                         type="date"
+                        min={new Date().toISOString().split('T')[0]}
+                        
                         className={clsx(
                           "max-h-7 rounded-md border-[2px] border-gray-100",
                           !touched.periodStartOfProject
@@ -126,6 +128,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                       <Field
                         name="periodEndOfProject"
                         type="date"
+                        min={values.periodStartOfProject || new Date().toISOString().split('T')[0]}
                         className={clsx(
                           "flex max-h-7 rounded-md border-[2px]",
                           !touched.periodEndOfProject ? "border-gray-100" : "",
