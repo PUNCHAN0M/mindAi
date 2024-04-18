@@ -22,8 +22,8 @@ export const formProjectSchemaText = z.object({
     .min(5, { message: "ต้องใส่มากกว่า 5 ตัวอักษร" })
     .max(20, { message: "ไม่เกิน 20 ตัวอักษร" }),
   titleOfProject: z.string(),
-  periodStartOfProject: z.date(),
-  periodEndOfProject: z.date(),
+  periodStartOfProject: z.string(),
+  periodEndOfProject: z.string(),
   ideaOfProject: z
     .string({
       required_error: "ต้องใส่ไอเดีย",

@@ -4,12 +4,15 @@ import { z } from "zod";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 import clsx from "clsx";
 import FormImage from "./FormImage";
+import { DatePicker, DateRangePicker } from "@nextui-org/date-picker";
+import { useState } from "react";
+import { link } from "fs";
 
 const initialFormValue: formTextSchema = {
   nameOfProject: "",
   titleOfProject: "",
-  periodStartOfProject: new Date(),
-  periodEndOfProject: new Date(),
+  periodStartOfProject: "",
+  periodEndOfProject: "",
   ideaOfProject: "",
   problemOfProject: "",
   resourcesOfProject: "",
@@ -115,6 +118,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                             : ""
                         )}
                       />
+                      
                     </div>
                     <div className="flex flex-col  justify-end bg-white">
                       <ErrorMessage name="periodEndOfProject" className="" />
