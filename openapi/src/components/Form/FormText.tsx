@@ -32,29 +32,25 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
     >
       {({ values, dirty, touched, errors }) => (
         <Form>
-          <div className="flex flex-col  text-black ">
-            <div className="flex flex-row-2 justify-between items-start xl:ml-[125px] lg:ml-[90px]  ">
-              <div className="flex xl:mt-[30px] lg:mt-[25px]">
+          <div className="flex flex-col text-black text-[15px] bg-green-100 h-screen">
+            {/* Start Form img and text */}
+            <div className="flex justify-center items-start h-[65%] mt-[8%]">
+              <div className="flex w-[30%]">
                 <FormImage />
               </div>
 
               {/* Start insert text and date */}
-              <div className="bg-white  rounded-lg flex flex-col w-full drop-shadow-md xl:mr-[50px] xl:pb-[50px] lg:pb-[50px] lg:mr-[45px] lg:mb-[45px] xl:h-full xl:w-[900px] lg:w-[620px] lg:h-[380px] items-start">
+              <div className="flex flex-col lg:text-[12px] bg-white rounded-xl p-[40px] w-[60%] h-[100%] overflow-auto">
                 {/* Group line 1 */}
-                <div className="flex bg-white xl:pt-[40px] xl:pl-[40px] xl:pb-[20px] lg:pt-[40px] lg:pl-[40px] lg:pb-[20px]">
-                  <div className="flex flex-row space-x-[20px]">
-                    {/* nameproject */}
-                    <div className="flex flex-col bg-white">
-                      <ErrorMessage
-                        name="nameOfProject"
-                        component="div"
-                        className="text-red-500"
-                      />
+                <div className="flex bg pb-[10px] ">
+                  <div className="flex space-x-[10px]">
+                    {/* Start nameproject Feild*/}
+                    <div className="flex flex-col ">
                       <label className="flex">ชื่องานวิจัย</label>
                       <Field
                         name="nameOfProject"
                         className={clsx(
-                          " flex rounded-md border-[2px] xl:h-[25px] lg:h-[20px] border-gray-100 lg:w-[245px] xl:w-[275px]",
+                          " flex rounded-md border-[2px] px-1 xl:h-[25px] lg:h-[20px] ",
                           !touched.nameOfProject ? "border-gray-100" : "",
                           touched.nameOfProject && errors.nameOfProject
                             ? "border-red"
@@ -64,18 +60,23 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                             : ""
                         )}
                       />
+                      <ErrorMessage
+                        name="nameOfProject"
+                        component="div"
+                        className="text-red text-[10px]"
+                      />
                     </div>
+                    {/* End nameproject Feild*/}
 
-                    {/* typeproject and date*/}
-                    <div className="flex flex-col  justify-end items-center bg-white">
-                      <ErrorMessage name="titleOfProject" className="" />
+                    {/* Start titleOfProject Feild*/}
+                    <div className="flex flex-col">
                       <label>ประเภทงานวิจัย</label>
                       <Field
                         name="titleOfProject"
                         component="select"
                         id="location"
                         className={clsx(
-                          " flex rounded-md border-[2px] xl:h-[25px] lg:h-[20px] border-gray-100",
+                          " flex rounded-md border-[2px] px-1 xl:h-[25px] lg:h-[20px] border-gray-100",
                           !touched.titleOfProject ? "border-gray-100" : "",
                           touched.titleOfProject && errors.titleOfProject
                             ? "border-red"
@@ -93,17 +94,23 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                         <option value="science">Science</option>
                         <option value="com">Computer</option>
                       </Field>
+                      <ErrorMessage
+                        name="titleOfProject"
+                        component="div"
+                        className="text-red text-[10px]"
+                      />
                     </div>
-                    <div className="flex flex-col  justify-end bg-white">
-                      <ErrorMessage name="periodStartOfProject" className="" />
-                      {/* this is fix today */}
+                    {/* End titleOfProject Feild*/}
+                    {/* Start periodStartOfProject Feild*/}
+
+                    <div className="flex flex-col">
                       <label>เวลาเริ่มต้น</label>
                       <Field
                         name="periodStartOfProject"
                         type="date"
                         min={new Date().toISOString().split("T")[0]}
                         className={clsx(
-                          " flex rounded-md border-[2px] xl:h-[25px] lg:h-[20px] border-gray-100",
+                          " flex rounded-md border-[2px] px-1 xl:h-[25px] lg:h-[20px] border-gray-100",
                           !touched.periodStartOfProject
                             ? "border-gray-100"
                             : "",
@@ -117,9 +124,16 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                             : ""
                         )}
                       />
+                      <ErrorMessage
+                        name="periodStartOfProject"
+                        component="div"
+                        className="text-red text-[10px]"
+                      />
                     </div>
-                    <div className="flex flex-col  justify-end bg-white">
-                      <ErrorMessage name="periodEndOfProject" className="" />
+                    {/* End periodStartOfProject Feild*/}
+                    {/* Strat periodEndOfProject Feild*/}
+
+                    <div className="flex flex-col">
                       <label>เวลาสิ้นสุด</label>
                       <Field
                         name="periodEndOfProject"
@@ -129,7 +143,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                           new Date().toISOString().split("T")[0]
                         }
                         className={clsx(
-                          "flex rounded-md border-[2px] xl:h-[25px] lg:h-[20px] border-gray-100",
+                          "flex rounded-md border-[2px] px-1 xl:h-[25px] lg:h-[20px] border-gray-100",
                           !touched.periodEndOfProject ? "border-gray-100" : "",
                           touched.periodEndOfProject &&
                             errors.periodEndOfProject
@@ -141,20 +155,24 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                             : ""
                         )}
                       />
+                      <ErrorMessage
+                        name="periodEndOfProject"
+                        component="div"
+                        className="text-red text-[10px]"
+                      />
                     </div>
+                    {/* End periodEndOfProject Feild*/}
                   </div>
                 </div>
-              {/* End insert text and date */}
-
+                {/* End Group line 1 */}
                 {/* Start text input */}
-                <div className="bg-white space-y-5 xl:pl-[40px] lg:pl-[40px] w-full">
-                  <div className="flex flex-col mr-[40px]">
-                    <ErrorMessage name="ideaOfProject" className="" />
+                <div className="flex flex-col bg-white space-y-[10px]">
+                  <div className="flex flex-col">
                     <label>ไอเดีย</label>
                     <Field
                       name="ideaOfProject"
                       className={clsx(
-                        "flex rounded-md border-[2px] xl:h-[25px] lg:h-[20px] border-gray-100",
+                        "flex rounded-md border-[2px] px-1 xl:h-[25px] lg:h-[20px] border-gray-100",
                         !touched.ideaOfProject ? "border-gray-100" : "",
                         touched.ideaOfProject && errors.ideaOfProject
                           ? "border-red"
@@ -164,15 +182,19 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                           : ""
                       )}
                     />
+                    <ErrorMessage
+                      name="ideaOfProject"
+                      component="div"
+                      className="text-red text-[10px]"
+                    />
                   </div>
 
-                  <div className="flex flex-col mr-[40px]">
-                    <ErrorMessage name="ideaOfProject" className="" />
+                  <div className="flex flex-col">
                     <label>ปัญหา</label>
                     <Field
                       name="problemOfProject"
                       className={clsx(
-                        "flex rounded-md border-[2px] xl:h-[25px] lg:h-[20px] border-gray-100",
+                        "flex rounded-md border-[2px] px-1 xl:h-[25px] lg:h-[20px] border-gray-100",
                         !touched.problemOfProject ? "border-gray-100" : "",
                         touched.problemOfProject && errors.problemOfProject
                           ? "border-red"
@@ -182,15 +204,19 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                           : ""
                       )}
                     />
+                    <ErrorMessage
+                      name="problemOfProject"
+                      component="div"
+                      className="text-red text-[10px]"
+                    />
                   </div>
-
-                  <div className="flex flex-col mr-[40px]">
-                    <ErrorMessage name="resourcesOfProject" className="" />
+                  {/*Start resource Feild*/}
+                  <div className="flex flex-col">
                     <label>ทรัพยากรณ์</label>
                     <Field
                       name="resourcesOfProject"
                       className={clsx(
-                        "flex rounded-md border-[2px] xl:h-[25px] lg:h-[20px] border-gray-100",
+                        "flex rounded-md border-[2px] px-1 xl:h-[25px] lg:h-[20px] border-gray-100",
                         !touched.resourcesOfProject ? "border-gray-100" : "",
                         touched.resourcesOfProject && errors.resourcesOfProject
                           ? "border-red"
@@ -200,16 +226,21 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                           : ""
                       )}
                     />
+                    <ErrorMessage
+                      name="resourcesOfProject"
+                      component="div"
+                      className="text-red text-[10px]"
+                    />
                   </div>
-
-                  <div className="flex flex-col mr-[40px]">
-                    <ErrorMessage name="detailOfProject" className="" />
+                  {/*End resource Feild*/}
+                  {/*Start resource detail*/}
+                  <div className="flex flex-col">
                     <label>รายละเอียดเพิ่มเติม</label>
                     <Field
                       as="textarea"
                       name="detailOfProject"
                       className={clsx(
-                        "flex rounded-md border-[2px] xl:h-[25px] xl:max-h-[100px] lg:h-[20px] lg:max-h-[80px] min-h-[35px] border-gray-100 ",
+                        "flex rounded-md border-[2px] px-1 border-gray-100 ",
                         !touched.detailOfProject ? "border-gray-100" : "",
                         touched.detailOfProject && errors.detailOfProject
                           ? "border-red"
@@ -219,19 +250,30 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                           : ""
                       )}
                     />
+                    <ErrorMessage
+                      name="detailOfProject"
+                      component="div"
+                      className="text-red text-[10px]"
+                    />
                   </div>
+                  {/*End resource detail*/}
                 </div>
                 {/* End text input */}
               </div>
+              {/* End insert text and date */}
             </div>
-            <div className={clsx("flex bg-white justify-end items-end")}>
+            {/* End Form img and text */}
+
+            {/* Start Next Btn  */}
+            <div className={clsx("flex justify-end")}>
               <button
-                className={clsx("flex bg-yellow-100 rounded-full mr-10")}
+                className={clsx("flex bg-yellow-100 justify-center rounded-full mr-[5%] mt-[10px] w-[8%] ")}
                 type="submit"
               >
                 ถัดไป
               </button>
             </div>
+            {/* End Next Btn  */}
           </div>
         </Form>
       )}
