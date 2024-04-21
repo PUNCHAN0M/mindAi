@@ -32,7 +32,7 @@ export const formProjectSchemaText = z.object({
     .max(500, { message: "ไม่เกิน 500 ตัวอักษร" }),
   problemOfProject: z
     .string({
-      required_error: "ต้องใส่ปัญหาที่พบ",
+      required_error: "ต้องใส่ปัญหาที่พบ ",
     })
     .min(1, { message: "ต้องใส่มากกว่า1ตัวอักษร" })
     .max(500, { message: "ไม่เกิน 500 ตัวอักษร" }),
