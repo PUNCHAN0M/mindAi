@@ -1,6 +1,6 @@
 const Navbar = () => {
   return (
-    <nav className="flex  bg-white h-16 border-b-[1px] border-gray-200 border-opacity-50 justify-between">
+    <div className="absolute flex bg-white h-16 border-b-[1px] border-gray-200 border-opacity-50 justify-between overflow-hidden top-0 w-screen">
       {/* front */}
       <div className="flex items-center m-5"></div>
       {/* back */}
@@ -14,7 +14,7 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-    </nav>
+    </div>
   ); 
 };
 export default Navbar;

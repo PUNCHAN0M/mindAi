@@ -42,31 +42,32 @@ const FormImage = () => {
       });
     });
   }, [Allfiles]);
-  const handleCheck = () => {
-    console.log(Allfiles)
-  }
 
   return (
     <div className="flex flex-col text-black justify-center ">
-      <div className="flex flex-col bg-white justify-center items-center border-black rounded-lg xl:mr-[50px] xl:h-[220px] lg:h-[170px] xl:w-[325px] lg:w-[220px] drop-shadow-md">
-        <label htmlFor="" className="flex flex-col items-center">
+      <div className="flex flex-col bg-white drop-shadow-md  rounded-lg w-[100%] h-[210px] justify-center">
+        <label
+          htmlFor="fileInput"
+          className="flex flex-col items-center w-[100%] h-[100%] justify-center"
+        >
           <input
             type="file"
             name="image"
-            className="fileInput"
+            id="fileInput"
+            hidden
+            className="fileInput  "
             accept="image/png, image/jpeg"
             multiple
           />
           <SvgPluse />
-          <span>ลาก & วางไฟล์ของคุณ or เปิดโฟลเดอร์ เพิ่มเติม </span>
+          <span className="text-[10px] mx-[50px] mt-[30px] font-bold">ลาก & วางไฟล์ของคุณ or เปิดโฟลเดอร์ เพิ่มเติม </span>
         </label>
       </div>
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between items-center mt-[5px]">
         <Svgimg />
-        <span className="text-[8px] pt-2">
+        <span className="text-[8px] ">
           ประเภทไฟล์ที่รองรับ JPG , PNG ขนาดสูงสุงครั้งละ 200 M
         </span>
-        <button onClick={handleCheck}>Check!</button>
       </div>
     </div>
   );
