@@ -14,7 +14,7 @@ export default function create() {
     console.log(values);
   };
   return (
-    <div className="flex flex-col bg-white w-screen h-screen overflow-y-hidden overflow-x-hidden">
+    <div className="flex flex-col bg-white overflow-y-hidden ">
       {/* <Navbar /> */}
       <Navbar />
       <Sidebar />
