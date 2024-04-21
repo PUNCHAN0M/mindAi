@@ -47,8 +47,8 @@ const FormImage = () => {
   }
 
   return (
-    <div className="flex flex-col text-black justify-center pt-12 ">
-      <div className="flex flex-col bg-white justify-center items-center border-black rounded-lg h-[271px] w-[378px] drop-shadow-md">
+    <div className="flex flex-col text-black justify-center ">
+      <div className="flex flex-col bg-white justify-center items-center border-black rounded-lg xl:mr-[50px] xl:h-[220px] lg:h-[170px] xl:w-[325px] lg:w-[220px] drop-shadow-md">
         <label htmlFor="" className="flex flex-col items-center">
           <input
             type="file"

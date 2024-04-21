@@ -4,7 +4,6 @@ import { toFormikValidationSchema } from "zod-formik-adapter";
 import clsx from "clsx";
 import FormImage from "./FormImage";
 
-
 const initialFormValue: formTextSchema = {
   nameOfProject: "",
   titleOfProject: "",
@@ -33,18 +32,19 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
     >
       {({ values, dirty, touched, errors }) => (
         <Form>
-          <div className="flex flex-col w-screen h-screen text-black ">
-            <div className="flex flex-row-2 justify-between">
-              <div className="flex">
+          <div className="flex flex-col  text-black ">
+            <div className="flex flex-row-2 justify-between items-start xl:ml-[125px] lg:ml-[90px]  ">
+              <div className="flex xl:mt-[30px] lg:mt-[25px]">
                 <FormImage />
               </div>
 
-              {/* insert text and date */}
-              <div className="bg-white p-10 rounded-lg flex flex-col basis-3/5 drop-shadow-md ">
-                <div className="flex bg-white justify-start ">
-                  <div className="flex flex-row space-x-5 pb-5">
+              {/* Start insert text and date */}
+              <div className="bg-white  rounded-lg flex flex-col w-full drop-shadow-md xl:mr-[50px] xl:pb-[50px] lg:pb-[50px] lg:mr-[45px] lg:mb-[45px] xl:h-full xl:w-[900px] lg:w-[620px] lg:h-[380px] items-start">
+                {/* Group line 1 */}
+                <div className="flex bg-white xl:pt-[40px] xl:pl-[40px] xl:pb-[20px] lg:pt-[40px] lg:pl-[40px] lg:pb-[20px]">
+                  <div className="flex flex-row space-x-[20px]">
                     {/* nameproject */}
-                    <div className="flex flex-col bg-white  justify-end">
+                    <div className="flex flex-col bg-white">
                       <ErrorMessage
                         name="nameOfProject"
                         component="div"
@@ -54,7 +54,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                       <Field
                         name="nameOfProject"
                         className={clsx(
-                          "flex max-h-7 min-w-80 rounded-md border-[2px]",
+                          " flex rounded-md border-[2px] xl:h-[25px] lg:h-[20px] border-gray-100 lg:w-[245px] xl:w-[275px]",
                           !touched.nameOfProject ? "border-gray-100" : "",
                           touched.nameOfProject && errors.nameOfProject
                             ? "border-red"
@@ -67,7 +67,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                     </div>
 
                     {/* typeproject and date*/}
-                    <div className="flex flex-col  justify-end w-32 items-center bg-white">
+                    <div className="flex flex-col  justify-end items-center bg-white">
                       <ErrorMessage name="titleOfProject" className="" />
                       <label>ประเภทงานวิจัย</label>
                       <Field
@@ -75,7 +75,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                         component="select"
                         id="location"
                         className={clsx(
-                          "h-7 rounded-md border-[2px] border-gray-100",
+                          " flex rounded-md border-[2px] xl:h-[25px] lg:h-[20px] border-gray-100",
                           !touched.titleOfProject ? "border-gray-100" : "",
                           touched.titleOfProject && errors.titleOfProject
                             ? "border-red"
@@ -83,11 +83,12 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                           touched.titleOfProject && !errors.titleOfProject
                             ? "border-green-200"
                             : ""
-
                         )}
                         placeholder="Choose"
                       >
-                        <option value="" disabled hidden>Choose</option>
+                        <option value="" disabled hidden>
+                          Choose
+                        </option>
                         <option value="math">Math</option>
                         <option value="science">Science</option>
                         <option value="com">Computer</option>
@@ -100,10 +101,9 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                       <Field
                         name="periodStartOfProject"
                         type="date"
-                        min={new Date().toISOString().split('T')[0]}
-                        
+                        min={new Date().toISOString().split("T")[0]}
                         className={clsx(
-                          "max-h-7 rounded-md border-[2px] border-gray-100",
+                          " flex rounded-md border-[2px] xl:h-[25px] lg:h-[20px] border-gray-100",
                           !touched.periodStartOfProject
                             ? "border-gray-100"
                             : "",
@@ -117,7 +117,6 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                             : ""
                         )}
                       />
-                      
                     </div>
                     <div className="flex flex-col  justify-end bg-white">
                       <ErrorMessage name="periodEndOfProject" className="" />
@@ -125,9 +124,12 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                       <Field
                         name="periodEndOfProject"
                         type="date"
-                        min={values.periodStartOfProject || new Date().toISOString().split('T')[0]}
+                        min={
+                          values.periodStartOfProject ||
+                          new Date().toISOString().split("T")[0]
+                        }
                         className={clsx(
-                          "flex max-h-7 rounded-md border-[2px]",
+                          "flex rounded-md border-[2px] xl:h-[25px] lg:h-[20px] border-gray-100",
                           !touched.periodEndOfProject ? "border-gray-100" : "",
                           touched.periodEndOfProject &&
                             errors.periodEndOfProject
@@ -142,17 +144,17 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                     </div>
                   </div>
                 </div>
-                      {/* thisssssssssssss */}
+              {/* End insert text and date */}
 
-                {/* text input */}
-                <div className="bg-white space-y-5">
-                  <div className="flex flex-col">
+                {/* Start text input */}
+                <div className="bg-white space-y-5 xl:pl-[40px] lg:pl-[40px] w-full">
+                  <div className="flex flex-col mr-[40px]">
                     <ErrorMessage name="ideaOfProject" className="" />
                     <label>ไอเดีย</label>
                     <Field
                       name="ideaOfProject"
                       className={clsx(
-                        "flex max-h-7 min-w-80 rounded-md border-[2px]",
+                        "flex rounded-md border-[2px] xl:h-[25px] lg:h-[20px] border-gray-100",
                         !touched.ideaOfProject ? "border-gray-100" : "",
                         touched.ideaOfProject && errors.ideaOfProject
                           ? "border-red"
@@ -164,13 +166,13 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                     />
                   </div>
 
-                  <div className="flex flex-col">
+                  <div className="flex flex-col mr-[40px]">
                     <ErrorMessage name="ideaOfProject" className="" />
                     <label>ปัญหา</label>
                     <Field
                       name="problemOfProject"
                       className={clsx(
-                        "flex max-h-7 min-w-80 rounded-md border-[2px]",
+                        "flex rounded-md border-[2px] xl:h-[25px] lg:h-[20px] border-gray-100",
                         !touched.problemOfProject ? "border-gray-100" : "",
                         touched.problemOfProject && errors.problemOfProject
                           ? "border-red"
@@ -182,13 +184,13 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                     />
                   </div>
 
-                  <div className="flex flex-col">
+                  <div className="flex flex-col mr-[40px]">
                     <ErrorMessage name="resourcesOfProject" className="" />
                     <label>ทรัพยากรณ์</label>
                     <Field
                       name="resourcesOfProject"
                       className={clsx(
-                        "flex max-h-7 min-w-80 rounded-md border-[2px]",
+                        "flex rounded-md border-[2px] xl:h-[25px] lg:h-[20px] border-gray-100",
                         !touched.resourcesOfProject ? "border-gray-100" : "",
                         touched.resourcesOfProject && errors.resourcesOfProject
                           ? "border-red"
@@ -200,14 +202,14 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                     />
                   </div>
 
-                  <div className="flex flex-col">
+                  <div className="flex flex-col mr-[40px]">
                     <ErrorMessage name="detailOfProject" className="" />
                     <label>รายละเอียดเพิ่มเติม</label>
                     <Field
                       as="textarea"
                       name="detailOfProject"
                       className={clsx(
-                        "flex max-h-7 min-w-80 rounded-md border-[2px]",
+                        "flex rounded-md border-[2px] xl:h-[25px] xl:max-h-[100px] lg:h-[20px] lg:max-h-[80px] min-h-[35px] border-gray-100 ",
                         !touched.detailOfProject ? "border-gray-100" : "",
                         touched.detailOfProject && errors.detailOfProject
                           ? "border-red"
@@ -219,11 +221,12 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                     />
                   </div>
                 </div>
+                {/* End text input */}
               </div>
             </div>
             <div className={clsx("flex bg-white justify-end items-end")}>
               <button
-                className={clsx("flex bg-yellow-100 rounded-full mr-10 mt-10")}
+                className={clsx("flex bg-yellow-100 rounded-full mr-10")}
                 type="submit"
               >
                 ถัดไป
