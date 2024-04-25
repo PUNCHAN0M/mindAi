@@ -45,7 +45,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                   <Field
                     name="nameOfProject"
                     className={clsx(
-                      " flex rounded-md border-[2px] px-1 w-[100%]",
+                      " flex rounded-md border-[2px] px-1 xl:h-[25px] lg:h-[20px] w-[100% ]",
                       !touched.nameOfProject ? "border-gray-100" : "",
                       touched.nameOfProject && errors.nameOfProject
                         ? "border-red"
