@@ -21,8 +21,8 @@ export default function create() {
       {/* <Navbar /> */}
       <Navbar />
       {/* <Sidebar /> */}
-      {/* <FormText submit={handleSubmit} /> */}
-      <ListTeacher/>
+      <FormText submit={handleSubmit} />
+      {/* <ListTeacher/> */}
       {/* <ProjectDetail/> */}
       
     </div>
