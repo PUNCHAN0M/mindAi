@@ -21,7 +21,7 @@ body{
   padding-left: 5vw;
   height: 67vh; 
   margin-left: 14vw;
-  margin-top: 15vh;
+  margin-top: 19vh;
   overflow-y: scroll;
   
 }
@@ -113,7 +113,7 @@ body{
   position: absolute;
   position: fixed;
   margin-left: 16vw;
-  top: 83vh;
+  top: 80vh;
 }
 .backbutton button{
   width: 6.5vw;
