@@ -22,7 +22,7 @@ const TeacherCard: React.FC<TeacherProps> = ({ name, department, detailsData, fi
   return (
     <div className={`card-ListTeacher ${isExpanded ? 'expanded' : ''}`}>
       <div className="card-container">
-      <div className="profile-card-ListTeacher"><img src="" alt="" /></div>
+      <div className="profile-card-ListTeacher"></div>
       <div className="discription-card-ListTeacher">
         <p>ชื่อ : {name}</p>
         <p>ภาควิชา : {department}</p>
