@@ -3,10 +3,7 @@ import SvgSwitch from "../SVG/SvgSwitch"
 
 const ShowDetail = () => {
     return (
-        <Formik
-        // validationSchema={}
-        // initialValues={}
-        >
+        
         <div className="bg-blue-300">
             <div className="flex flex-row">
                 <button className="bg-yellow-200 rounded-full px-3">สาธารณะ</button>
@@ -36,7 +33,6 @@ const ShowDetail = () => {
                 
             </div>
         </div>
-        </Formik>
     )
 }
 export default ShowDetail;
