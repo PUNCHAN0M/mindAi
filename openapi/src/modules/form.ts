@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { nullable, z } from "zod";
 
 // export const formProjectSchema = z.object({
 //   imageOfProject: z.any().refine((val) => val.length > 0, "File is required"),
@@ -27,7 +27,7 @@ export const formProjectSchemaText = z.object({
   departmentOfProject: z.string({
     required_error: "ต้องใส่สาขาวิชา",
   }),
-  detailOfProject: z.string(),
+  detailOfProject: z.string().optional(),
 });
 
 export type formTextSchema = z.infer<typeof formProjectSchemaText>;

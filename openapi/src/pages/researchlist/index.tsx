@@ -9,10 +9,6 @@ import ShowDetail from "@/components/Confirm/ShowDetail";
 
 export default function create() {
 
-  const handleSubmit = (values: formTextSchema): void => {
-
-    console.log(values);
-  };
   return (
     
     <div className="flex flex-col bg-white w-screen h-screen">

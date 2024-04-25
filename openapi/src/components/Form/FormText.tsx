@@ -2,6 +2,7 @@ import { formProjectSchemaText, formTextSchema } from "@/modules/form";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 import clsx from "clsx";
+import { link } from "fs";
 
 const initialFormValue: formTextSchema = {
   nameOfProject: "",
@@ -17,6 +18,10 @@ export type FormikProps = {
 const FormText = ({ submit }: FormikProps): JSX.Element => {
   const handleSubmit = (values: formTextSchema): void => {
     submit(values);
+    if (values.nameOfProject && values.typeOfProject && values.departmentOfProject){
+      console.log("change page now!")
+      
+    }
   };
 
   return (
@@ -28,14 +33,11 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
       {({ values, dirty, touched, errors }) => (
         <Form>
           <div className="flex flex-col text-black text-[0.8vw] bg-white-100 h-screen items-center">
-            <div className="flex flex-col mt-[10%]">
-              <div>
-                ค้นหา งานวิจัยที่ใกล้เคียงกับงานวิจัย ใน
-                มหาวิทยาลัยสงขลานครินทร์
-              </div>
+            <div className="flex flex-col mt-[8%] text-[1.5vh]">
+              ค้นหา งานวิจัยที่ใกล้เคียงกับงานวิจัย ใน มหาวิทยาลัยสงขลานครินทร์
             </div>
             {/* Start insert text and date */}
-            <div className="flex flex-col bg-white rounded-xl p-[5%] w-[60%] h-[67%] overflow-auto mt-[2%] shadow-md space-y-[3%]">
+            <div className="flex flex-col bg-white rounded-xl p-[5%] w-[73%] h-[67%] overflow-auto mt-[2%] shadow-searchresearch space-y-[3%]">
               {/* Group line 1 */}
               <div className="flex pb-[10px] space-x-[5%] h-[20%]">
                 {/* Start nameproject Feild*/}
@@ -82,7 +84,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                     )}
                   >
                     <option value="" disabled hidden>
-                    กรุณาเลือกสาขา
+                      กรุณาเลือกสาขา
                     </option>
                     <option value="math">Math</option>
                     <option value="science">Science</option>
@@ -114,7 +116,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
                     placeholder="กรุณาเลือกหมวดหมู่"
                   >
                     <option value="" hidden>
-                    กรุณาเลือกหมวดหมู่
+                      กรุณาเลือกหมวดหมู่
                     </option>
                     <option value="math">Math</option>
                     <option value="science">Science</option>

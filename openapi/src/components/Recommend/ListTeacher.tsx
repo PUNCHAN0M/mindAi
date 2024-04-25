@@ -98,6 +98,12 @@ const TeacherCard: React.FC<TeacherProps> = ({ name, department, detailsData, fi
 };
 
 const ListTeacher = () => {
+
+  const goBack=()=>{
+    window.history.back();
+
+  }
+
   return (
     <div>
     <div className="titleTopOutside"><p>ค้นหา อาจารย์ที่ปรึกษาในงานวิจัย ใน มหาวิทยาลัยสงขลานครินทร์</p></div>
@@ -140,7 +146,7 @@ const ListTeacher = () => {
       
      </div>
     </div>
-    <div className="backbutton"><button>ย้อนกลับ</button></div>
+    <div className="backbutton" ><button onClick={goBack}>ย้อนกลับ</button></div>
 </div>
     
   );
