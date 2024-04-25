@@ -32,7 +32,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
     >
       {({ values, dirty, touched, errors }) => (
         <Form>
-          <div className="flex flex-col text-black text-[15px] bg-green-100 h-screen">
+          <div className="flex flex-col text-black text-[1vw] bg-green-100 h-screen">
             {/* Start Form img and text */}
             <div className="flex justify-center items-start h-[65%] mt-[8%]">
               <div className="flex w-[30%]">
