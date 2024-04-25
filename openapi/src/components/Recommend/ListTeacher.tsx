@@ -17,7 +17,6 @@ const TeacherCard: React.FC<TeacherProps> = ({ name, department, detailsData, fi
   // เปลี่ยนสถานะการขยายขนาดหน้าจอ
   const handleExpandToggle = () => {
     setIsExpanded(!isExpanded);
-    console.log("isExpanded" , isExpanded)
   };
 
   return (
@@ -95,12 +94,13 @@ const TeacherCard: React.FC<TeacherProps> = ({ name, department, detailsData, fi
        )}
       </div>
     
-  
   );
 };
 
 const ListTeacher = () => {
   return (
+    <div>
+    <div className="titleTopOutside"><p>ค้นหา อาจารย์ที่ปรึกษาในงานวิจัย ใน มหาวิทยาลัยสงขลานครินทร์</p></div>
     <div className="backgroundListTeacher">
       <div className="nav-top-listteacher">
         <div className="title-nav-listteacher">อาจารย์ที่แนะนำ</div>
@@ -111,6 +111,8 @@ const ListTeacher = () => {
       </div>
 
       {/* การ์ดสำหรับใส่ข้อมูลอาจารย์แต่ละคน */}
+      <div className="container-card-teacher">
+
       <TeacherCard
         name="อาจารย์ A"
         department="ป้องกันตัวจากศาสตร์มืด"
@@ -123,6 +125,7 @@ const ListTeacher = () => {
         phone="2222"
 
       />
+      
       <TeacherCard
         name="อาจารย์ B"
         department="ป้องกันตัวจากศาสตร์มืด"
@@ -134,8 +137,12 @@ const ListTeacher = () => {
         gmail="hellosis@psu.ac.th"
         phone="03222"
       />
-     
+      
+     </div>
     </div>
+    <div className="backbutton"><button>ย้อนกลับ</button></div>
+</div>
+    
   );
 };
 

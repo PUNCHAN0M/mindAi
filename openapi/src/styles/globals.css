@@ -3,24 +3,36 @@
 @tailwind utilities;
 
 body{
-  font-size: 0.92vw;
+  font-size: 0.91vw;
   color: rgba(0, 0, 0, 0.84);
+  font-family: "Noto Sans Thai", sans-serif;
+
 }
+
 .backgroundListTeacher{
   background-color: #FFFFFF;
   box-shadow: 1px 1px 1px 1px #bdc5cdd1;
   border-radius: 0.5vw;
-  width: 60vw;
-  height: 67vh;
-  margin-left: 35vw;
-  margin-top: 10vh;
+  width: 73vw;
+  padding-left: 5vw;
+  height: 67vh; 
+  margin-left: 14vw;
+  margin-top: 15vh;
   overflow-y: scroll;
   
 }
-
+.container-card-teacher{
+  margin-top: 10vh;
+}
 .nav-top-listteacher{
   display: flex;
+  position: fixed;
+  background-color: #ffff;
+  width: 68vw;
+  height: 9vh;
+  opacity: 0.85;
 }
+
 .title-nav-listteacher{
   width: 40vw;
   height: 12vh;
@@ -59,7 +71,7 @@ body{
   width: 6vw;
   height: 6vw;
   margin-left: 0.3vw;
-  margin-top: 1.8vh;
+  margin-top: 1.3vh;
   border-radius: 0.5vw;
   border-radius: 50%;
 
@@ -86,6 +98,30 @@ body{
 }
 .search-nav-listteacher input{
   text-align: center;
+}
+.backbutton{
+  position: absolute;
+  position: fixed;
+  margin-left: 16vw;
+  top: 83vh;
+}
+.backbutton button{
+  width: 6.5vw;
+  height: 3.3vh;
+  border-radius: 10vw;
+  color: #616161;
+  background-color: #09113320;
+  transition: background-color 0.3s ease, color 0.3s ease; 
+
+}
+.titleTopOutside{
+  position: absolute;
+  top: 18vh;
+  left: 38vw;
+}
+.backbutton button:hover{
+  background-color: #00000036;
+  
 }
 .button-card{
   width: 14vw;
@@ -203,6 +239,135 @@ body{
 .gmail-contact , .phone-contact{
   display: flex;
 }
+.image-profile{
+  background-color: yellow;
+  width: 4.3vw;
+  height: 4.3vw;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 25vh;
+  right: 77.5vw;
+  
+}
+.top-title{
+  position: absolute;
+  padding-top: 1vh;
+  padding-left: 1vw;
+}
+.ProjectDetailsContainer{
+  background-color: #FFFFFF;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.06);
+  width: 70vw;
+  border-radius: 3px;
+  margin-left: 15vw;
+  margin-top: 10vh;
+  height: 65vh;
+  display: flex;
+}
+.btn-choose{
+  opacity: 0;
+}
+.btn-choose button:hover{
+  cursor: default;
+}
+
+.Title-Edit-ProjectDetails{
+  background-color: #3F979B;
+  height: 55vh;
+  margin-top: 5vh;
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.175);
+
+}
+.Card-ProjectDetailsContainer{
+  background-color: #FFFF;
+  border-radius: 1vw;
+  margin-top: 3.5vh;
+  margin-left: 0.3vw;
+  margin-right: 0.3vw;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.257);
+  width: 55vw;
+  height: 40vh;
+}
+.OptionSelected-Card{
+  width: 15vw;
+  margin-top: 8vh;
+  height: 55vh;
+}
+.img-front-left-bdc{
+  background-color: #DDDDDD;
+  width: 22vw;
+  height: 37vh;
+  margin-top: 1.5vh;
+  margin-left: 1.45vw;
+  border-radius: 5%;
+}
+.front-right-bdc{
+  width: 25vw;
+  height: 30vh;
+  margin-top: 5vh;
+  margin-left: 3.5vw;
+}
+.names-research,.names-idea
+,.names-problem,.names-resource{
+  margin-top: 3.5vh;
+}
+
+.top-title , .front-bdc,.footer-PDC,.problem-option,
+.idea-option,.resource-option ,.phone-option
+,.email-option,.boxleft-phone,.boxleft-gmail ,
+.boxleft-PDC,.names-research,.names-idea
+,.names-problem,.names-resource,.btn-mode-optionselected
+{
+  display: flex;
+}
+.idea-option,.resource-option ,.phone-option
+,.email-option,.problem-option{
+  padding-top: 3vh;
+  margin-left: 3.5vw;
+}
+.footer-PDC{
+  width: 46vw;
+  height: 5vh;
+}
+.title-PDC p{
+  margin-left: 2vw;
+}
+.inside-title{
+  margin-top: 2vh;
+  padding-top: 1vh;
+  height: 2.75vh;
+}
+
+.boxright-PDC{
+  width: 8vw;
+  height: 5vh;
+}
+.boxright-PDC button , .btn-mode-optionselected button
+,.post-btn button{
+  width: 8vw;
+  height: 4vh;
+  border-radius: 15px;
+}
+.boxright-PDC button{
+  background-color: #cef0ff;
+}
+.btn-mode-optionselected button,.post-btn button{
+  background-color: #f6f6cdea;
+  margin-left: 3.5vw;
+}
+.boxleft-phone,.boxleft-gmail ,
+.boxleft-PDC{
+  margin-left: 3vw;
+}
+.footer-PDC{
+  padding-left: 5.5vw;
+  padding-top: 1vh ;
+}
+.selected-option{
+  height: 43vh;
+}
+
 /* :root {
   --foreground-rgb: 255,255,255;
   --background-start-rgb: 214, 219, 220;
