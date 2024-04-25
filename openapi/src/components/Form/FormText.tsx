@@ -1,12 +1,9 @@
 import { formProjectSchemaText, formTextSchema } from "@/modules/form";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { z } from "zod";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 import clsx from "clsx";
 import FormImage from "./FormImage";
-import { DatePicker, DateRangePicker } from "@nextui-org/date-picker";
-import { useState } from "react";
-import { link } from "fs";
+
 
 const initialFormValue: formTextSchema = {
   nameOfProject: "",
