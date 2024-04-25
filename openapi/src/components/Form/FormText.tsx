@@ -4,15 +4,10 @@ import { toFormikValidationSchema } from "zod-formik-adapter";
 import clsx from "clsx";
 import FormImage from "./FormImage";
 
-
 const initialFormValue: formTextSchema = {
   nameOfProject: "",
-  titleOfProject: "",
-  periodStartOfProject: "",
-  periodEndOfProject: "",
-  ideaOfProject: "",
-  problemOfProject: "",
-  resourcesOfProject: "",
+  typeOfProject: "",
+  departmentOfProject: "",
   detailOfProject: "",
 };
 
@@ -33,203 +28,149 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
     >
       {({ values, dirty, touched, errors }) => (
         <Form>
-          <div className="flex flex-col w-screen h-screen text-black ">
-            <div className="flex flex-row-2 justify-between">
-              <div className="flex">
-                <FormImage />
-              </div>
-
-              {/* insert text and date */}
-              <div className="bg-white p-10 rounded-lg flex flex-col basis-3/5 drop-shadow-md ">
-                <div className="flex bg-white justify-start ">
-                  <div className="flex flex-row space-x-5 pb-5">
-                    {/* nameproject */}
-                    <div className="flex flex-col bg-white  justify-end">
-                      <ErrorMessage
-                        name="nameOfProject"
-                        component="div"
-                        className="text-red-500"
-                      />
-                      <label className="flex">ชื่องานวิจัย</label>
-                      <Field
-                        name="nameOfProject"
-                        className={clsx(
-                          "flex max-h-7 min-w-80 rounded-md border-[2px]",
-                          !touched.nameOfProject ? "border-gray-100" : "",
-                          touched.nameOfProject && errors.nameOfProject
-                            ? "border-red"
-                            : "",
-                          touched.nameOfProject && !errors.nameOfProject
-                            ? "border-green-200"
-                            : ""
-                        )}
-                      />
-                    </div>
-
-                    {/* typeproject and date*/}
-                    <div className="flex flex-col  justify-end w-32 items-center bg-white">
-                      <ErrorMessage name="titleOfProject" className="" />
-                      <label>ประเภทงานวิจัย</label>
-                      <Field
-                        name="titleOfProject"
-                        component="select"
-                        id="location"
-                        className={clsx(
-                          "h-7 rounded-md border-[2px] border-gray-100",
-                          !touched.titleOfProject ? "border-gray-100" : "",
-                          touched.titleOfProject && errors.titleOfProject
-                            ? "border-red"
-                            : "",
-                          touched.titleOfProject && !errors.titleOfProject
-                            ? "border-green-200"
-                            : ""
-
-                        )}
-                        placeholder="Choose"
-                      >
-                        <option value="" disabled hidden>Choose</option>
-                        <option value="math">Math</option>
-                        <option value="science">Science</option>
-                        <option value="com">Computer</option>
-                      </Field>
-                    </div>
-                    <div className="flex flex-col  justify-end bg-white">
-                      <ErrorMessage name="periodStartOfProject" className="" />
-                      {/* this is fix today */}
-                      <label>เวลาเริ่มต้น</label>
-                      <Field
-                        name="periodStartOfProject"
-                        type="date"
-                        min={new Date().toISOString().split('T')[0]}
-                        
-                        className={clsx(
-                          "max-h-7 rounded-md border-[2px] border-gray-100",
-                          !touched.periodStartOfProject
-                            ? "border-gray-100"
-                            : "",
-                          touched.periodStartOfProject &&
-                            errors.periodStartOfProject
-                            ? "border-red"
-                            : "",
-                          touched.periodStartOfProject &&
-                            !errors.periodStartOfProject
-                            ? "border-green-200"
-                            : ""
-                        )}
-                      />
-                      
-                    </div>
-                    <div className="flex flex-col  justify-end bg-white">
-                      <ErrorMessage name="periodEndOfProject" className="" />
-                      <label>เวลาสิ้นสุด</label>
-                      <Field
-                        name="periodEndOfProject"
-                        type="date"
-                        min={values.periodStartOfProject || new Date().toISOString().split('T')[0]}
-                        className={clsx(
-                          "flex max-h-7 rounded-md border-[2px]",
-                          !touched.periodEndOfProject ? "border-gray-100" : "",
-                          touched.periodEndOfProject &&
-                            errors.periodEndOfProject
-                            ? "border-red"
-                            : "",
-                          touched.periodEndOfProject &&
-                            !errors.periodEndOfProject
-                            ? "border-green-200"
-                            : ""
-                        )}
-                      />
-                    </div>
-                  </div>
-                </div>
-                      {/* thisssssssssssss */}
-
-                {/* text input */}
-                <div className="bg-white space-y-5">
-                  <div className="flex flex-col">
-                    <ErrorMessage name="ideaOfProject" className="" />
-                    <label>ไอเดีย</label>
-                    <Field
-                      name="ideaOfProject"
-                      className={clsx(
-                        "flex max-h-7 min-w-80 rounded-md border-[2px]",
-                        !touched.ideaOfProject ? "border-gray-100" : "",
-                        touched.ideaOfProject && errors.ideaOfProject
-                          ? "border-red"
-                          : "",
-                        touched.ideaOfProject && !errors.ideaOfProject
-                          ? "border-green-200"
-                          : ""
-                      )}
-                    />
-                  </div>
-
-                  <div className="flex flex-col">
-                    <ErrorMessage name="ideaOfProject" className="" />
-                    <label>ปัญหา</label>
-                    <Field
-                      name="problemOfProject"
-                      className={clsx(
-                        "flex max-h-7 min-w-80 rounded-md border-[2px]",
-                        !touched.problemOfProject ? "border-gray-100" : "",
-                        touched.problemOfProject && errors.problemOfProject
-                          ? "border-red"
-                          : "",
-                        touched.problemOfProject && !errors.problemOfProject
-                          ? "border-green-200"
-                          : ""
-                      )}
-                    />
-                  </div>
-
-                  <div className="flex flex-col">
-                    <ErrorMessage name="resourcesOfProject" className="" />
-                    <label>ทรัพยากรณ์</label>
-                    <Field
-                      name="resourcesOfProject"
-                      className={clsx(
-                        "flex max-h-7 min-w-80 rounded-md border-[2px]",
-                        !touched.resourcesOfProject ? "border-gray-100" : "",
-                        touched.resourcesOfProject && errors.resourcesOfProject
-                          ? "border-red"
-                          : "",
-                        touched.resourcesOfProject && !errors.resourcesOfProject
-                          ? "border-green-200"
-                          : ""
-                      )}
-                    />
-                  </div>
-
-                  <div className="flex flex-col">
-                    <ErrorMessage name="detailOfProject" className="" />
-                    <label>รายละเอียดเพิ่มเติม</label>
-                    <Field
-                      as="textarea"
-                      name="detailOfProject"
-                      className={clsx(
-                        "flex max-h-7 min-w-80 rounded-md border-[2px]",
-                        !touched.detailOfProject ? "border-gray-100" : "",
-                        touched.detailOfProject && errors.detailOfProject
-                          ? "border-red"
-                          : "",
-                        touched.detailOfProject && !errors.detailOfProject
-                          ? "border-green-200"
-                          : ""
-                      )}
-                    />
-                  </div>
-                </div>
+          <div className="flex flex-col text-black text-[0.8vw] bg-white-100 h-screen items-center">
+            <div className="flex flex-col mt-[10%]">
+              <div>
+                ค้นหา งานวิจัยที่ใกล้เคียงกับงานวิจัย ใน
+                มหาวิทยาลัยสงขลานครินทร์
               </div>
             </div>
-            <div className={clsx("flex bg-white justify-end items-end")}>
-              <button
-                className={clsx("flex bg-yellow-100 rounded-full mr-10 mt-10")}
-                type="submit"
-              >
-                ถัดไป
-              </button>
+            {/* Start insert text and date */}
+            <div className="flex flex-col bg-white rounded-xl p-[5%] w-[60%] h-[50%] overflow-auto mt-[2%] shadow-md">
+              {/* Group line 1 */}
+              <div className="flex pb-[10px] space-x-[5%]">
+                {/* Start nameproject Feild*/}
+                <div className="flex flex-col w-[100%]">
+                  <label className="flex">ชื่องานวิจัย</label>
+                  <Field
+                    name="nameOfProject"
+                    className={clsx(
+                      " flex rounded-md border-[2px] px-1 w-[100%]",
+                      !touched.nameOfProject ? "border-gray-100" : "",
+                      touched.nameOfProject && errors.nameOfProject
+                        ? "border-red"
+                        : "",
+                      touched.nameOfProject && !errors.nameOfProject
+                        ? "border-green-200"
+                        : ""
+                    )}
+                  />
+                  <ErrorMessage
+                    name="nameOfProject"
+                    component="div"
+                    className="text-red text-[10px]"
+                  />
+                </div>
+                {/* End nameproject Feild*/}
+
+                {/* Start departmentOfProject Feild */}
+
+                <div className="flex flex-col">
+                  <label>สาขา</label>
+                  <Field
+                    name="departmentOfProject"
+                    component="select"
+                    placeholder="กรุณาเลือกสาขา"
+                    className={clsx(
+                      " flex rounded-md border-[2px] px-1 xl:h-[25px] lg:h-[20px] border-gray-100",
+                      !touched.departmentOfProject ? "border-gray-100" : "",
+                      touched.departmentOfProject && errors.departmentOfProject
+                        ? "border-red"
+                        : "",
+                      touched.departmentOfProject && !errors.departmentOfProject
+                        ? "border-green-200"
+                        : ""
+                    )}
+                  >
+                    <option value="" disabled hidden>
+                    กรุณาเลือกสาขา
+                    </option>
+                    <option value="math">Math</option>
+                    <option value="science">Science</option>
+                    <option value="com">Computer</option>
+                  </Field>
+                  <ErrorMessage
+                    name="departmentOfProject"
+                    component="div"
+                    className="text-red text-[10px]"
+                  />
+                </div>
+                {/* End departmentOfProject Feild*/}
+                {/* Start typeOfProject Feild*/}
+                <div className="flex flex-col">
+                  <label>หมวดหมู่</label>
+                  <Field
+                    name="typeOfProject"
+                    component="select"
+                    className={clsx(
+                      " flex rounded-md border-[2px] px-1 xl:h-[25px] lg:h-[20px] border-gray-100",
+                      !touched.typeOfProject ? "border-gray-100" : "",
+                      touched.typeOfProject && errors.typeOfProject
+                        ? "border-red"
+                        : "",
+                      touched.typeOfProject && !errors.typeOfProject
+                        ? "border-green-200"
+                        : ""
+                    )}
+                    placeholder="กรุณาเลือกหมวดหมู่"
+                  >
+                    <option value="" hidden>
+                    กรุณาเลือกหมวดหมู่
+                    </option>
+                    <option value="math">Math</option>
+                    <option value="science">Science</option>
+                    <option value="com">Computer</option>
+                  </Field>
+                  <ErrorMessage
+                    name="typeOfProject"
+                    component="div"
+                    className="text-red text-[10px]"
+                  />
+                </div>
+                {/* End typeOfProject Feild */}
+              </div>
+              {/* End Group line 1 */}
+              {/* Start text input */}
+              <div className="flex flex-col bg-white space-y-[10px]">
+                <div className="flex flex-col">
+                  <label>รายละเอียดเพิ่มเติม</label>
+                  <Field
+                    name="detailOfProject"
+                    className={clsx(
+                      "flex rounded-md border-[2px] px-1 xl:h-[25px] lg:h-[20px] border-gray-100",
+                      !touched.detailOfProject ? "border-gray-100" : "",
+                      touched.detailOfProject && errors.detailOfProject
+                        ? "border-red"
+                        : "",
+                      touched.detailOfProject && !errors.detailOfProject
+                        ? "border-green-200"
+                        : ""
+                    )}
+                  />
+                  <ErrorMessage
+                    name="detailOfProject"
+                    component="div"
+                    className="text-red text-[10px]"
+                  />
+                </div>
+              </div>
+              {/* End text input */}
+              {/* Start Next Btn  */}
+              <div className={clsx("flex justify-center")}>
+                <button
+                  className={clsx(
+                    "flex bg-yellow-100 justify-center rounded-full mt-[10%]  w-[20%] p-[0.8%]"
+                  )}
+                  type="submit"
+                >
+                  ค้นหาอาจารย์ที่แนะนำ
+                </button>
+              </div>
+              {/* End Next Btn  */}
             </div>
+            {/* End insert text and date */}
           </div>
+          {/* End Form img and text */}
         </Form>
       )}
     </Formik>

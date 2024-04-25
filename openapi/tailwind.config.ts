@@ -42,6 +42,7 @@ const config: Config = {
 
       //white
       'white' :  '#ffffff',
+      'white-100' : '#FDFDFD',
 
       //red
       'red' : '#FF0000',

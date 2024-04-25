@@ -21,33 +21,13 @@ export const formProjectSchemaText = z.object({
     })
     .min(5, { message: "ต้องใส่มากกว่า 5 ตัวอักษร" })
     .max(20, { message: "ไม่เกิน 20 ตัวอักษร" }),
-  titleOfProject: z.string(),
-  periodStartOfProject: z.string(),
-  periodEndOfProject: z.string(),
-  ideaOfProject: z
-    .string({
-      required_error: "ต้องใส่ไอเดีย",
-    })
-    .min(1, { message: "ต้องใส่มากกว่า 1 ตัวอักษร" })
-    .max(500, { message: "ไม่เกิน 500 ตัวอักษร" }),
-  problemOfProject: z
-    .string({
-      required_error: "ต้องใส่ปัญหาที่พบ",
-    })
-    .min(1, { message: "ต้องใส่มากกว่า1ตัวอักษร" })
-    .max(500, { message: "ไม่เกิน 500 ตัวอักษร" }),
-  resourcesOfProject: z
-    .string({
-      required_error: "ต้องใส่ทรัพยากร",
-    })
-    .min(1, { message: "ต้องใส่มากกว่า 1 ตัวอักษร" })
-    .max(500, { message: "ไม่เกิน 500 ตัวอักษร" }),
-  detailOfProject: z
-    .string({
-      required_error: "ต้องใส่รายละเอียดเพิ่มเติม",
-    })
-    .min(1, { message: "ต้องใส่มากกว่า 1 ตัวอักษร" })
-    .max(500, { message: "ไม่เกิน 500 ตัวอักษร" }),
+  typeOfProject: z.string({
+    required_error: "ต้องใส่หมวดหมู่",
+  }),
+  departmentOfProject: z.string({
+    required_error: "ต้องใส่สาขาวิชา",
+  }),
+  detailOfProject: z.string(),
 });
 
 export type formTextSchema = z.infer<typeof formProjectSchemaText>;

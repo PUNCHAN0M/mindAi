@@ -1,20 +1,20 @@
 const Navbar = () => {
   return (
-    <nav className="flex  bg-white h-16 border-b-[1px] border-gray-200 border-opacity-50 justify-between">
+    <div className="absolute flex bg-white h-[60px] border-b-[1px] border-gray-200 border-opacity-50 justify-between overflow-hidden top-0 w-screen">
       {/* front */}
-      <div className="flex items-center m-5"></div>
+      <div className="flex"></div>
       {/* back */}
-      <div className="flex ">
-        <ul className="flex flex-row">
-          <li className="bg-green-500 font-Roboto  text-white m-5 px-5 rounded-full">
+      <div className="flex justify-between items-center mr-5 lg:text-[12px]">
+        <ul className="flex flex-row font-Roboto text-center  h-[30px] space-x-5">
+          <li className="bg-green-500   text-white rounded-full w-[100px] align-middle pt-1">
             Login
           </li>
-          <li className="bg-blue-100 font-Roboto  text-black m-5 px-5  rounded-full">
+          <li className="bg-blue-100  text-black  rounded-full w-[100px] align-middle pt-1">
             Sign Up
           </li>
         </ul>
       </div>
-    </nav>
-  ); 
+    </div>
+  );
 };
 export default Navbar;
