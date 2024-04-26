@@ -37,3 +37,20 @@ export const formSchemaImage = z.object({
 });
 
 export type formImageSchema = z.infer<typeof formSchemaImage>;
+
+export const formStudent = z.object({
+  nameOfProjectStudent: z
+    .string({
+      required_error: "ต้องใส่งานวิจัย",
+    })
+    .min(5, { message: "ต้องใส่มากกว่า 5 ตัวอักษร" })
+    .max(20, { message: "ไม่เกิน 20 ตัวอักษร" }),
+  titleOfProjectStudent: z.string(),
+  periodStartOfProjectStudent: z.string(),
+  periodEndOfProjectStudent: z.string(),
+  ideaOfProjectStudent: z.string(),
+  problemOfProjectStudent: z.string(),
+  resourcesOfProjectStudent: z.string(),
+  detailOfProjectStudent: z.string(),
+});
+export type formStudentSchema = z.infer<typeof formStudent>;
