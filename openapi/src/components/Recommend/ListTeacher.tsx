@@ -9,9 +9,10 @@ interface TeacherProps {
   fieldCoordinators: string[]; 
   gmail: string; 
   phone: string; 
+  recommand:boolean;
 }
 
-const TeacherCard: React.FC<TeacherProps> = ({ name, department, detailsData, fieldCoordinators , gmail ,phone }) => {
+const TeacherCard: React.FC<TeacherProps> = ({recommand, name, department, detailsData, fieldCoordinators , gmail ,phone }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   // เปลี่ยนสถานะการขยายขนาดหน้าจอ
@@ -28,7 +29,7 @@ const TeacherCard: React.FC<TeacherProps> = ({ name, department, detailsData, fi
         <p>ภาควิชา : {department}</p>
       </div>
       <div className="button-card-ListTeacher">
-        <div className="icon-button"><div className="SvgLike"><SvgLike/></div></div>
+      <div className="icon-button" style={{opacity : recommand ? 1 : 0}}><div className="SvgLike"><SvgLike/></div></div>
         <div className="button-card">
           <div className="btn-choose"><button>เลือก</button></div>
           <div className="btn-more"><button onClick={handleExpandToggle}>{isExpanded ? 'น้อยลง' : 'เพิ่มเติม'}</button></div>
@@ -129,6 +130,8 @@ const ListTeacher = () => {
         fieldCoordinators={["ผู้ประสานงานสาขา CC", "ผู้ประสานงานสาขา B","ผู้ประสานงานสาขา B","ผู้ประสานงานสาขา B"]} 
         gmail="sitta@psu.ac.th"
         phone="2222"
+        recommand={true}
+
 
       />
       
@@ -142,6 +145,8 @@ const ListTeacher = () => {
         fieldCoordinators={["ผู้ประสานงานสาขา A", "ผู้ประสานงานสาขา B"]} 
         gmail="hellosis@psu.ac.th"
         phone="03222"
+        recommand={false}
+
       />
       
      </div>
