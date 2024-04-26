@@ -46,8 +46,7 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
 
               {/* Start insert text and date */}
               <div className="flex flex-col lg:text-[12px] bg-white rounded-xl shadow-searchresearch p-[40px] w-[60%] h-[100%] overflow-auto">
-                {/* Group line 1 */}
-                <div className="flex bg pb-[10px] ">
+
                   <div className="flex space-x-[10px]">
                     {/* Start nameproject Feild*/}
                     <div className="flex flex-col ">
@@ -55,7 +54,7 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                       <Field
                         name="nameOfProjectStudent"
                         className={clsx(
-                          " flex rounded-md border-[2px] px-1 xl:h-[25px] lg:h-[20px] ",
+                          " flex rounded-md border-[2px] px-1 xl:h-[25px] lg:h-[20px] w-[15vw]",
                           !touched.nameOfProjectStudent ? "border-gray-100" : "",
                           touched.nameOfProjectStudent && errors.nameOfProjectStudent
                             ? "border-red"
@@ -168,8 +167,6 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                     </div>
                     {/* End periodEndOfProject Feild*/}
                   </div>
-                </div>
-                {/* End Group line 1 */}
                 {/* Start text input */}
                 <div className="flex flex-col bg-white space-y-[10px]">
                   <div className="flex flex-col">
