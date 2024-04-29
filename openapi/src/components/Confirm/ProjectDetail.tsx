@@ -4,115 +4,247 @@ import SvgEyeOpenWhite from "../SVG/SvgEyeOpenWhite";
 import SvgPen from "../SVG/SvgPen";
 import SvgEyeClosegray from "../SVG/SvgEyeCloseGrey";
 import SvgPhone from "../SVG/SvgPhone";
+import { useState } from "react";
+import clsx from "clsx";
+import SvgEyeCloseWhite from "../SVG/SvgEyeCloseWhite";
+import SvgCircle from "../SVG/SvgCircle";
+import SvgChecked from "../SVG/SvgChecked";
+import SvgSwitch from "../SVG/SvgSwitch";
 
 const ProjectDetail = () => {
+  const [name, setName] = useState(false);
+  const [idea, setIdea] = useState(false);
+  const [problem, setProblem] = useState(false);
+  const [resource, setResource] = useState(false);
+  const [phone, setPhone] = useState(false);
+  const [email, setEmail] = useState(false);
+
+  const [showIdea, setShowIdea] = useState(false);
+  const [showProblem, setShowProblem] = useState(false);
+  const [showResource, setShowResource] = useState(false);
+  const [showPhone, setShowPhone] = useState(false);
+  const [showEmail, setShowEmail] = useState(false);
+
+  const handleClickEye = (val: boolean) => {
+    return !val;
+  };
+
   return (
-    <div className="ProjectDetailsContainer">
+    <div className="ProjectDetailsContainer text-[1.5vh] px-[2vw]">
       <div className="image-profile">
-        <div className="image-inside-profile">
-          
-        </div>
+        <div className="image-inside-profile">img</div>
       </div>
-      <div className="top-title">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil" viewBox="0 0 16 16">
-        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
-      </svg>
+      <div className="top-title flex items-center justify-start">
+        <SvgPen />
         <p>แก้ไขโพสต์</p>
       </div>
-      <div className="Card-container-pdc-background">
-      <div className="Title-Edit-ProjectDetails">
-      <div className="title-PDC">
-        <div className="inside-title">
-        <p>ชื่องานวิจัย</p>
-        </div>
-      </div>
-      <div className="Card-ProjectDetailsContainer">
-        <div className="background-Card-PDC">
-          <div className="front-bdc">
-            <div className="front-left-bdc">
-              <div className="img-front-left-bdc">Image</div>
+      <div className="Card-container-pdc-background ">
+        <div className="Title-Edit-ProjectDetails">
+          <div className="title-PDC">
+            <div className="inside-title">
+              <p>ชื่องานวิจัย</p>
             </div>
-            <div className="front-right-bdc">
-              <div className="names-research">
-                <div className="Eye-toggle-display">
-                <SvgEyeOpengray/>
+          </div>
+          <div className="Card-ProjectDetailsContainer">
+            <div className="background-Card-PDC">
+              <div className="front-bdc">
+                <div className="front-left-bdc">
+                  <div className="img-front-left-bdc">Image</div>
                 </div>
-                <p>ชื่องานวิจัย</p>
-              </div>
-              <div className="names-idea">
-                <SvgEyeOpengray/>
-                <p>ไอเดีย</p>
-              </div>
-              <div className="names-problem">
-                <SvgEyeOpengray/>
-                <p>ปัญหาที่พบ</p>
-              </div>
-              <div className="names-resource">
-                <SvgEyeOpengray/>
-                <p>ทรัพยากร</p>
+                <div className="front-right-bdc">
+                  <div
+                    className="names-research flex items-end space-x-[0.5vw]"
+                    onClick={() => {
+                      setName(handleClickEye(name));
+                    }}
+                  >
+                    {name === false ? <SvgEyeOpengray /> : <SvgEyeClosegray />}
+
+                    <p
+                      className={clsx(
+                        "",
+                        name === false ? "" : "text-gray-200"
+                      )}
+                    >
+                      ชื่องานวิจัย
+                    </p>
+                  </div>
+                  <div
+                    className="names-idea flex items-end space-x-[0.5vw]"
+                    onClick={() => {
+                      setIdea(handleClickEye(idea));
+                    }}
+                  >
+                    {idea === false ? <SvgEyeOpengray /> : <SvgEyeClosegray />}
+                    <p
+                      className={clsx(
+                        "",
+                        idea === false ? "" : "text-gray-200"
+                      )}
+                    >
+                      ไอเดีย
+                    </p>
+                  </div>
+                  <div
+                    className="names-problem flex items-end space-x-[0.5vw]"
+                    onClick={() => {
+                      setProblem(handleClickEye(problem));
+                    }}
+                  >
+                    {problem === false ? (
+                      <SvgEyeOpengray />
+                    ) : (
+                      <SvgEyeClosegray />
+                    )}
+
+                    <p
+                      className={clsx(
+                        "",
+                        problem === false ? "" : "text-gray-200"
+                      )}
+                    >
+                      ปัญหาที่พบ
+                    </p>
+                  </div>
+                  <div
+                    className="names-resource flex items-end space-x-[0.5vw]"
+                    onClick={() => {
+                      setResource(handleClickEye(resource));
+                    }}
+                  >
+                    {resource === false ? (
+                      <SvgEyeOpengray />
+                    ) : (
+                      <SvgEyeClosegray />
+                    )}
+
+                    <p
+                      className={clsx(
+                        "",
+                        resource === false ? "" : "text-gray-200"
+                      )}
+                    >
+                      ทรัพยากร
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="footer-container">
-      <div className="footer-PDC">
-            <div className="boxleft-PDC">
-              <div><p>นายสิทธา สหธรรม</p></div>
-              <div className="boxleft-phone">
-                <p><SvgPhone/></p>
-                <p>012-123123</p>
-                <p><SvgEyeOpenWhite/></p>
-              </div>
-              <div className="boxleft-gmail">
-                <p><SvgEnvelope/></p>
-                <p>sittasahathum@gmail.com</p>
-                <p><SvgEyeOpenWhite/></p>
+          <div className="footer-container">
+            <div className="footer-PDC text-white">
+              <div className="boxleft-PDC">
+                <div>
+                  <p>นายสิทธา สหธรรม</p>
+                </div>
+                <div className="boxleft-phone space-x-[0.5vw]">
+                  <p>
+                    <SvgPhone />
+                  </p>
+                  <p>012-123123</p>
+                  <p>
+                    <div
+                      onClick={() => {
+                        setPhone(handleClickEye(phone));
+                      }}
+                    >
+                      {phone === false ? (
+                        <SvgEyeOpenWhite />
+                      ) : (
+                        <SvgEyeCloseWhite />
+                      )}
+                    </div>
+                  </p>
+                </div>
+                <div className="boxleft-gmail space-x-[0.5vw]">
+                  <p>
+                    <SvgEnvelope />
+                  </p>
+                  <p>sittasahathum@gmail.com</p>
+                  <p>
+                    <div
+                      onClick={() => {
+                        setEmail(handleClickEye(email));
+                      }}
+                    >
+                      {email === false ? (
+                        <SvgEyeOpenWhite />
+                      ) : (
+                        <SvgEyeCloseWhite />
+                      )}
+                    </div>
+                  </p>
+                </div>
               </div>
             </div>
-    
-          </div>
-          <div className="boxright-PDC">
+            <div className="boxright-PDC font-extralight text-white text-[1.6vh]">
               <button>เข้าดู</button>
             </div>
-      </div>
-      </div>
+          </div>
+        </div>
       </div>
       <div className="OptionSelected-Card">
-        <div className="btn-mode-optionselected">
-          <button>สาธารณะ</button>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-repeat" viewBox="0 0 16 16">
-          <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"/>
-          <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"/>
-        </svg>
+        <div className="flex justify-center ">
+          <div className="bg-gray-150 rounded-full w-[9vw] flex justify-center p-[0.4vh] align-middle ml-[2vw]">
+            ตัวเลือกการแสดงผล
+          </div>
         </div>
-        <div className="selected-option">
-          <div className="problem-option">
+        <div className="selected-option flex flex-col">
+          <div className="problem-option justify-between">
             <p>แสดงปัญหาที่พบ</p>
-            <p>O</p>
+            <div
+              onClick={() => {
+                setShowProblem(handleClickEye(showProblem));
+              }}
+            >
+              {showProblem === false ? <SvgCircle /> : <SvgChecked />}
+            </div>
           </div>
-          <div className="idea-option">
+          <div className="idea-option justify-between">
             <p>แสดงไอเดีย</p>
-            <p>O</p>
+            <div
+              onClick={() => {
+                setShowIdea(handleClickEye(showIdea));
+              }}
+            >
+              {showIdea === false ? <SvgCircle /> : <SvgChecked />}
+            </div>
           </div>
-          <div className="resource-option">
+          <div className="resource-option justify-between">
             <p>แสดงทรัพยากร</p>
-            <p>O</p>
+            <div
+              onClick={() => {
+                setShowResource(handleClickEye(showResource));
+              }}
+            >
+              {showResource === false ? <SvgCircle /> : <SvgChecked />}
+            </div>
           </div>
-          <div className="phone-option">
+          <div className="phone-option justify-between">
             <p>แสดงเบอร์โทรศัพท์</p>
-            <p>O</p>
+            <div
+              onClick={() => {
+                setShowPhone(handleClickEye(showPhone));
+              }}
+            >
+              {showPhone === false ? <SvgCircle /> : <SvgChecked />}
+            </div>
           </div>
-          <div className="email-option">
+          <div className="email-option justify-between">
             <p>แสดงอีเมล</p>
-            <p>O</p>
+            <div
+              onClick={() => {
+                setShowEmail(handleClickEye(showEmail));
+              }}
+            >
+              {showEmail === false ? <SvgCircle /> : <SvgChecked />}
+            </div>
           </div>
         </div>
-        <div className="post-btn">
-           <button>โพสต์</button>
+        <div className="post-btn font-bold text-[1.6vh]">
+          <button>โพสต์</button>
         </div>
       </div>
-      
     </div>
   );
 };

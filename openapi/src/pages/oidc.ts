@@ -15,10 +15,10 @@ const oidcConfig: OIDCConfig = {
         window.location.href = '/';
     },
     onSigninCallback: (user) => {
-        window.location.href = '/searchresearch';
+        window.location.href = '/dashboard';
     },
-    authority: '',//http://psusso-test.psu.ac.th/application/o/psuapi-contest-chanom
-    client_id: '',//xUnSLmLZwZ0bWPVyUvfWsnJHbSIjKUGId6efo2RR
+    authority: 'http://psusso-test.psu.ac.th/application/o/psuapi-contest-chanom',
+    client_id: ' ',
     scope: 'openid email profile offline_access',
     response_type: 'code',
     silent_renew: true,

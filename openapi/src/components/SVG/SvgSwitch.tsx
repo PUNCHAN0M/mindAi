@@ -1,6 +1,6 @@
 const SvgSwitch = () => (
   <svg
-    className="w-6 h-6 text-gray-800 text-green-500"
+    className="w-[2.5vh] h-[2.5vh] text-gray-800 text-green-500"
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="24"

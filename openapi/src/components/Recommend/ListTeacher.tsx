@@ -16,7 +16,7 @@ const TeacherCard: React.FC<TeacherProps> = ({recommand, name, department, detai
   const [isExpanded, setIsExpanded] = useState(false);
 
   // เปลี่ยนสถานะการขยายขนาดหน้าจอ
-  const handleExpandToggle = () => {
+  const handleExpandToggle = () => { 
     setIsExpanded(!isExpanded);
   };
 

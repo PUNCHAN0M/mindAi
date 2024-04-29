@@ -1,6 +1,6 @@
 const SvgEnvelope = () => (
   <svg
-    className="w-6 h-6 text-white"
+    className="w-[2.5vh] h-[2.5vh] text-white"
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="24"

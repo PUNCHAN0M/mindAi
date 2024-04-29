@@ -2,7 +2,6 @@ import { formProjectSchemaText, formTextSchema } from "@/modules/form";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 import clsx from "clsx";
-import { link } from "fs";
 import { useRouter } from "next/router";
 
 const initialFormValue: formTextSchema = {
@@ -23,7 +22,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
     submit(values);
     if (values.nameOfProject && values.typeOfProject && values.departmentOfProject){
       console.log("change page now!")
-      router.push("/researchlist+")    
+      router.push("/researchlist")    
     }
   };
 

@@ -254,21 +254,24 @@ body{
   background-color: yellow;
   width: 4.3vw;
   height: 4.3vw;
+  border-width: 0.3vw;
+  border-style: solid;
+  border-color: white;
   border-radius: 50%;
   position: absolute;
-  bottom: 25vh;
-  right: 77.5vw;
+  bottom: 35vh;
+  right: 75vw;
   
 }
 .top-title{
   position: absolute;
   padding-top: 1vh;
-  padding-left: 1vw;
+
 }
 .ProjectDetailsContainer{
   background-color: #FFFFFF;
   box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.06);
-  width: 70vw;
+  width: 73vw;
   border-radius: 3px;
   margin-left: 15vw;
   margin-top: 10vh;
@@ -301,7 +304,7 @@ body{
   height: 40vh;
 }
 .OptionSelected-Card{
-  width: 15vw;
+  width: 13vw;
   margin-top: 8vh;
   height: 55vh;
 }
@@ -404,3 +407,4 @@ body{
     text-wrap: balance;
   }
 } */
+

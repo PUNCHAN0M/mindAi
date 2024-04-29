@@ -16,8 +16,6 @@ export default function create() {
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet" />
       <Navbar />
       <ListTeacher/>
-
-      
     </div>
   );
 }

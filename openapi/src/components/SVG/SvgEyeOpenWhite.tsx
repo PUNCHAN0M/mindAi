@@ -1,6 +1,6 @@
 const SvgEyeOpenWhite = () => (
   <svg
-    className="w-6 h-6 text-white"
+    className="w-[2.5vh] h-[2.5vh] text-white"
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -10,12 +10,12 @@ const SvgEyeOpenWhite = () => (
   >
     <path
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="1.5"
       d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"
     />
     <path
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="1.5"
       d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
     />
   </svg>
