@@ -30,7 +30,7 @@ const ProjectDetail = () => {
   };
 
   return (
-    <div className="ProjectDetailsContainer text-[1.5vh] px-[2vw]">
+    <div className="ProjectDetailsContainer text-[1.5vh] p-[2vw]">
       <div className="image-profile">
         <div className="image-inside-profile">img</div>
       </div>

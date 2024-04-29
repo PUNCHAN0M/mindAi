@@ -15,15 +15,15 @@ const oidcConfig: OIDCConfig = {
         window.location.href = '/';
     },
     onSigninCallback: (user) => {
-        window.location.href = '/dashboard';
+        window.location.href = '/searchresearch';
     },
-    authority: 'http://psusso-test.psu.ac.th/application/o/psuapi-contest-chanom',
-    client_id: ' ',
+    authority: 'https://psusso-test.psu.ac.th/application/o/psuapi-contest-chanom',
+    client_id: 'xUnSLmLZwZ0bWPVyUvfWsnJHbSIjKUGId6efo2RR',
     scope: 'openid email profile offline_access',
     response_type: 'code',
     silent_renew: true,
     use_refresh_token: true,
-    redirect_uri: 'http://localhost:3000/dashboard',
+    redirect_uri: 'http://localhost:3000/searchresearch',
 };
 
 export default oidcConfig;
