@@ -4,11 +4,11 @@ const Navbar = () => {
   const auth = useAuth();
 
   return (
-    <div className="absolute flex bg-white h-[60px] border-b-[1px] border-gray-200 border-opacity-50 justify-between overflow-hidden top-0 w-screen z-50">
+    <div className="flex absolute bg-white h-[60px] border-b-[1px] border-gray-200 border-opacity-50 justify-between overflow-hidden top-0 w-screen z-50">
       {/* front */}
       <div className="flex"></div>
       {/* back */}
-      <div className="flex justify-between items-center mr-5 lg:text-[12px]">
+      <div className="flex justify-between items-center mr-5 text-[1.5vh]">
         <ul className="flex flex-row font-Roboto text-center  h-[30px] space-x-5">
           <li
             className="bg-green-500   text-white rounded-full w-[100px] align-middle pt-1"

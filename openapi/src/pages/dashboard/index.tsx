@@ -13,7 +13,7 @@ export default function create() {
         rel="stylesheet"
       />
       <Navbar />
-      <div className="flex justify-between">
+      <div className="flex justify-between mt-[60px]">
         <Sidebar />
         <ProjectDetailDashboard />
         <FilterBar />

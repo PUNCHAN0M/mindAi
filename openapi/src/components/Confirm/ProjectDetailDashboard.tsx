@@ -77,7 +77,7 @@ const ProjectDetailDashboard = () => {
   };
 
   return (
-    <div className="flex flex-col text-[1.5vh] mt-[8vh] items-center overflow-hidden">
+    <div className="flex flex-col text-[1.5vh] items-center overflow-hidden">
       <div className="flex flex-row bg-green-200 w-[61vw] h-[5vh] justify-center items-center border-b-[1px]">
         <div className="px-[20%]">หน้าหลัก</div>
         <div className="px-[20%]">งานวิจัยที่แนะนำสำหรับคุณ</div>
