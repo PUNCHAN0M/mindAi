@@ -9,7 +9,6 @@ import clsx from "clsx";
 import SvgEyeCloseWhite from "../SVG/SvgEyeCloseWhite";
 import SvgCircle from "../SVG/SvgCircle";
 import SvgChecked from "../SVG/SvgChecked";
-import SvgSwitch from "../SVG/SvgSwitch";
 
 const ProjectDetail = () => {
   const [name, setName] = useState(false);
@@ -31,9 +30,11 @@ const ProjectDetail = () => {
 
   return (
     <div className="ProjectDetailsContainer text-[1.5vh] p-[2vw]">
-      <div className="image-profile">
-        <div className="image-inside-profile">img</div>
-      </div>
+      <div className="flex absolute h-[4.3vw] w-[4.3vw] mt-[47vh] ml-[3vw]">
+          <div className="flex bg-yellow-200  w-full h-full rounded-full border-[0.5vh] border-white ">
+            img
+          </div>
+        </div>
       <div className="top-title flex items-center justify-start">
         <SvgPen />
         <p>แก้ไขโพสต์</p>
@@ -202,7 +203,7 @@ const ProjectDetail = () => {
           </div>
           <div className="idea-option justify-between">
             <p>แสดงไอเดีย</p>
-            <div
+            <div 
               onClick={() => {
                 setShowIdea(handleClickEye(showIdea));
               }}

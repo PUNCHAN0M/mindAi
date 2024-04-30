@@ -1,18 +1,4 @@
-import { nullable, z } from "zod";
-
-// export const formProjectSchema = z.object({
-//   imageOfProject: z.any().refine((val) => val.length > 0, "File is required"),
-//   nameOfProject: z.string(),
-//   titleOfProject: z.string(),
-//   periodStartOfProject: z.date(),
-//   periodEndOfProject: z.date(),
-//   ideaOfProject: z.string(),
-//   problemOfProject: z.string(),
-//   resourcesOfProject: z.string(),
-//   detailOfProject: z.string(),
-// });
-
-// export type formSchema = z.infer<typeof formProjectSchema>;
+import { z } from "zod";
 
 export const formProjectSchemaText = z.object({
   nameOfProject: z
@@ -45,12 +31,15 @@ export const formStudent = z.object({
     })
     .min(5, { message: "ต้องใส่มากกว่า 5 ตัวอักษร" })
     .max(20, { message: "ไม่เกิน 20 ตัวอักษร" }),
-  titleOfProjectStudent: z.string(),
+  departmentOfProjectStudent: z.string(),
+  statusOfProjectStudent: z.boolean(),
   periodStartOfProjectStudent: z.string(),
   periodEndOfProjectStudent: z.string(),
+  aptitudeOfProjectStudent:z.string(),
   ideaOfProjectStudent: z.string(),
   problemOfProjectStudent: z.string(),
   resourcesOfProjectStudent: z.string(),
   detailOfProjectStudent: z.string(),
+  tagsOfProjectStudent: z.string().array()
 });
 export type formStudentSchema = z.infer<typeof formStudent>;
