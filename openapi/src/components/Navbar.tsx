@@ -4,7 +4,7 @@ const Navbar = () => {
   const auth = useAuth();
 
   return (
-    <div className="absolute flex bg-white h-[60px] border-b-[1px] border-gray-200 border-opacity-50 justify-between overflow-hidden top-0 w-screen">
+    <div className="absolute flex bg-white h-[60px] border-b-[1px] border-gray-200 border-opacity-50 justify-between overflow-hidden top-0 w-screen z-50">
       {/* front */}
       <div className="flex"></div>
       {/* back */}
