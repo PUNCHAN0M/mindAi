@@ -35,7 +35,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
       {({ values, dirty, touched, errors }) => (
         <Form>
           <div className="flex flex-col text-black text-[0.8vw] bg-white-100 h-screen items-center">
-            <div className="flex flex-col mt-[8%] text-[1.5vh]">
+            <div className="flex flex-col mt-[60px] text-[2vh]">
               ค้นหา งานวิจัยที่ใกล้เคียงกับงานวิจัย ใน มหาวิทยาลัยสงขลานครินทร์
             </div>
             {/* Start insert text and date */}
