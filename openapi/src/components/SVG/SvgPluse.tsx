@@ -1,6 +1,6 @@
 const SvgPluse = () => (
   <svg
-    className="w-[6vw] h-[6vh] text-gray-800 text-blue-400"
+    className="w-[6vw] h-[6vh] text-gray-800 text-blue-400 z-20"
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="24"
