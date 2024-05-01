@@ -11,7 +11,7 @@ export default function create() {
         rel="stylesheet"
       />
       <Navbar />
-      <ProjectDetail />
+      <ProjectDetail/>
     </div>
   );
 }

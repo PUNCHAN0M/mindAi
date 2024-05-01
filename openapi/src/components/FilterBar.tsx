@@ -1,7 +1,7 @@
 import SvgFilter from "./SVG/SvgFilter";
 import SvgSearch from "./SVG/SvgSearch";
 
-const FilterBar = () => {
+const  FilterBar = () => {
   return (
     <div className="flex flex-col w-[35vw] h-screen bg-green-500 items-center space-y-[5vh]">
       {/* Start searchbar */}

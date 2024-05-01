@@ -35,15 +35,15 @@ const ProjectDetail = () => {
             img
           </div>
         </div>
-      <div className="top-title flex items-center justify-start">
+      <div className="top-title flex items-center justify-start ">
         <SvgPen />
         <div>แก้ไขโพสต์</div>
       </div>
       <div className="Card-container-pdc-background ">
-        <div className="Title-Edit-ProjectDetails">
+        <div className="Title-Edit-ProjectDetails pt-[vh]">
           <div className="title-PDC">
             <div className="inside-title">
-              <div>ชื่องานวิจัย</div>
+              <div className="text-[2.5vh] ml-[1.5vw] text-white">ชื่องานวิจัย</div>
             </div>
           </div>
           <div className="Card-ProjectDetailsContainer">
