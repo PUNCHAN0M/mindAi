@@ -76,7 +76,7 @@ const FormImage = () => {
           ประเภทไฟล์ที่รองรับ JPG , PNG ขนาดสูงสุงครั้งละ 200 M
         </span>
       </div>
-      <div className="flex flex-col justify-center  w-[20vw]  shadow-searchresearch">
+      <div className="flex flex-col justify-center  w-[20vw] ">
         {Allfiles.length > 0 && (
           <div className="relative inline-block justify-center w-[100%] aspect-[4/3]">
             {Allfiles.map((file, index) => (
@@ -85,7 +85,7 @@ const FormImage = () => {
                 fill
                 src={URL.createObjectURL(file)}
                 alt={`Image ${index}`}
-                className={clsx("object-cover rounded-lg shadow-searchresearch mt-[1vw]",{ hidden: index !== indImage })}
+                className={clsx("object-cover rounded-lg mt-[1vw]",{ hidden: index !== indImage })}
               />
             ))}
           </div>
