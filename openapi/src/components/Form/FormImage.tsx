@@ -92,7 +92,7 @@ const FormImage = () => {
         )}
         <div className={clsx("flex absolute mt-[45vh] w-[20vw] text-white font-black ", indImage === 0 ? "justify-end" : "justify-between")}>
           <div className={clsx("flex p-[1vw] bg-green-500 shadow-searchresearch rounded-full",indImage === 0 ? "hidden" : "block")} onClick={() => handleClick(-1)}>{`<`}</div>
-          <div className={clsx("flex p-[1vwcreateprojectstudent] bg-green-500 shadow-searchresearch rounded-full",Allfiles.length == 0 ? "hidden" : "" , indImage === Allfiles.length - 1 ? "hidden" : "block")} onClick={() => handleClick(1)}>{`>`}</div>
+          <div className={clsx("flex p-[1vw] bg-green-500 shadow-searchresearch rounded-full",Allfiles.length == 0 ? "hidden" : "" , indImage === Allfiles.length - 1 ? "hidden" : "block")} onClick={() => handleClick(1)}>{`>`}</div>
         </div>
       </div>
     </div>
