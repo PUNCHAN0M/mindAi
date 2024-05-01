@@ -16,7 +16,6 @@ export default function create() {
       <div className="flex justify-between mt-[60px]">
         <Sidebar />
         <ProjectDetailDashboard />
-        <FilterBar />
       </div>
     </div>
   );

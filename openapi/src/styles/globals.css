@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+*{
   font-size: 0.9vw;
   color: rgba(0, 0, 0, 0.84);
   font-family: "Noto Sans Thai", sans-serif;
 }
 @media screen and (min-width: 1700px) {
-  body {
+  * {
     font-size: 0.78vw;
   }
 }
@@ -442,7 +442,9 @@ body{
   opacity: 1;
   margin-left: 0; 
 }
-
+.nav-item{
+  color: rgb(235, 235, 235);
+}
 .sidebar:hover {
   width: 250px;
 }
@@ -484,4 +486,246 @@ body{
 .sidebar-bottom{
   margin-top: 12vh;
 
+}
+
+.left-HomePage{
+  background-color: rgb(239, 239, 239);
+  width: 73vw;
+  height: 100vh;
+}
+.right-HomePage{
+  width: 27vw;
+  height: 100vh;
+  box-shadow: 1px 2px 2px 4px rgba(0, 0, 0, 0.108);
+}
+.topbar-title{
+  background-color: rgb(206, 206, 135);
+  grid-template-columns: auto auto;
+  display: grid;
+  box-shadow: 0px 1px 2px 2px rgba(0, 0, 0, 0.201);
+  width: 73vw;
+  height: 8vh;
+}
+.topbar-HomePage,.recommended-HomePage{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3vh;
+
+}
+.topbar-HomePage{
+  margin-left: 2vw;
+}
+.recommended-HomePage{
+  background-color: #3F979B;
+}
+.HomePage-container{
+  display: flex;
+}
+.filterbar-container , .visiblepost-container,.create-researchcontain ,.searchtop-bar{
+  width: 27vw;
+}
+.searchtop-bar{
+  margin-top: 0%;
+  height: 8vh;
+}
+
+.filterbar-container{
+  height: 43vh;
+}
+.visiblepost-container{
+  height: 22vh;
+}
+.create-researchcontain{
+  height: 18vh;
+}
+.HomePage{
+  overflow: hidden;
+}
+.searchbar input , .searchbar-department input{
+  border: 1px solid rgba(0, 0, 0, 0.079);
+  border-radius: 3vw;
+  width: 22vw;
+  margin-top: 4vh;
+  margin-left: 1.2vw;
+  height: 4vh;
+}
+.searchbar-department input{
+  width: 24.5vw;
+}
+
+.searchfilter , .dropdownline-A ,.dropdownline-B ,.DateTime{
+  display: flex;
+}
+
+.dropbtn {
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  width: 12vw;
+  height: 4.2vh;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 2vw;
+}
+.dropbtn:hover{
+  background-color: rgba(0, 0, 0, 0.064);
+  transition: background-color 0.3s ease; 
+}
+.dropbtn-inside{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.dropbtn-inside i {
+  position: absolute;
+  right: 0.5vw;
+}
+.dropbtn-inside p {
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.8);
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9f5;
+  min-width: 12vw;
+  border-radius: 0.4vw;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  max-height: 200px; 
+  overflow-y: auto; 
+
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.show {
+  display: block;
+
+}
+.rotated {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease; 
+
+}
+.rotate-back{
+  transition: transform 0.3s ease; 
+}
+.dropdownleft,.dropdownright{
+  margin-left: 1vw;
+}
+.filter-icon{
+  width: 11.5vw;
+  height: 4vh;
+  border-radius: 3vw;
+  text-align: center;
+  padding-top: 1vh;
+  margin-left: 8vw;
+  background-color:#D9D9D9;
+}
+.titlebar{
+  display: flex;
+  padding-top: 5vh;
+}
+.searchbar {
+  display: flex;
+}
+.searchbar i svg{
+  margin-top: 5vh;
+  margin-left: 1vw;
+}
+.dropdownline-A , .dropdownline-B{
+  margin-top: 4vh;
+}
+.DateTime{
+  background-color: rgb(191, 169, 169);
+  margin-top: 3vh;
+}
+.btn-visiblepost{
+  display: flex;
+}
+
+.titlevisiblepos {
+  display: flex;
+  text-align: center;
+  padding-left: 8vw;
+  padding-top: 2vh;
+  margin-bottom: 4vh;
+}
+.titlevisiblepos i{
+  margin-left: 0.4vw;
+}
+.line-visiblepost{
+  margin-left: 7vw;
+  margin-top: 4vh;
+  margin-right: 7vw;
+}
+.DateLine{
+  margin: 4vh;
+}
+.create-researchcontainr{
+  display: flex;
+  width: 13vw;
+  background-color: #b6dddf;
+  height: 4vh;
+  border-radius: 3vw;
+  align-items: center;
+  justify-content: center;
+  margin-left: 7vw;
+  transition: all 0.3s ease; /* Smooth transition for all properties over 0.3 seconds */
+
+}
+.create-researchcontainr:hover{
+  background-color: #ade7ea;
+  width: 15vw;
+  margin-left: 6vw;
+  cursor: pointer;
+}
+.icon-researchcreate{
+  position: relative;
+  left: 2vw;
+}
+.icon-researchcreate svg{
+  width: 1.1vw;
+  height: 1.1vw;
+}
+.visible-prof  , .visible-std {
+  border-radius: 3vw;
+  width: 12vw;
+  margin-left: 1vw;
+  height: 4vh;
+  text-align: center;
+  padding-top: 0.7vh;
+  background-color: #D9D9D9;
+  transition: background-color 0.4s ease; 
+
+}
+.Teacherclicked ,.Studentclicked{
+  background-color: #3F979B; 
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.089);
+  color: #ffffffce;
+}
+.feedPage{
+  overflow: scroll;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10vw;
+  height: 100%;
 }
