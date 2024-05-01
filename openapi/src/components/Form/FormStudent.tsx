@@ -45,7 +45,7 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
           <div className="flex flex-col text-black text-[1vw] bg-white h-screen">
             {/* Start Form img and text */}
             <div className="flex justify-center items-start h-[65%] mt-[8%]">
-              <div className="flex w-[30%]">
+              <div className="flex w-[30%] ml-[2vw]">
                 <FormImage />
               </div>
 
@@ -58,7 +58,7 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                     <Field
                       name="nameOfProjectStudent"
                       className={clsx(
-                        " flex rounded-md border-[2px] px-1 h-[3vh] w-[15vw]",
+                        " flex rounded-md border-[2px] px-1 h-[3vh] w-[13vw]",
                         !touched.nameOfProjectStudent ? "border-gray-100" : "",
                         touched.nameOfProjectStudent &&
                           errors.nameOfProjectStudent
@@ -83,7 +83,7 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                     <Field
                       name="departmentOfProjectStudent"
                       className={clsx(
-                        " flex rounded-md border-[2px] px-1 h-[3vh] border-gray-100",
+                        " flex rounded-md border-[2px] px-1 h-[3vh] w-[10vw] border-gray-100",
                         !touched.departmentOfProjectStudent
                           ? "border-gray-100"
                           : "",
