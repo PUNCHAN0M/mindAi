@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar";
 import ProjectDetail from "@/components/Confirm/ProjectDetail";
 import FilterBar from "@/components/FilterBar";
+import Sidebar from "@/components/Sidebar";
 
 export default function create() {
   return (
@@ -10,6 +11,7 @@ export default function create() {
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap"
         rel="stylesheet"
       />
+      <Sidebar/>
       <Navbar />
       <ProjectDetail/>
     </div>

@@ -22,6 +22,7 @@ export default function create() {
     <div className="flex flex-col bg-white w-screen h-screen overflow-hidden">
        <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet" />
+      <Sidebar/>
       <Navbar />
       <button onClick={handleClick}>Click to login</button>
       <FormStudent submitStd={handleSubmit} />
