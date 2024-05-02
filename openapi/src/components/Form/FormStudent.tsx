@@ -112,7 +112,6 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                           ? "border-green-200"
                           : ""
                       )}
-                      placeholder="หาสาขาที่ต้องการ"
                     ></Field>
                     <ErrorMessage
                       name="departmentOfProjectStudent"
@@ -129,7 +128,7 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                       component="select"
                       id="location"
                       className={clsx(
-                        " flex rounded-md border-[2px] px-1 h-[4vh] border-gray-100",
+                        " flex rounded-md border-[2px] px-1 h-[4vh] border-gray-100 hover:rounded-lg",
                         !touched.statusOfProjectStudent
                           ? "border-gray-100"
                           : "",
@@ -142,9 +141,8 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                           ? "border-green-200"
                           : ""
                       )}
-                      placeholder="กรุณาเลือกหัวข้อ"
                     >
-                      <option value="" disabled hidden>
+                      <option value="" className="text-red" disabled hidden>
                         สถานะที่ต้องการ
                       </option>
                       <option value="std">นักศึกษา</option>
@@ -331,7 +329,7 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                       as="textarea"
                       name="detailOfProjectStudent"
                       className={clsx(
-                        "flex rounded-md border-[2px] px-1 border-gray-100 max-h-[20vh] h-[4vh]",
+                        "flex rounded-md border-[2px] px-1 border-gray-100 max-h-[20vh] h-[4vh] pt-[0.4vh]",
                         !touched.detailOfProjectStudent
                           ? "border-gray-100"
                           : "",

@@ -49,11 +49,11 @@ const FormImage = () => {
     setIndImage(indImage + val);
   };
   return (
-    <div className="flex flex-col text-black justify-center items-center z-1">
-      <div className="relative  flex flex-col bg-white shadow-searchresearch  rounded-lg w-[100%] h-[25vh] justify-center">
+    <div className="flex flex-col text-black justify-center items-center ">
+      <div className="relative  flex flex-col bg-white shadow-searchresearch  rounded-lg w-[100%] h-[25vh] justify-center ">
         <label
           htmlFor="fileInput"
-          className="flex flex-col items-center w-[100%] h-[100%] justify-center"
+          className="flex flex-col items-center w-[100%] h-[100%] justify-center cursor-pointer hover:bg-gray-10 hover:rounded-lg"
         >
           <input
             type="file"
