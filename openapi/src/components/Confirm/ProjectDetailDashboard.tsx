@@ -2,7 +2,7 @@ import CardDetail from "./CardDetail";
 import { useState } from "react";
 import React from "react";
 import SvgEyeOpengray from "../SVG/SvgEyeOpenGrey";
-import classNames from 'classnames';
+import classNames from "classnames";
 
 interface DropdownProps {
   buttonText: string;

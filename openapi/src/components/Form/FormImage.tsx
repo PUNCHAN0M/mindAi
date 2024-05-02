@@ -65,14 +65,14 @@ const FormImage = () => {
             multiple
           />
           <SvgPluse />
-          <span className="text-[0.7vw] mx-[50px] mt-[30px] font-bold z-20">
-            ลาก & วางไฟล์ของคุณ or เปิดโฟลเดอร์ เพิ่มเติม
+          <span className="flex text-[80%] mx-[50px] mt-[30px] font-bold z-20">
+            ลาก & วางไฟล์ของคุณ or <p className="flex text-[100%] text-blue-400 border-b-1 w-fit mx-[0.5vw]">เปิดโฟลเดอร์</p> เพิ่มเติม
           </span>
         </label>
       </div>
       <div className="flex flex-row justify-between items-center mt-[5px]">
         <Svgimg />
-        <span className="text-[0.5vw] ">
+        <span className="text-[80%] ">
           ประเภทไฟล์ที่รองรับ JPG , PNG ขนาดสูงสุงครั้งละ 200 M
         </span>
       </div>

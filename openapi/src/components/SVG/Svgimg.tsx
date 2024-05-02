@@ -1,7 +1,7 @@
 const Svgimg = () => (
     
     <svg
-    className=" w-[2vw] h-[2vh] text-gray-800 text-green-500"
+    className=" w-[2vw] h-[2vh] text-gray-800 "
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -10,7 +10,7 @@ const Svgimg = () => (
     viewBox="0 0 24 24"
 >
   <path
-    stroke="currentColor"
+    stroke="#3CA3DD"
     strokeLinecap="round"
     strokeLinejoin="round"
     strokeWidth="2"

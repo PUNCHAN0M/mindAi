@@ -31,15 +31,15 @@ export const formStudent = z.object({
     })
     .min(5, { message: "ต้องใส่มากกว่า 5 ตัวอักษร" })
     .max(20, { message: "ไม่เกิน 20 ตัวอักษร" }),
-  departmentOfProjectStudent: z.string(),
-  statusOfProjectStudent: z.boolean(),
-  periodStartOfProjectStudent: z.string(),
-  periodEndOfProjectStudent: z.string(),
-  aptitudeOfProjectStudent:z.string(),
-  ideaOfProjectStudent: z.string(),
-  problemOfProjectStudent: z.string(),
-  resourcesOfProjectStudent: z.string(),
-  detailOfProjectStudent: z.string(),
-  tagsOfProjectStudent: z.string().array()
+  departmentOfProjectStudent: z.string({required_error: "ต้องระบุ สาขา"}),
+  statusOfProjectStudent: z.string({required_error: "ต้องระบุ สถานะ"}),
+  periodStartOfProjectStudent: z.string({required_error: "ต้องระบุ เวลาเริ่มต้น"}),
+  periodEndOfProjectStudent: z.string({required_error: "ต้องระบุเวลาสิ้นสุด"}),
+  aptitudeOfProjectStudent:z.string({required_error: "ต้องระบุ ความถนัด / ความสามารถที่ต้องการ"}),
+  ideaOfProjectStudent: z.string({required_error: "ต้องระบุ ไอเดีย"}),
+  problemOfProjectStudent: z.string().optional(),
+  resourcesOfProjectStudent: z.string().optional(),
+  detailOfProjectStudent: z.string().optional(),
+  tagsOfProjectStudent: z.string().array().optional()
 });
 export type formStudentSchema = z.infer<typeof formStudent>;
