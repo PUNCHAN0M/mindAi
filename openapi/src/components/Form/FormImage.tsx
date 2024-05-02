@@ -5,6 +5,8 @@ import Svgimg from "../SVG/Svgimg";
 import { formImageSchema } from "@/modules/form";
 import SvgPluse from "../SVG/SvgPluse";
 import { useEffect, useState } from "react";
+import clsx from "clsx";
+import Image from "next/image";
 
 const FormImage = () => {
   const [Allfiles, setAllFiles] = useState<File[]>([]);
@@ -42,10 +44,13 @@ const FormImage = () => {
       });
     });
   }, [Allfiles]);
-
+  const [indImage, setIndImage] = useState<number>(0);
+  const handleClick = (val: number) => {
+    setIndImage(indImage + val);
+  };
   return (
-    <div className="flex flex-col text-black justify-center ">
-      <div className="flex flex-col bg-white shadow-searchresearch  rounded-lg w-[100%] h-[25vh] justify-center">
+    <div className="flex flex-col text-black justify-center items-center z-1">
+      <div className="relative  flex flex-col bg-white shadow-searchresearch  rounded-lg w-[100%] h-[25vh] justify-center">
         <label
           htmlFor="fileInput"
           className="flex flex-col items-center w-[100%] h-[100%] justify-center"
@@ -60,7 +65,9 @@ const FormImage = () => {
             multiple
           />
           <SvgPluse />
-          <span className="text-[0.7vw] mx-[50px] mt-[30px] font-bold">ลาก & วางไฟล์ของคุณ or เปิดโฟลเดอร์ เพิ่มเติม </span>
+          <span className="text-[0.7vw] mx-[50px] mt-[30px] font-bold z-20">
+            ลาก & วางไฟล์ของคุณ or เปิดโฟลเดอร์ เพิ่มเติม
+          </span>
         </label>
       </div>
       <div className="flex flex-row justify-between items-center mt-[5px]">
@@ -68,6 +75,25 @@ const FormImage = () => {
         <span className="text-[0.5vw] ">
           ประเภทไฟล์ที่รองรับ JPG , PNG ขนาดสูงสุงครั้งละ 200 M
         </span>
+      </div>
+      <div className="flex flex-col justify-center  w-[20vw] ">
+        {Allfiles.length > 0 && (
+          <div className="relative inline-block justify-center w-[100%] aspect-[4/3]">
+            {Allfiles.map((file, index) => (
+              <Image
+                key={index}
+                fill
+                src={URL.createObjectURL(file)}
+                alt={`Image ${index}`}
+                className={clsx("object-cover rounded-lg mt-[1vw]",{ hidden: index !== indImage })}
+              />
+            ))}
+          </div>
+        )}
+        <div className={clsx("flex absolute mt-[45vh] w-[20vw] text-white font-black ", indImage === 0 ? "justify-end" : "justify-between")}>
+          <div className={clsx("flex p-[1vw] bg-green-500 shadow-searchresearch rounded-full",indImage === 0 ? "hidden" : "block")} onClick={() => handleClick(-1)}>{`<`}</div>
+          <div className={clsx("flex p-[1vw] bg-green-500 shadow-searchresearch rounded-full",Allfiles.length == 0 ? "hidden" : "" , indImage === Allfiles.length - 1 ? "hidden" : "block")} onClick={() => handleClick(1)}>{`>`}</div>
+        </div>
       </div>
     </div>
   );

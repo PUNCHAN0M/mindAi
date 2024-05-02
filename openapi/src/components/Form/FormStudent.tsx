@@ -8,6 +8,8 @@ import { ErrorMessage, Field, FieldArray, Form, Formik } from "formik";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 import clsx from "clsx";
 import FormImage from "@/components/Form/FormImage";
+import SvgPlusTags from "../SVG/SvgPlusTag";
+import SvgCross from "../SVG/SvgCross";
 
 const initialFormValue: formStudentSchema = {
   nameOfProjectStudent: "",
@@ -43,7 +45,7 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
           <div className="flex flex-col text-black text-[1vw] bg-white h-screen">
             {/* Start Form img and text */}
             <div className="flex justify-center items-start h-[65%] mt-[8%]">
-              <div className="flex w-[30%]">
+              <div className="flex w-[30%] ml-[2vw]">
                 <FormImage />
               </div>
 
@@ -56,7 +58,7 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                     <Field
                       name="nameOfProjectStudent"
                       className={clsx(
-                        " flex rounded-md border-[2px] px-1 h-[3vh] w-[15vw]",
+                        " flex rounded-md border-[2px] px-1 h-[3vh] w-[13vw]",
                         !touched.nameOfProjectStudent ? "border-gray-100" : "",
                         touched.nameOfProjectStudent &&
                           errors.nameOfProjectStudent
@@ -81,7 +83,7 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                     <Field
                       name="departmentOfProjectStudent"
                       className={clsx(
-                        " flex rounded-md border-[2px] px-1 h-[3vh] border-gray-100",
+                        " flex rounded-md border-[2px] px-1 h-[3vh] w-[10vw] border-gray-100",
                         !touched.departmentOfProjectStudent
                           ? "border-gray-100"
                           : "",
@@ -329,50 +331,54 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                     />
                   </div>
                   {/*End detail*/}
-                  {/* Start */}
+                  {/* Start Tags*/}
                   <FieldArray
                     name="tagsOfProjectStudent"
                     render={(arrayHelpers) => (
-                      <div className="flex flex-wrap ">
-                        {values.tagsOfProjectStudent &&
-                        values.tagsOfProjectStudent.length > 0 ? (
-                          values.tagsOfProjectStudent.map((friend, index) => (
-                            <div key={index} className="flex flex-row">
-                              <Field
-                                name={`tagsOfProjectStudent.${index}`}
-                                className="rounded-full border-[1px] border-gray-200 h-[3vh]"
-                              />
-
-                              <div className="flex flex-col">
-                                <button
-                                  type="button"
-                                  onClick={() => arrayHelpers.remove(index)} // remove a friend from the list
-                                >
-                                  -
-                                </button>
-                                <button
-                                  type="button"
-                                  onClick={() => arrayHelpers.insert(index, "")} // insert an empty string at a position
-                                >
-                                  +
-                                </button>
+                      <div className="flex flex-col">
+                        { values.tagsOfProjectStudent &&
+                          values.tagsOfProjectStudent.length <= 3  ? (<button
+                              type="button"
+                              className="flex flex-row  mb-[2vh] justify-center items-center rounded-full border-[2px] px-1 border-gray-100 h-[3vh] w-fit p-[1.5%]"
+                              onClick={() => arrayHelpers.push("")}
+                            >
+                              {/* show this when user has removed all tagsOfProjectStudent from the list */}
+                              <div className="flex flex-row justify-center">
+                                <SvgPlusTags />
+                                เพิ่ม Tag ที่เกี่ยวข้อง
                               </div>
-                            </div>
-                          ))
-                        ) : (
-                          <button
-                            type="button"
-                            className="flex flex-row rounded-full border-[1px] border-gray-200 h-[3vh]"
-                            onClick={() => arrayHelpers.push("")}
-                          >
-                            {/* show this when user has removed all tagsOfProjectStudent from the list */}
-                            <p>+ เพิ่ม Tag ที่เกี่ยวข้อง</p>
-                          </button>
-                        )}
+                            </button>):(<div></div>)}
+                        <div className="flex flex-wrap ">
+                          {values.tagsOfProjectStudent &&
+                          values.tagsOfProjectStudent.length > 0  ? (
+                            values.tagsOfProjectStudent.map((friend, index) => (
+                              <div key={index} className="flex flex-row">
+                                <div className="flex flex-row justify-center items-center rounded-full border-[2px] px-1 border-gray-100 h-[3.6vh] p-[1.5%] pl-[1vw] mr-[1vw] mb-[1vw] w-fit">
+                                  <Field
+                                    name={`tagsOfProjectStudent.${index}`}
+                                    className=""
+                                    placeholder="เพิ่มชื่อtags..."
+                                  />
+
+                                  <div className="flex flex-col">
+                                    <button
+                                      type="button"
+                                      onClick={() => arrayHelpers.remove(index)} // remove a friend from the list
+                                    >
+                                      <SvgCross />
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            ))
+                          ) : (
+                            <div></div>
+                          )}
+                        </div>
                       </div>
                     )}
                   />
-                  {/* End */}
+                  {/* End Tags*/}
                 </div>
                 {/* End text input */}
               </div>

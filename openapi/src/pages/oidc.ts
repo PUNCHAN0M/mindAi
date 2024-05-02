@@ -17,8 +17,8 @@ const oidcConfig: OIDCConfig = {
     onSigninCallback: (user) => {
         window.location.href = '/searchresearch';
     },
-    authority: 'https://psusso-test.psu.ac.th/application/o/psuapi-contest-chanom',
-    client_id: 'xUnSLmLZwZ0bWPVyUvfWsnJHbSIjKUGId6efo2RR',
+    authority: 'http://psusso-test.psu.ac.th/application/o/psuapi-contest-mindai',
+    client_id: '4kuXji1WwwcBg5ivUR7VYuSFphHhLghjhTEeCVOf',
     scope: 'openid email profile offline_access',
     response_type: 'code',
     silent_renew: true,

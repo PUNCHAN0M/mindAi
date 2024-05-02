@@ -13,7 +13,7 @@ export default function create() {
       />
       <Sidebar/>
       <Navbar />
-      <ProjectDetail />
+      <ProjectDetail/>
     </div>
   );
 }

@@ -35,15 +35,15 @@ const ProjectDetail = () => {
             img
           </div>
         </div>
-      <div className="top-title flex items-center justify-start">
+      <div className="top-title flex items-center justify-start ">
         <SvgPen />
-        <p>แก้ไขโพสต์</p>
+        <div>แก้ไขโพสต์</div>
       </div>
       <div className="Card-container-pdc-background ">
-        <div className="Title-Edit-ProjectDetails">
+        <div className="Title-Edit-ProjectDetails pt-[vh]">
           <div className="title-PDC">
             <div className="inside-title">
-              <p>ชื่องานวิจัย</p>
+              <div className="text-[2.5vh] ml-[1.5vw] text-white">ชื่องานวิจัย</div>
             </div>
           </div>
           <div className="Card-ProjectDetailsContainer">
@@ -136,14 +136,14 @@ const ProjectDetail = () => {
             <div className="footer-PDC text-white">
               <div className="boxleft-PDC">
                 <div>
-                  <p>นายสิทธา สหธรรม</p>
+                  <div>นายสิทธา สหธรรม</div>
                 </div>
                 <div className="boxleft-phone space-x-[0.5vw]">
-                  <p>
+                  <div>
                     <SvgPhone />
-                  </p>
-                  <p>012-123123</p>
-                  <p>
+                  </div>
+                  <div>012-123123</div>
+                  <div>
                     <div
                       onClick={() => {
                         setPhone(handleClickEye(phone));
@@ -155,14 +155,14 @@ const ProjectDetail = () => {
                         <SvgEyeCloseWhite />
                       )}
                     </div>
-                  </p>
+                  </div>
                 </div>
                 <div className="boxleft-gmail space-x-[0.5vw]">
-                  <p>
+                  <div>
                     <SvgEnvelope />
-                  </p>
-                  <p>sittasahathum@gmail.com</p>
-                  <p>
+                  </div>
+                  <div>sittasahathum@gmail.com</div>
+                  <div>
                     <div
                       onClick={() => {
                         setEmail(handleClickEye(email));
@@ -174,7 +174,7 @@ const ProjectDetail = () => {
                         <SvgEyeCloseWhite />
                       )}
                     </div>
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -192,7 +192,7 @@ const ProjectDetail = () => {
         </div>
         <div className="selected-option flex flex-col">
           <div className="problem-option justify-between">
-            <p>แสดงปัญหาที่พบ</p>
+            <div>แสดงปัญหาที่พบ</div>
             <div
               onClick={() => {
                 setShowProblem(handleClickEye(showProblem));
@@ -202,7 +202,7 @@ const ProjectDetail = () => {
             </div>
           </div>
           <div className="idea-option justify-between">
-            <p>แสดงไอเดีย</p>
+            <div>แสดงไอเดีย</div>
             <div 
               onClick={() => {
                 setShowIdea(handleClickEye(showIdea));
@@ -212,7 +212,7 @@ const ProjectDetail = () => {
             </div>
           </div>
           <div className="resource-option justify-between">
-            <p>แสดงทรัพยากร</p>
+            <div>แสดงทรัพยากร</div>
             <div
               onClick={() => {
                 setShowResource(handleClickEye(showResource));
@@ -222,7 +222,7 @@ const ProjectDetail = () => {
             </div>
           </div>
           <div className="phone-option justify-between">
-            <p>แสดงเบอร์โทรศัพท์</p>
+            <div>แสดงเบอร์โทรศัพท์</div>
             <div
               onClick={() => {
                 setShowPhone(handleClickEye(showPhone));
@@ -232,7 +232,7 @@ const ProjectDetail = () => {
             </div>
           </div>
           <div className="email-option justify-between">
-            <p>แสดงอีเมล</p>
+            <div>แสดงอีเมล</div>
             <div
               onClick={() => {
                 setShowEmail(handleClickEye(showEmail));
