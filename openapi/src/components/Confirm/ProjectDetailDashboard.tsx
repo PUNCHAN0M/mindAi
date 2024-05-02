@@ -2,7 +2,7 @@ import CardDetail from "./CardDetail";
 import { useState } from "react";
 import React from "react";
 import SvgEyeOpengray from "../SVG/SvgEyeOpenGrey";
-
+import classNames from 'classnames';
 
 interface DropdownProps {
   buttonText: string;
@@ -16,6 +16,7 @@ interface VisibleProps {
 const Dropdown: React.FC<DropdownProps> = ({ buttonText, linkText }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isRotated, setIsRotated] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('');
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -33,13 +34,20 @@ const Dropdown: React.FC<DropdownProps> = ({ buttonText, linkText }) => {
   //ส่งข้อมูลให้หลังบ้าน
   const handleLinkClick = (clickedText: string) => {
     console.log(`${buttonText} : ${clickedText}`);
+
+    
+    if (selectedOption === clickedText) {
+      setSelectedOption('');
+    } else {
+      setSelectedOption(clickedText);
+    }
   };
 
   return (
     <div className="dropdown" onMouseLeave={handleMouseLeave}>
        <button className="dropbtn" onClick={toggleDropdown} >
         <div className="dropbtn-inside">
-          <p>{buttonText}</p>
+          <p>{selectedOption || buttonText}</p>
           <i id="rotate-back" className={isRotated ? 'rotated' : ''}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
@@ -49,9 +57,15 @@ const Dropdown: React.FC<DropdownProps> = ({ buttonText, linkText }) => {
        </button>
         <div className={`dropdown-content ${isOpen ? 'show' : ''}`} onMouseDown={handleMouseIn} onMouseLeave={handleMouseLeave}>
         {linkText.map((text, index) => (
-          <a key={index} href="#" onClick={() => handleLinkClick(text)}>
-          {text}
-        </a>
+          <a
+            key={index}
+            href="#"
+            onClick={() => handleLinkClick(text)}
+            className={classNames({ 'selected-option': selectedOption === text })}
+          >
+            {text}
+          </a>
+        
         ))}
       </div>
     </div>
@@ -61,6 +75,8 @@ const Dropdown: React.FC<DropdownProps> = ({ buttonText, linkText }) => {
 const Visiblebtn: React.FC<VisibleProps> = ({ teacherButtonText, studentButtonText }) => {
   const [isTeacherClicked, setIsTeacherClicked] = useState(false);
   const [isStudentClicked, setIsStudentClicked] = useState(false);
+
+  //ส่งข้อมูลให้หลังบ้าน    
   const handleTeacherClick = () => {
     setIsTeacherClicked(!isTeacherClicked); 
     console.log("showTeacher = " , !isTeacherClicked)
@@ -83,19 +99,48 @@ const Visiblebtn: React.FC<VisibleProps> = ({ teacherButtonText, studentButtonTe
 }
 
 const ProjectDetailDashboard = () => {
+  const [showFeedPage, setShowFeedPage] = useState(true);
+  const [isActiveHomePage, setIsActiveHomePage] = useState(false);
+  const [isActiveRecommendedPage, setIsActiveRecommendedPage] = useState(false);
 
+  //ส่งข้อมูลให้หลังบ้าน    
+  const handleHomePageClick = () => {
+    
+    setShowFeedPage(true);
+    console.log("user click หน้าหลัก")
+    setIsActiveHomePage(true);
+    setIsActiveRecommendedPage(false);
+  };
+
+  const handleRecommendedPageClick = () => {
+    setShowFeedPage(false);
+    console.log("user click งานวิจัยที่แนะนำ")
+    setIsActiveHomePage(false);
+    setIsActiveRecommendedPage(true);
+  };
   return (
     <div className="HomePage">
     <div className="HomePage-container">
     <div className="left-HomePage">
         <div className="topbar-title">
-            <div className="topbar-HomePage"><p>หน้าหลัก</p></div>
-            <div className="recommended-HomePage"><p>งานวิจัยที่แนะนำสำหรับคุณ</p></div>
-        </div>
+        <div className={`topbar-HomePage ${isActiveHomePage ? 'active' : ''}`} onClick={handleHomePageClick}>
+  <p>หน้าหลัก</p>
+  <div className="line"></div>
+</div>
+<div className={`recommended-HomePage ${isActiveRecommendedPage ? 'active' : ''}`} onClick={handleRecommendedPageClick}>
+  <p>งานวิจัยที่แนะนำสำหรับคุณ</p>
+  <div className="line"></div>
+</div>
+    </div>
+    {showFeedPage ? (
         <div className="feedPage">
-        <CardDetail/>
-        <CardDetail/>
+          <CardDetail/>
+          <CardDetail/>
         </div>
+      ) : (
+        <div className="recommandPage">
+          <CardDetail/>
+        </div> )}
     </div>
     <div className="right-HomePage">
         <div className="searchtop-bar">
@@ -120,30 +165,32 @@ const ProjectDetailDashboard = () => {
           <div className="searchbar-department">
             <input placeholder="ค้นหารายชื่อคณะ/สาขา" type="text" />
           </div>
+
+          {/* ส่งข้อมูลให้หลังบ้าน */}
           <div className="dropdownline-A">
             <div className="dropdownleft">
               <Dropdown buttonText="ระดับการศึกษา"
-              linkText={['Link 1', 'Link 2', 'Link 3', 'Link 4', 'Link 5']} />
+              linkText={['ปริญญาตรี', 'ปริญญาโท', 'ปริญญาเอก']} />
             </div>
             <div className="dropdownright">
               <Dropdown buttonText="ผลตอบแทน"
-              linkText={['Link 1123', 'Link 2', 'Link 3', 'Link 4', 'Link 5']} />
+              linkText={['ไม่ต้องการผลตอบแทน', '200-1000 บาท', '1000-3000 บาท', '3000-5000 บาท', 'มากกว่า 5000 บาท']} />
             </div>
           </div>
           <div className="dropdownline-B">
             <div className="dropdownleft">
-              <Dropdown buttonText="ระดับการศึกษา"
+              <Dropdown buttonText="หมวดหมู่"
               linkText={['Link 1', 'Link 2', 'Link 3', 'Link 4', 'Link 5']} />
             </div>
             <div className="dropdownright">
-              <Dropdown buttonText="ผลตอบแทน"
-              linkText={['Link 1123', 'Link 2', 'Link 3', 'Link 4', 'Link 5']} />
+              <Dropdown buttonText="เวลาที่ว่าง"
+              linkText={['30 นาที','1 ชั่วโมง', '2-4 ชั่วโมง', 'มากกว่า 4 ชั่วโมง']} />
             </div>      
           </div>
-          <div className="DateTime">
+          {/* <div className="DateTime">
             <div className="dateStart">CalenderA</div>
             <div className="dateEnd">CalenderB</div>
-          </div>
+          </div> */}
         </div>
         <hr className="DateLine" />
 

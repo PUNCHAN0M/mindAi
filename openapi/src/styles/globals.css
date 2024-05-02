@@ -288,7 +288,8 @@
 .Title-Edit-ProjectDetails{
   background-color: #3F979B;
   height: 55vh;
-  margin-top: 5vh;
+  margin-top: 2vh;
+  
   border-radius: 20px;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.175);
 
@@ -499,25 +500,28 @@
   box-shadow: 1px 2px 2px 4px rgba(0, 0, 0, 0.108);
 }
 .topbar-title{
-  background-color: rgb(206, 206, 135);
   grid-template-columns: auto auto;
   display: grid;
-  box-shadow: 0px 1px 2px 2px rgba(0, 0, 0, 0.201);
+  box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.084);
   width: 73vw;
   height: 8vh;
 }
+
 .topbar-HomePage,.recommended-HomePage{
   text-align: center;
   justify-content: center;
   align-items: center;
   padding-top: 3vh;
+  background-color: #FFFFFF;
+  transition: background-color 0.3s ease;
 
+}
+.topbar-HomePage:hover , .recommended-HomePage:hover{
+  background-color: #dfdfdf;
+  cursor: pointer;
 }
 .topbar-HomePage{
   margin-left: 2vw;
-}
-.recommended-HomePage{
-  background-color: #3F979B;
 }
 .HomePage-container{
   display: flex;
@@ -654,6 +658,9 @@
 .dropdownline-A , .dropdownline-B{
   margin-top: 4vh;
 }
+.dropdown button{
+  border: 1px solid rgb(101, 101, 101);
+}
 .DateTime{
   background-color: rgb(191, 169, 169);
   margin-top: 3vh;
@@ -689,7 +696,7 @@
   align-items: center;
   justify-content: center;
   margin-left: 7vw;
-  transition: all 0.3s ease; /* Smooth transition for all properties over 0.3 seconds */
+  transition: all 0.3s ease; 
 
 }
 .create-researchcontainr:hover{
@@ -722,10 +729,41 @@
   box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.089);
   color: #ffffffce;
 }
-.feedPage{
+.feedPage,.recommandPage{
   overflow: scroll;
   align-items: center;
   justify-content: center;
   padding-left: 10vw;
   height: 100%;
+  transition: opacity 0.5s ease-in-out; 
+}
+.selected-option {
+  background-color: rgb(231, 231, 231);
+  max-height: 200px; 
+  height: 3vw;
+}
+.selected-option:hover {
+  background-color: rgb(94, 128, 0);
+}
+
+.searchbar input , .searchbar-department input{
+  text-align: center;
+}
+.topbar-HomePage, .recommended-HomePage {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.topbar-HomePage.active .line,
+.recommended-HomePage.active .line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -4px;
+  width: 15%;
+  height: 5px;
+  background-color: #3F979B;
+  transition: bottom 0.5s ease, width 0.5s ease, height 0.5s ease, background-color 0.5s ease;
+  border-radius: 10px;
 }
