@@ -12,6 +12,12 @@ interface VisibleProps {
   teacherButtonText: string;
   studentButtonText: string;
 }
+const imageUrls: string[] = [
+  "https://images.unsplash.com/photo-1591154669695-5f2a8d20c089?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1517404215738-15263e9f9178?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+];
 
 const Dropdown: React.FC<DropdownProps> = ({ buttonText, linkText }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,7 +67,7 @@ const Dropdown: React.FC<DropdownProps> = ({ buttonText, linkText }) => {
             key={index}
             href="#"
             onClick={() => handleLinkClick(text)}
-            className={classNames({ 'selected-option': selectedOption === text })}
+            className={classNames({ 'selected-option-now': selectedOption === text })}
           >
             {text}
           </a>
@@ -134,12 +140,24 @@ const ProjectDetailDashboard = () => {
     </div>
     {showFeedPage ? (
         <div className="feedPage">
-          <CardDetail/>
-          <CardDetail/>
+          <CardDetail researchName="โดรนเปลี่ยนแบตเตอรี่กลางอากาศ"   
+          image={imageUrls[0]} 
+          profileUrl = {imageUrls[2]} 
+          idea = "ไอเดีย" 
+          problem = "ปัญหาที่พบ" 
+          resource = "ทรัพยากร"/>
+
+          <CardDetail researchName="หูฟังเพื่อการมองเห็น"   
+          image={imageUrls[1]} 
+          profileUrl = {imageUrls[1]} 
+          idea = "ไอเดีย" 
+          problem = "ปัญหาที่พบ" 
+          resource = "ทรัพยากร"/>
         </div>
+        
       ) : (
         <div className="recommandPage">
-          <CardDetail/>
+          <CardDetail researchName="โดรนเพื่อการเกษตร" image ={imageUrls[1]} profileUrl = {imageUrls[1]} idea = "ไอเดีย" problem = "ปัญหาที่พบ" resource = "ทรัพยากร"/>
         </div> )}
     </div>
     <div className="right-HomePage">

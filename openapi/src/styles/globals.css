@@ -385,7 +385,20 @@
 .shadow-searchresearch{
   box-shadow: 1px 1px 1px 1px #bdc5cdd1;
 }
-
+.toptitle-post{
+  margin-top: -1.7vh;
+}
+.img-front-left-bdc{
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+}
+.img-front-left-bdc img {
+  max-width: 100%; /* Ensure the image does not exceed the container's width */
+  max-height: 100%; /* Ensure the image does not exceed the container's height */
+  object-fit: contain; /* Maintain aspect ratio and fit within the container */
+}
 /* /////////////////////////////////////////////// */
 .sidebar {
   position: fixed;
@@ -737,14 +750,12 @@
   height: 100%;
   transition: opacity 0.5s ease-in-out; 
 }
-.selected-option {
+.selected-option-now {
   background-color: rgb(231, 231, 231);
   max-height: 200px; 
   height: 3vw;
 }
-.selected-option:hover {
-  background-color: rgb(94, 128, 0);
-}
+
 
 .searchbar input , .searchbar-department input{
   text-align: center;

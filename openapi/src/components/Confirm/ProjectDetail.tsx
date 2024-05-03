@@ -35,9 +35,11 @@ const ProjectDetail = () => {
             img
           </div>
         </div>
+      <div className="toptitle-post">
       <div className="top-title flex items-center justify-start ">
         <SvgPen />
         <div>แก้ไขโพสต์</div>
+      </div>
       </div>
       <div className="Card-container-pdc-background ">
         <div className="Title-Edit-ProjectDetails pt-[vh]">
