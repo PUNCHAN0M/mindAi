@@ -72,12 +72,12 @@ const FormImage = () => {
       {/* end prebious btn */}
       {/* strat inputbox */}
       <div>
-        <div className="relative  flex flex-col bg-white shadow-searchresearch  rounded-lg w-[100%] h-[30vh] justify-center ">
+        <div className="relative  flex flex-col bg-white rounded-lg w-[100%] h-[30vh] justify-center ">
           {/*strat If input is max must be in put */}
           {Allfiles.length == maxPicture ? (
-            <label className=" relative flex flex-col items-center w-[100%] h-[100%] justify-center ">
+            <label className=" relative flex flex-col items-center w-[100%] h-[100%] justify-center inputImageForm">
               {Allfiles.length > 0 && (
-                <div className="absolute justify-center w-full h-full z-50">
+                <div className="absolute justify-center w-full h-full z-50 ">
                   {Allfiles.map((file, index) => (
                     <Image
                       key={index}
