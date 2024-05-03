@@ -1,6 +1,6 @@
 const SvgEyeClosegray = () => (
   <svg
-    className="w-[2.5vh] h-[2.5vh] text-gray-200"
+    className="w-[2.5vh] h-[2.5vh]"
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="24"

@@ -58,9 +58,9 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
     >
       {({ values, dirty, touched, errors }) => (
         <Form>
-          <div className="flex flex-col text-black text-[1.5vw] bg-white h-screen">
+          <div className="flex flex-col  text-black text-[1.5vw] bg-white h-screen">
             {/* Start Form img and text */}
-            <div className="flex justify-center items-start h-[65%] mt-[8%]">
+            <div className="flex flex-wrap justify-center items-start h-[65%] mt-[8%]">
               <div className="flex w-[30%] ml-[2vw]">
                 <FormImage />
               </div>

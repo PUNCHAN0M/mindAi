@@ -5,7 +5,7 @@ const SvgEnvelope = () => (
     xmlns="http://www.w3.org/2000/svg"
     width="24"
     height="24"
-    fill="currentColor"
+    fill="white"
     viewBox="0 0 24 24"
   >
     <path d="M2.038 5.61A2.01 2.01 0 0 0 2 6v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6c0-.12-.01-.238-.03-.352l-.866.65-7.89 6.032a2 2 0 0 1-2.429 0L2.884 6.288l-.846-.677Z" />
