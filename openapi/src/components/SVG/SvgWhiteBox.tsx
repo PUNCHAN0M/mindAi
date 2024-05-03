@@ -1,6 +1,6 @@
-const SvgEyeOpenWhite = () => (
+const SvgWhiteBox = () => (
   <svg
-    className="w-[2.5vh] h-[2.5vh] text-white cursor-pointer"
+    className="w-[2.5vh] h-[2.5vh] text-white"
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -20,4 +20,4 @@ const SvgEyeOpenWhite = () => (
     />
   </svg>
 );
-export default SvgEyeOpenWhite;
+export default SvgWhiteBox;

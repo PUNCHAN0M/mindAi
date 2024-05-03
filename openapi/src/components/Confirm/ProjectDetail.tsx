@@ -9,20 +9,38 @@ import clsx from "clsx";
 import SvgEyeCloseWhite from "../SVG/SvgEyeCloseWhite";
 import SvgCircle from "../SVG/SvgCircle";
 import SvgChecked from "../SVG/SvgChecked";
+import SvgWhiteBox from "../SVG/SvgWhiteBox";
 
-const ProjectDetail = () => {
-  const [name, setName] = useState(false);
-  const [idea, setIdea] = useState(false);
-  const [problem, setProblem] = useState(false);
-  const [resource, setResource] = useState(false);
-  const [phone, setPhone] = useState(false);
-  const [email, setEmail] = useState(false);
+interface CardDetailProp {
+  nameProject: string;
+  ideaProject: string;
+  problemProject: string;
+  resourcePrject: string;
+  nameCreater: string;
+  phoneCreater: string;
+  emailCreater: string;
+}
 
-  const [showIdea, setShowIdea] = useState(false);
-  const [showProblem, setShowProblem] = useState(false);
-  const [showResource, setShowResource] = useState(false);
-  const [showPhone, setShowPhone] = useState(false);
-  const [showEmail, setShowEmail] = useState(false);
+const CardProjectDetail: React.FC<CardDetailProp> = ({
+  nameProject,
+  ideaProject,
+  problemProject,
+  resourcePrject,
+  nameCreater,
+  phoneCreater,
+  emailCreater,
+}) => {
+  const [problem, setProblem] = useState(true);
+  const [resource, setResource] = useState(true);
+  const [phone, setPhone] = useState(true);
+
+  const handlePost = (values:CardDetailProp) => {
+    // รับจากFormStudent
+    console.log({values})
+    console.log(`problem :${problem}`); //true ตาเปิด,เช็คแล้ว false ตาปิด,ยังงไม่เช็ค
+    console.log(`resource :${resource}`);
+    console.log(`phone :${phone}`);
+  };
 
   const handleClickEye = (val: boolean) => {
     return !val;
@@ -31,10 +49,10 @@ const ProjectDetail = () => {
   return (
     <div className="ProjectDetailsContainer text-[1.5vh] p-[2vw]">
       <div className="flex absolute h-[4.3vw] w-[4.3vw] mt-[47vh] ml-[3vw]">
-          <div className="flex bg-yellow-200  w-full h-full rounded-full border-[0.5vh] border-white ">
-            img
-          </div>
+        <div className="flex bg-yellow-200  w-full h-full rounded-full border-[0.5vh] border-white ">
+          img
         </div>
+      </div>
       <div className="top-title flex items-center justify-start ">
         <SvgPen />
         <div>แก้ไขโพสต์</div>
@@ -43,7 +61,9 @@ const ProjectDetail = () => {
         <div className="Title-Edit-ProjectDetails pt-[vh]">
           <div className="title-PDC">
             <div className="inside-title">
-              <div className="text-[2.5vh] ml-[1.5vw] text-white">ชื่องานวิจัย</div>
+              <div className="text-[2.5vh] ml-[1.5vw] text-white">
+                ชื่องานวิจัย
+              </div>
             </div>
           </div>
           <div className="Card-ProjectDetailsContainer">
@@ -53,37 +73,16 @@ const ProjectDetail = () => {
                   <div className="img-front-left-bdc">Image</div>
                 </div>
                 <div className="front-right-bdc">
-                  <div
-                    className="names-research flex items-end space-x-[0.5vw]"
-                    onClick={() => {
-                      setName(handleClickEye(name));
-                    }}
-                  >
-                    {name === false ? <SvgEyeOpengray /> : <SvgEyeClosegray />}
-
-                    <p
-                      className={clsx(
-                        "",
-                        name === false ? "" : "text-gray-200"
-                      )}
-                    >
-                      ชื่องานวิจัย
+                  <div className="names-research flex items-end space-x-[0.5vw]">
+                    <SvgWhiteBox />
+                    <p className={clsx("text-gray-200")}>
+                      ชื่องานวิจัย : {nameProject}
                     </p>
                   </div>
-                  <div
-                    className="names-idea flex items-end space-x-[0.5vw]"
-                    onClick={() => {
-                      setIdea(handleClickEye(idea));
-                    }}
-                  >
-                    {idea === false ? <SvgEyeOpengray /> : <SvgEyeClosegray />}
-                    <p
-                      className={clsx(
-                        "",
-                        idea === false ? "" : "text-gray-200"
-                      )}
-                    >
-                      ไอเดีย
+                  <div className="names-idea flex items-end space-x-[0.5vw]">
+                    <SvgWhiteBox />
+                    <p className={clsx("text-gray-200")}>
+                      ไอเดีย : {ideaProject}
                     </p>
                   </div>
                   <div
@@ -92,7 +91,7 @@ const ProjectDetail = () => {
                       setProblem(handleClickEye(problem));
                     }}
                   >
-                    {problem === false ? (
+                    {problem === true ? (
                       <SvgEyeOpengray />
                     ) : (
                       <SvgEyeClosegray />
@@ -101,10 +100,10 @@ const ProjectDetail = () => {
                     <p
                       className={clsx(
                         "",
-                        problem === false ? "" : "text-gray-200"
+                        problem === true ? "" : "text-gray-200"
                       )}
                     >
-                      ปัญหาที่พบ
+                      ปัญหาที่พบ : {problemProject}
                     </p>
                   </div>
                   <div
@@ -113,7 +112,7 @@ const ProjectDetail = () => {
                       setResource(handleClickEye(resource));
                     }}
                   >
-                    {resource === false ? (
+                    {resource === true ? (
                       <SvgEyeOpengray />
                     ) : (
                       <SvgEyeClosegray />
@@ -122,10 +121,10 @@ const ProjectDetail = () => {
                     <p
                       className={clsx(
                         "",
-                        resource === false ? "" : "text-gray-200"
+                        resource === true ? "" : "text-gray-200"
                       )}
                     >
-                      ทรัพยากร
+                      ทรัพยากร {resourcePrject}
                     </p>
                   </div>
                 </div>
@@ -136,13 +135,13 @@ const ProjectDetail = () => {
             <div className="footer-PDC text-white">
               <div className="boxleft-PDC">
                 <div>
-                  <div>นายสิทธา สหธรรม</div>
+                  <div className="text-white">{nameCreater}</div>
                 </div>
                 <div className="boxleft-phone space-x-[0.5vw]">
                   <div>
                     <SvgPhone />
                   </div>
-                  <div>012-123123</div>
+                  <div className="text-white">{phoneCreater}</div>
                   <div>
                     <div
                       onClick={() => {
@@ -161,93 +160,81 @@ const ProjectDetail = () => {
                   <div>
                     <SvgEnvelope />
                   </div>
-                  <div>sittasahathum@gmail.com</div>
-                  <div>
-                    <div
-                      onClick={() => {
-                        setEmail(handleClickEye(email));
-                      }}
-                    >
-                      {email === false ? (
-                        <SvgEyeOpenWhite />
-                      ) : (
-                        <SvgEyeCloseWhite />
-                      )}
-                    </div>
-                  </div>
+                  <div className="text-white">{emailCreater}</div>
                 </div>
               </div>
             </div>
-            <div className="boxright-PDC font-extralight text-white text-[1.6vh]">
-              <button>เข้าดู</button>
+            <div className="boxright-PDC font-extralight text-white text-[1.6vh] cursor-default">
+              <button className="cursor-default">เข้าดู</button>
             </div>
           </div>
         </div>
       </div>
-      <div className="OptionSelected-Card">
-        <div className="flex justify-center ">
+      <div className="OptionSelected-Card flex flex-col justify-start">
+        <div className="flex justify-center">
           <div className="bg-gray-150 rounded-full w-[9vw] flex justify-center p-[0.4vh] align-middle ml-[2vw]">
             ตัวเลือกการแสดงผล
           </div>
         </div>
-        <div className="selected-option flex flex-col">
+        <div className="flex flex-col">
           <div className="problem-option justify-between">
             <div>แสดงปัญหาที่พบ</div>
             <div
               onClick={() => {
-                setShowProblem(handleClickEye(showProblem));
+                setProblem(handleClickEye(problem));
               }}
             >
-              {showProblem === false ? <SvgCircle /> : <SvgChecked />}
+              {problem === false ? <SvgCircle /> : <SvgChecked />}
             </div>
           </div>
-          <div className="idea-option justify-between">
-            <div>แสดงไอเดีย</div>
-            <div 
-              onClick={() => {
-                setShowIdea(handleClickEye(showIdea));
-              }}
-            >
-              {showIdea === false ? <SvgCircle /> : <SvgChecked />}
-            </div>
-          </div>
+
           <div className="resource-option justify-between">
             <div>แสดงทรัพยากร</div>
             <div
               onClick={() => {
-                setShowResource(handleClickEye(showResource));
+                setResource(handleClickEye(resource));
               }}
             >
-              {showResource === false ? <SvgCircle /> : <SvgChecked />}
+              {resource === false ? <SvgCircle /> : <SvgChecked />}
             </div>
           </div>
           <div className="phone-option justify-between">
             <div>แสดงเบอร์โทรศัพท์</div>
             <div
               onClick={() => {
-                setShowPhone(handleClickEye(showPhone));
+                setPhone(handleClickEye(phone));
               }}
             >
-              {showPhone === false ? <SvgCircle /> : <SvgChecked />}
-            </div>
-          </div>
-          <div className="email-option justify-between">
-            <div>แสดงอีเมล</div>
-            <div
-              onClick={() => {
-                setShowEmail(handleClickEye(showEmail));
-              }}
-            >
-              {showEmail === false ? <SvgCircle /> : <SvgChecked />}
+              {phone === false ? <SvgCircle /> : <SvgChecked />}
             </div>
           </div>
         </div>
-        <div className="post-btn font-bold text-[1.6vh]">
-          <button>โพสต์</button>
+        <div className="post-btn font-bold text-[1.6vh] mt-[23vh]">
+          <button
+            onClick={() => {
+              handlePost({nameProject,ideaProject,problemProject,resourcePrject,nameCreater,phoneCreater,emailCreater});
+            }}
+          >
+            โพสต์
+          </button>
         </div>
       </div>
     </div>
   );
 };
 
+const ProjectDetail = () => {
+  return (
+    // ส่งค่ามาจาก FormSyudent
+    <CardProjectDetail
+      nameProject="การวิจัยศาสตร์มืด"
+      ideaProject="ความแรงของเวทมนตร์เมื่อโดนคน"
+      problemProject="เวทมนตร์แบบเก่ามาก"
+      resourcePrject="ไม้คทาสำหรับการร่าย และอาหารฟรีมื้อเย็น"
+      nameCreater="นายสิทธา  สหรรม"
+      phoneCreater="085-123401234"
+      emailCreater="sitasahahum@gmail.com"
+    />
+  );
+};
 export default ProjectDetail;
