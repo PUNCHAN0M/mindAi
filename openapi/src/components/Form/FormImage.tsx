@@ -133,7 +133,7 @@ const FormImage = ({ onFileSelect }: any) => {
                 className="fileInput  "
                 accept="image/png, image/jpeg"
                 multiple
-                onChange={handleFileChange}
+                onChange={(e)=>{handleFileChange(e)}}
               />
               <SvgPluse />
               <span className="flex text-[80%] mx-[50px] mt-[30px] font-bold z-20">
