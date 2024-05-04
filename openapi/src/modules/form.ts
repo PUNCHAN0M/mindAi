@@ -19,12 +19,13 @@ export const formProjectSchemaText = z.object({
 export type formTextSchema = z.infer<typeof formProjectSchemaText>;
 
 export const formSchemaImage = z.object({
-  imageOfProject: z.any().refine((val) => val.length > 0, "File is required"),
+  imageOfProject: z.any().array()
 });
 
 export type formImageSchema = z.infer<typeof formSchemaImage>;
 
 export const formStudent = z.object({
+  imageOfProject: z.any().array().optional(),
   nameOfProjectStudent: z
     .string({
       required_error: "ต้องใส่งานวิจัย",

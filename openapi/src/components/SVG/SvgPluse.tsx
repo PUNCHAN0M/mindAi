@@ -3,7 +3,7 @@ const SvgPluse = () => (
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
-    stroke-width="1.5"
+    strokeWidth="1.5"
     stroke="black"
     className="w-[3vw] h-[3vw] text-gray-800 z-20 rounded-xl p-[0.2vw]"
   >

@@ -13,6 +13,7 @@ import SvgCross from "../SVG/SvgCross";
 import { useRouter } from "next/router";
 
 const initialFormValue: formStudentSchema = {
+  imageOfProject: [],
   nameOfProjectStudent: "",
   departmentOfProjectStudent: "",
   statusOfProjectStudent: "",
@@ -31,8 +32,11 @@ export type FormikProps = {
 };
 
 const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
-
   const router = useRouter();
+
+  const handleFileSelect = (selectedFiles: any) => {
+    initialFormValue.imageOfProject = [...selectedFiles];
+  };
 
   const handleSubmit = (values: formStudentSchema): void => {
     submitStd(values);
@@ -42,7 +46,7 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
       values.statusOfProjectStudent &&
       values.periodEndOfProjectStudent &&
       values.periodStartOfProjectStudent &&
-      values.aptitudeOfProjectStudent && 
+      values.aptitudeOfProjectStudent &&
       values.ideaOfProjectStudent
     ) {
       console.log("change page now!");
@@ -62,7 +66,7 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
             {/* Start Form img and text */}
             <div className="flex flex-wrap justify-center items-start h-[65%] mt-[8%]">
               <div className="flex w-[30%] ml-[2vw]">
-                <FormImage />
+                <FormImage onFileSelect={handleFileSelect} />
               </div>
 
               {/* Start insert text and date */}
@@ -70,7 +74,9 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                 <div className="flex flex-wrap space-x-[1vw]">
                   {/* Start nameproject Feild*/}
                   <div className="flex flex-col ">
-                    <label className="flex "><p className="text-red">*</p>ชื่องานวิจัย</label>
+                    <label className="flex ">
+                      <p className="text-red">*</p>ชื่องานวิจัย
+                    </label>
                     <Field
                       name="nameOfProjectStudent"
                       className={clsx(
@@ -95,7 +101,9 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                   {/* End nameproject Feild*/}
                   {/* Start department*/}
                   <div className="flex flex-col">
-                    <label className="flex"><p className="text-red">*</p>สาขาที่ต้องการ</label>
+                    <label className="flex">
+                      <p className="text-red">*</p>สาขาที่ต้องการ
+                    </label>
                     <Field
                       name="departmentOfProjectStudent"
                       className={clsx(
@@ -122,7 +130,9 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                   {/* End  department*/}
                   {/* Start status Feild*/}
                   <div className="flex flex-col">
-                    <label className="flex"><p className="text-red">*</p>สถานะ</label>
+                    <label className="flex">
+                      <p className="text-red">*</p>สถานะ
+                    </label>
                     <Field
                       name="statusOfProjectStudent"
                       component="select"
@@ -158,7 +168,9 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                   {/* Start periodStartOfProject Feild*/}
 
                   <div className="flex flex-col">
-                    <label className="flex"><p className="text-red">*</p>เวลาเริ่มต้น</label>
+                    <label className="flex">
+                      <p className="text-red">*</p>เวลาเริ่มต้น
+                    </label>
                     <Field
                       name="periodStartOfProjectStudent"
                       type="date"
@@ -188,7 +200,9 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                   {/* Strat periodEndOfProject Feild*/}
 
                   <div className="flex flex-col">
-                    <label className="flex"><p className="text-red">*</p>เวลาสิ้นสุด</label>
+                    <label className="flex">
+                      <p className="text-red">*</p>เวลาสิ้นสุด
+                    </label>
                     <Field
                       name="periodEndOfProjectStudent"
                       type="date"
@@ -222,7 +236,10 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                 {/* Start text input */}
                 <div className="flex flex-col bg-white space-y-[2vh]">
                   <div className="flex flex-col">
-                    <label className="flex"><p className="text-red">*</p>ความถนัด / ความสามารถที่ต้องการ</label>
+                    <label className="flex">
+                      <p className="text-red">*</p>ความถนัด /
+                      ความสามารถที่ต้องการ
+                    </label>
                     <Field
                       name="aptitudeOfProjectStudent"
                       className={clsx(
@@ -247,7 +264,9 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label className="flex"><p className="text-red">*</p>ไอเดีย</label>
+                    <label className="flex">
+                      <p className="text-red">*</p>ไอเดีย
+                    </label>
                     <Field
                       name="ideaOfProjectStudent"
                       className={clsx(
@@ -355,21 +374,25 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                     name="tagsOfProjectStudent"
                     render={(arrayHelpers) => (
                       <div className="flex flex-col">
-                        { values.tagsOfProjectStudent &&
-                          values.tagsOfProjectStudent.length <= 3  ? (<button
-                              type="button"
-                              className="flex flex-row  mb-[2vh] justify-center items-center rounded-full border-[2px] px-1 border-gray-100 h-[4vh] w-fit p-[1.5%]"
-                              onClick={() => arrayHelpers.push("")}
-                            >
-                              {/* show this when user has removed all tagsOfProjectStudent from the list */}
-                              <div className="flex flex-row justify-center">
-                                <SvgPlusTags />
-                                เพิ่ม Tag ที่เกี่ยวข้อง
-                              </div>
-                            </button>):(<div></div>)}
+                        {values.tagsOfProjectStudent &&
+                        values.tagsOfProjectStudent.length <= 3 ? (
+                          <button
+                            type="button"
+                            className="flex flex-row  mb-[2vh] justify-center items-center rounded-full border-[2px] px-1 border-gray-100 h-[4vh] w-fit p-[1.5%]"
+                            onClick={() => arrayHelpers.push("")}
+                          >
+                            {/* show this when user has removed all tagsOfProjectStudent from the list */}
+                            <div className="flex flex-row justify-center">
+                              <SvgPlusTags />
+                              เพิ่ม Tag ที่เกี่ยวข้อง
+                            </div>
+                          </button>
+                        ) : (
+                          <div></div>
+                        )}
                         <div className="flex flex-wrap ">
                           {values.tagsOfProjectStudent &&
-                          values.tagsOfProjectStudent.length > 0  ? (
+                          values.tagsOfProjectStudent.length > 0 ? (
                             values.tagsOfProjectStudent.map((friend, index) => (
                               <div key={index} className="flex flex-row">
                                 <div className="flex flex-row justify-center items-center rounded-full border-[2px] px-1 border-gray-100 h-[3.6vh] p-[1.5%] pl-[1vw] mr-[1vw] mb-[1vw] w-fit">

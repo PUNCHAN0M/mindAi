@@ -9,10 +9,15 @@ import clsx from "clsx";
 import Image from "next/image";
 import SvgLeftArrow from "../SVG/SvgLeftArrow";
 import SvgRightArrow from "../SVG/SvgRightArrow";
-import SvgCross from "../SVG/SvgCross";
 
-const FormImage = () => {
+const FormImage = ({ onFileSelect }:any) => {
   const maxPicture: number = 5;
+
+  const handleFileChange = (e:any) => {
+    const selectedFiles = e.target.files;
+    onFileSelect(selectedFiles);
+  };
+
   const [Allfiles, setAllFiles] = useState<File[]>([]);
 
   useEffect(() => {
@@ -103,7 +108,7 @@ const FormImage = () => {
           ) : (
             <label
               htmlFor="fileInput"
-              className=" relative flex flex-col items-center w-[100%] h-[100%] justify-center cursor-pointer hover:bg-gray-10 hover:rounded-lg hover:border-1 hover:border-gray-200 "
+              className=" relative flex flex-col items-center w-[100%] h-[100%] justify-center cursor-pointer shadow-searchresearch rounded-lg hover:bg-gray-10 hover:rounded-lg hover:border-1 hover:border-gray-200 "
             >
               {Allfiles.length > 0 && (
                 <div className="absolute justify-center w-full h-full z-50">
@@ -122,12 +127,14 @@ const FormImage = () => {
               )}
               <input
                 type="file"
-                name="image"
+                name="imageOfProject"
                 id="fileInput"
                 hidden
                 className="fileInput  "
                 accept="image/png, image/jpeg"
                 multiple
+                onChange={handleFileChange}
+
               />
               <SvgPluse />
               <span className="flex text-[80%] mx-[50px] mt-[30px] font-bold z-20">
@@ -146,7 +153,9 @@ const FormImage = () => {
               className={clsx(
                 "absolute bg-gray-10 w-[1vw] h-[1vw] right-[1vw] top-[1vh] rounded-full z-50"
               )}
-              onClick={handleClickDelete}
+              onClick={() => {
+                handleClickDelete();
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
