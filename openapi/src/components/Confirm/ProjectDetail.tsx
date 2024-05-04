@@ -12,6 +12,7 @@ import SvgChecked from "../SVG/SvgChecked";
 import SvgWhiteBox from "../SVG/SvgWhiteBox";
 
 interface CardDetailProp {
+  statusProject:string
   nameProject: string;
   ideaProject: string;
   problemProject: string;
@@ -22,6 +23,7 @@ interface CardDetailProp {
 }
 
 const CardProjectDetail: React.FC<CardDetailProp> = ({
+  statusProject,
   nameProject,
   ideaProject,
   problemProject,
@@ -34,9 +36,9 @@ const CardProjectDetail: React.FC<CardDetailProp> = ({
   const [resource, setResource] = useState(true);
   const [phone, setPhone] = useState(true);
 
-  const handlePost = (values:CardDetailProp) => {
+  const handlePost = (values: CardDetailProp) => {
     // รับจากFormStudent
-    console.log({values})
+    console.log({ values });
     console.log(`problem :${problem}`); //true ตาเปิด,เช็คแล้ว false ตาปิด,ยังงไม่เช็ค
     console.log(`resource :${resource}`);
     console.log(`phone :${phone}`);
@@ -60,9 +62,12 @@ const CardProjectDetail: React.FC<CardDetailProp> = ({
       <div className="Card-container-pdc-background ">
         <div className="Title-Edit-ProjectDetails pt-[vh]">
           <div className="title-PDC">
-            <div className="inside-title">
-              <div className="text-[2.5vh] ml-[1.5vw] text-white">
+            <div className="inside-title flex justify-between ">
+              <div className="text-[2.5vh] ml-[1.5vw] text-white mt-[1vh]">
                 ชื่องานวิจัย
+              </div>
+              <div className="text-[1.8vh] mr-[1.5vw] text-white mt-[1vh]">
+                ต้องการ{statusProject}
               </div>
             </div>
           </div>
@@ -212,7 +217,16 @@ const CardProjectDetail: React.FC<CardDetailProp> = ({
         <div className="post-btn font-bold text-[1.6vh] mt-[23vh]">
           <button
             onClick={() => {
-              handlePost({nameProject,ideaProject,problemProject,resourcePrject,nameCreater,phoneCreater,emailCreater});
+              handlePost({
+                statusProject,
+                nameProject,
+                ideaProject,
+                problemProject,
+                resourcePrject,
+                nameCreater,
+                phoneCreater,
+                emailCreater,
+              });
             }}
           >
             โพสต์
@@ -227,6 +241,7 @@ const ProjectDetail = () => {
   return (
     // ส่งค่ามาจาก FormSyudent
     <CardProjectDetail
+    statusProject="นักศึกษา"
       nameProject="การวิจัยศาสตร์มืด"
       ideaProject="ความแรงของเวทมนตร์เมื่อโดนคน"
       problemProject="เวทมนตร์แบบเก่ามาก"

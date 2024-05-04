@@ -10,10 +10,10 @@ import Image from "next/image";
 import SvgLeftArrow from "../SVG/SvgLeftArrow";
 import SvgRightArrow from "../SVG/SvgRightArrow";
 
-const FormImage = ({ onFileSelect }:any) => {
+const FormImage = ({ onFileSelect }: any) => {
   const maxPicture: number = 5;
 
-  const handleFileChange = (e:any) => {
+  const handleFileChange = (e: any) => {
     const selectedFiles = e.target.files;
     onFileSelect(selectedFiles);
   };
@@ -134,7 +134,6 @@ const FormImage = ({ onFileSelect }:any) => {
                 accept="image/png, image/jpeg"
                 multiple
                 onChange={handleFileChange}
-
               />
               <SvgPluse />
               <span className="flex text-[80%] mx-[50px] mt-[30px] font-bold z-20">
