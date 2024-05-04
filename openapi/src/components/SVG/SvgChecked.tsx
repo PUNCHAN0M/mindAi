@@ -5,7 +5,7 @@ const SvgChecked = () => (
     height="20px"
     viewBox="0 0 24 24"
     fill="none"
-    className="w-[2.5vh] h-[2.5vh]"
+    className="w-[2.5vh] h-[2.5vh] cursor-pointer"
   >
     <rect width="24" height="24" fill="white" />
     <path

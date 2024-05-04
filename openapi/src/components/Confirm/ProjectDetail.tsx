@@ -75,13 +75,13 @@ const CardProjectDetail: React.FC<CardDetailProp> = ({
                 <div className="front-right-bdc">
                   <div className="names-research flex items-end space-x-[0.5vw]">
                     <SvgWhiteBox />
-                    <p className={clsx("text-gray-200")}>
+                    <p className={clsx("text-gray-300")}>
                       ชื่องานวิจัย : {nameProject}
                     </p>
                   </div>
                   <div className="names-idea flex items-end space-x-[0.5vw]">
                     <SvgWhiteBox />
-                    <p className={clsx("text-gray-200")}>
+                    <p className={clsx("text-gray-300")}>
                       ไอเดีย : {ideaProject}
                     </p>
                   </div>
