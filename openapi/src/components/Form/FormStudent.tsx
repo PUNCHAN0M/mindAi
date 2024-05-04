@@ -25,7 +25,7 @@ const initialFormValue: formStudentSchema = {
   resourcesOfProjectStudent: "",
   detailOfProjectStudent: "",
 };
-// set default
+// setTags default 
 const TagList: string[] = ["โดรน", "เกย์","pao" ,"mos","u r gay"]; //ชื่อ tags form
 
 export type FormikProps = {
