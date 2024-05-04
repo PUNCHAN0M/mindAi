@@ -164,7 +164,7 @@ const CardProjectDetail: React.FC<CardDetailProp> = ({
                         setPhone(handleClickEye(phone));
                       }}
                     >
-                      {phone === false ? (
+                      {phone === true ? (
                         <SvgEyeOpenWhite />
                       ) : (
                         <SvgEyeCloseWhite />

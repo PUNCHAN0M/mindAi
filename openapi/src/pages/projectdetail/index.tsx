@@ -1,6 +1,5 @@
 import Navbar from "@/components/navbar";
 import ProjectDetail from "@/components/Confirm/ProjectDetail";
-import FilterBar from "@/components/FilterBar";
 import Sidebar from "@/components/Sidebar";
 
 export default function create() {
