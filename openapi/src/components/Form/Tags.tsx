@@ -24,7 +24,7 @@ const TagCards: FC<TagCardsProps> = ({ nameTag, onChange }) => {
         <div
           key={tag}
           className={clsx(
-            "flex justify-center rounded-full w-[8%] p-[0.5vh]",
+            "flex justify-center rounded-full px-[1vw] py-[0.5vh]",
             tagValues[tag] === false ? "bg-[#E8E8E8]" : "bg-green-500 text-white"
           )}
           onClick={() => handleClick(tag)}

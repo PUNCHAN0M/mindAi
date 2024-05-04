@@ -26,7 +26,7 @@ const initialFormValue: formStudentSchema = {
   detailOfProjectStudent: "",
 };
 // setTags default 
-const TagList: string[] = ["โดรน", "เกย์","pao" ,"mos","u r gay"]; //ชื่อ tags form
+const TagList: string[] = ["Machine Learning", "Cloud Computing","Internet of Things (IoT)" ,"Artificial Intelligence (AI)","Blockchain"]; //ชื่อ tags form
 
 export type FormikProps = {
   submitStd: (value: formStudentSchema,tagsOfProjectStudent:string[]) => void;
