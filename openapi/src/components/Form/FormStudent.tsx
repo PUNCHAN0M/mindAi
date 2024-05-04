@@ -8,10 +8,10 @@ import { ErrorMessage, Field, FieldArray, Form, Formik } from "formik";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 import clsx from "clsx";
 import FormImage from "@/components/Form/FormImage";
-import SvgPlusTags from "../SVG/SvgPlusTag";
-import SvgCross from "../SVG/SvgCross";
 import { useRouter } from "next/router";
-
+import Tags from "./Tags";
+import { useState } from "react";
+import TagCards from "./Tags";
 const initialFormValue: formStudentSchema = {
   imageOfProject: [],
   nameOfProjectStudent: "",
@@ -24,22 +24,34 @@ const initialFormValue: formStudentSchema = {
   problemOfProjectStudent: "",
   resourcesOfProjectStudent: "",
   detailOfProjectStudent: "",
-  tagsOfProjectStudent: [],
 };
+// set default
+const TagList: string[] = ["โดรน", "เกย์","pao" ,"mos","u r gay"]; //ชื่อ tags form
 
 export type FormikProps = {
-  submitStd: (value: formStudentSchema) => void;
+  submitStd: (value: formStudentSchema,tagsOfProjectStudent:string[]) => void;
 };
 
 const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
   const router = useRouter();
+  
 
+  
   const handleFileSelect = (selectedFiles: any) => {
     initialFormValue.imageOfProject = [...selectedFiles];
   };
-
+  const [tagsOfProjectStudent, setTagsOfProjectStudent] = useState<string[]>(
+    []
+);
+  function handleTagChange(name: string, value: boolean): void {
+    if (value) {
+      setTagsOfProjectStudent((prevTags) => [...prevTags, name]);
+    } else {
+      setTagsOfProjectStudent((prevTags) => prevTags.filter((t) => t !== name));
+    }
+  }
   const handleSubmit = (values: formStudentSchema): void => {
-    submitStd(values);
+    submitStd(values,tagsOfProjectStudent);
     if (
       values.nameOfProjectStudent &&
       values.departmentOfProjectStudent &&
@@ -370,56 +382,7 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                   </div>
                   {/*End detail*/}
                   {/* Start Tags*/}
-                  <FieldArray
-                    name="tagsOfProjectStudent"
-                    render={(arrayHelpers) => (
-                      <div className="flex flex-col">
-                        {values.tagsOfProjectStudent &&
-                        values.tagsOfProjectStudent.length <= 3 ? (
-                          <button
-                            type="button"
-                            className="flex flex-row  mb-[2vh] justify-center items-center rounded-full border-[2px] px-1 border-gray-100 h-[4vh] w-fit p-[1.5%]"
-                            onClick={() => arrayHelpers.push("")}
-                          >
-                            {/* show this when user has removed all tagsOfProjectStudent from the list */}
-                            <div className="flex flex-row justify-center">
-                              <SvgPlusTags />
-                              เพิ่ม Tag ที่เกี่ยวข้อง
-                            </div>
-                          </button>
-                        ) : (
-                          <div></div>
-                        )}
-                        <div className="flex flex-wrap ">
-                          {values.tagsOfProjectStudent &&
-                          values.tagsOfProjectStudent.length > 0 ? (
-                            values.tagsOfProjectStudent.map((friend, index) => (
-                              <div key={index} className="flex flex-row">
-                                <div className="flex flex-row justify-center items-center rounded-full border-[2px] px-1 border-gray-100 h-[3.6vh] p-[1.5%] pl-[1vw] mr-[1vw] mb-[1vw] w-fit">
-                                  <Field
-                                    name={`tagsOfProjectStudent.${index}`}
-                                    className="text-ellipsis"
-                                    placeholder="เพิ่มชื่อtags..."
-                                  />
-
-                                  <div className="flex flex-col">
-                                    <button
-                                      type="button"
-                                      onClick={() => arrayHelpers.remove(index)} // remove a friend from the list
-                                    >
-                                      <SvgCross />
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            ))
-                          ) : (
-                            <div></div>
-                          )}
-                        </div>
-                      </div>
-                    )}
-                  />
+                  <TagCards nameTag={TagList} onChange={handleTagChange} />
                   {/* End Tags*/}
                 </div>
                 {/* End text input */}

@@ -11,6 +11,7 @@ import SvgLeftArrow from "../SVG/SvgLeftArrow";
 import SvgRightArrow from "../SVG/SvgRightArrow";
 
 const FormImage = ({ onFileSelect }: any) => {
+  
   const maxPicture: number = 5;
 
   const handleFileChange = (e: any) => {
