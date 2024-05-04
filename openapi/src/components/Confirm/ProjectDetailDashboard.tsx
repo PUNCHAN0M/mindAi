@@ -3,7 +3,6 @@ import { useState } from "react";
 import React from "react";
 import SvgEyeOpengray from "../SVG/SvgEyeOpenGrey";
 import classNames from 'classnames';
-
 interface DropdownProps {
   buttonText: string;
   linkText: string[];
@@ -124,6 +123,11 @@ const ProjectDetailDashboard = () => {
     setIsActiveHomePage(false);
     setIsActiveRecommendedPage(true);
   };
+
+  const sendStatus = (status: string) => { 
+    console.log("Status sent:", status);
+  };
+
   return (
     <div className="HomePage">
     <div className="HomePage-container">
@@ -142,22 +146,46 @@ const ProjectDetailDashboard = () => {
         <div className="feedPage">
           <CardDetail researchName="โดรนเปลี่ยนแบตเตอรี่กลางอากาศ"   
           image={imageUrls[0]} 
+          idea = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim" 
+          problem = "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore " 
+          resource = "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore "
           profileUrl = {imageUrls[2]} 
-          idea = "ไอเดีย" 
-          problem = "ปัญหาที่พบ" 
-          resource = "ทรัพยากร"/>
+          profileName="นายสิทธา สหธรรม"
+          profileGmail="sittasahathum@gmail.com"
+          profilePhone="065-123-1233"
+          statusWant="pfc"
 
-          <CardDetail researchName="หูฟังเพื่อการมองเห็น"   
+          />
+          <CardDetail researchName="โทรศัพท์ไม่บอกเธอ"   
           image={imageUrls[1]} 
-          profileUrl = {imageUrls[1]} 
-          idea = "ไอเดีย" 
-          problem = "ปัญหาที่พบ" 
-          resource = "ทรัพยากร"/>
+          idea = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " 
+          problem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " 
+          resource = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+          profileUrl = {imageUrls[3]} 
+          profileName="นายเดวิด แบ็กแฮม"
+          profileGmail="D@gmail.com"
+          profilePhone="4-123-1233"
+          statusWant="std"
+          />
+          <div className="end-container-post-layout"></div>
+
         </div>
         
       ) : (
         <div className="recommandPage">
-          <CardDetail researchName="โดรนเพื่อการเกษตร" image ={imageUrls[1]} profileUrl = {imageUrls[1]} idea = "ไอเดีย" problem = "ปัญหาที่พบ" resource = "ทรัพยากร"/>
+          <CardDetail researchName="แว่นตาอัจฉริยะ"   
+          image={imageUrls[1]} 
+          idea = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " 
+          problem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " 
+          resource = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+          profileUrl = {imageUrls[3]} 
+          profileName="นายเดวิด แบ็กแฮม"
+          profileGmail="D@gmail.com"
+          profilePhone="4-123-1233"
+          statusWant="std"
+
+          />
+        <div className="end-container-post-layout"></div>
         </div> )}
     </div>
     <div className="right-HomePage">
@@ -187,28 +215,24 @@ const ProjectDetailDashboard = () => {
           {/* ส่งข้อมูลให้หลังบ้าน */}
           <div className="dropdownline-A">
             <div className="dropdownleft">
-              <Dropdown buttonText="ระดับการศึกษา"
+              <Dropdown buttonText="ระดับการศึกษาปัจจุบัน"
               linkText={['ปริญญาตรี', 'ปริญญาโท', 'ปริญญาเอก']} />
             </div>
             <div className="dropdownright">
-              <Dropdown buttonText="ผลตอบแทน"
-              linkText={['ไม่ต้องการผลตอบแทน', '200-1000 บาท', '1000-3000 บาท', '3000-5000 บาท', 'มากกว่า 5000 บาท']} />
+              <Dropdown buttonText="หมวดหมู่"
+              linkText={['1000 บาท', '200-1000 บาท', '1000-3000 บาท', '3000-5000 บาท', 'มากกว่า 5000 บาท']} />
             </div>
           </div>
           <div className="dropdownline-B">
             <div className="dropdownleft">
-              <Dropdown buttonText="หมวดหมู่"
+              <Dropdown buttonText="ระยะเวลาทำโปรเจ็ค"
               linkText={['Link 1', 'Link 2', 'Link 3', 'Link 4', 'Link 5']} />
             </div>
             <div className="dropdownright">
-              <Dropdown buttonText="เวลาที่ว่าง"
+              <Dropdown buttonText="คณะของโปรเจ็ค"
               linkText={['30 นาที','1 ชั่วโมง', '2-4 ชั่วโมง', 'มากกว่า 4 ชั่วโมง']} />
             </div>      
           </div>
-          {/* <div className="DateTime">
-            <div className="dateStart">CalenderA</div>
-            <div className="dateEnd">CalenderB</div>
-          </div> */}
         </div>
         <hr className="DateLine" />
 
