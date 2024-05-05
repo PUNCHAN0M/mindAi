@@ -219,7 +219,7 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
                       name="periodEndOfProjectStudent"
                       type="date"
                       min={
-                        values.periodEndOfProjectStudent ||
+                        values.periodStartOfProjectStudent ||
                         new Date().toISOString().split("T")[0]
                       }
                       className={clsx(
