@@ -56,15 +56,17 @@ const CardProjectDetail: React.FC<CardDetailProp> = ({
   return (
     <div className="ProjectDetailsContainer text-[1.5vh] p-[2vw]">
       <div className="flex absolute h-[4.3vw] w-[4.3vw] mt-[47vh] ml-[3vw]">
-        <img
+      <img
           className="flex bg-yellow-200  w-full h-full rounded-full border-[0.5vh] border-white object-cover"
           src={`${imageProfile}`}
           alt=""
         />
-      </div>
+        </div>
+      <div className="toptitle-post">
       <div className="top-title flex items-center justify-start ">
         <SvgPen />
         <div>แก้ไขโพสต์</div>
+      </div>
       </div>
       <div className="Card-container-pdc-background ">
         <div className="Title-Edit-ProjectDetails pt-[vh]">

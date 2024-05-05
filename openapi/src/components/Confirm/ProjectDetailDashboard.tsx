@@ -12,6 +12,12 @@ interface VisibleProps {
   teacherButtonText: string;
   studentButtonText: string;
 }
+const imageUrls: string[] = [
+  "https://images.unsplash.com/photo-1591154669695-5f2a8d20c089?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1517404215738-15263e9f9178?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+];
 
 const Dropdown: React.FC<DropdownProps> = ({ buttonText, linkText }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,7 +67,7 @@ const Dropdown: React.FC<DropdownProps> = ({ buttonText, linkText }) => {
             key={index}
             href="#"
             onClick={() => handleLinkClick(text)}
-            className={classNames({ 'selected-option': selectedOption === text })}
+            className={classNames({ 'selected-option-now': selectedOption === text })}
           >
             {text}
           </a>
@@ -118,6 +124,11 @@ const ProjectDetailDashboard = () => {
     setIsActiveHomePage(false);
     setIsActiveRecommendedPage(true);
   };
+
+  const sendStatus = (status: string) => { 
+    console.log("Status sent:", status);
+  };
+
   return (
     <div className="HomePage">
     <div className="HomePage-container">
@@ -134,12 +145,48 @@ const ProjectDetailDashboard = () => {
     </div>
     {showFeedPage ? (
         <div className="feedPage">
-          <CardDetail/>
-          <CardDetail/>
+          <CardDetail researchName="โดรนเปลี่ยนแบตเตอรี่กลางอากาศ"   
+          image={imageUrls[0]} 
+          idea = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim" 
+          problem = "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore " 
+          resource = "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore "
+          profileUrl = {imageUrls[2]} 
+          profileName="นายสิทธา สหธรรม"
+          profileGmail="sittasahathum@gmail.com"
+          profilePhone="065-123-1233"
+          statusWant="pfc"
+
+          />
+          <CardDetail researchName="โทรศัพท์ไม่บอกเธอ"   
+          image={imageUrls[1]} 
+          idea = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " 
+          problem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " 
+          resource = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+          profileUrl = {imageUrls[3]} 
+          profileName="นายเดวิด แบ็กแฮม"
+          profileGmail="D@gmail.com"
+          profilePhone="4-123-1233"
+          statusWant="std"
+          />
+          <div className="end-container-post-layout"></div>
+
         </div>
+        
       ) : (
         <div className="recommandPage">
-          <CardDetail/>
+          <CardDetail researchName="แว่นตาอัจฉริยะ"   
+          image={imageUrls[1]} 
+          idea = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " 
+          problem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " 
+          resource = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+          profileUrl = {imageUrls[3]} 
+          profileName="นายเดวิด แบ็กแฮม"
+          profileGmail="D@gmail.com"
+          profilePhone="4-123-1233"
+          statusWant="std"
+
+          />
+        <div className="end-container-post-layout"></div>
         </div> )}
     </div>
     <div className="right-HomePage">
@@ -169,28 +216,24 @@ const ProjectDetailDashboard = () => {
           {/* ส่งข้อมูลให้หลังบ้าน */}
           <div className="dropdownline-A">
             <div className="dropdownleft">
-              <Dropdown buttonText="ระดับการศึกษา"
+              <Dropdown buttonText="ระดับการศึกษาปัจจุบัน"
               linkText={['ปริญญาตรี', 'ปริญญาโท', 'ปริญญาเอก']} />
             </div>
             <div className="dropdownright">
-              <Dropdown buttonText="ผลตอบแทน"
-              linkText={['ไม่ต้องการผลตอบแทน', '200-1000 บาท', '1000-3000 บาท', '3000-5000 บาท', 'มากกว่า 5000 บาท']} />
+              <Dropdown buttonText="หมวดหมู่"
+              linkText={['1000 บาท', '200-1000 บาท', '1000-3000 บาท', '3000-5000 บาท', 'มากกว่า 5000 บาท']} />
             </div>
           </div>
           <div className="dropdownline-B">
             <div className="dropdownleft">
-              <Dropdown buttonText="หมวดหมู่"
+              <Dropdown buttonText="ระยะเวลาทำโปรเจ็ค"
               linkText={['Link 1', 'Link 2', 'Link 3', 'Link 4', 'Link 5']} />
             </div>
             <div className="dropdownright">
-              <Dropdown buttonText="เวลาที่ว่าง"
+              <Dropdown buttonText="คณะของโปรเจ็ค"
               linkText={['30 นาที','1 ชั่วโมง', '2-4 ชั่วโมง', 'มากกว่า 4 ชั่วโมง']} />
             </div>      
           </div>
-          {/* <div className="DateTime">
-            <div className="dateStart">CalenderA</div>
-            <div className="dateEnd">CalenderB</div>
-          </div> */}
         </div>
         <hr className="DateLine" />
 
