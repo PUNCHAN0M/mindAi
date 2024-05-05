@@ -12,6 +12,7 @@ import SvgChecked from "../SVG/SvgChecked";
 import SvgWhiteBox from "../SVG/SvgWhiteBox";
 import Image from "next/image";
 import ProcessBar2 from "../ProcessBar2";
+import { useRouter } from "next/router";
 
 interface CardDetailProp {
   imageProfile: any;
@@ -254,7 +255,13 @@ const CardProjectDetail: React.FC<CardDetailProp> = ({
   );
 };
 
-const ProjectDetail = () => {
+const ProjectDetail = () => { 
+  const router = useRouter()
+  const handleBack = (): void => { {
+      console.log("back page now!");
+      router.push("/createprojectstudent");
+    }
+  };
   return (
     // ส่งค่ามาจาก FormSyudent
     <div className="flex flex-col">
@@ -273,7 +280,7 @@ const ProjectDetail = () => {
         emailCreater="sitasahahum@gmail.com"
       />
       <div className="flex flex-row justify-start mt-[5vh] ml-[10vw] ">
-        <button className="flex bg-gray-100 justify-center rounded-full mr-[5%] mt-[10px] w-[8%] p-[0.5vh]">ย้อนกลับ</button>
+        <button className="flex bg-gray-100 justify-center rounded-full mr-[5%] mt-[10px] w-[8%] p-[0.5vh]" onClick={handleBack}>ย้อนกลับ</button>
       </div>
     </div>
   );
