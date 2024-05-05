@@ -41,6 +41,5 @@ export const formStudent = z.object({
   problemOfProjectStudent: z.string().optional(),
   resourcesOfProjectStudent: z.string().optional(),
   detailOfProjectStudent: z.string().optional(),
-  tagsOfProjectStudent: z.any().array().optional()
 });
 export type formStudentSchema = z.infer<typeof formStudent>;

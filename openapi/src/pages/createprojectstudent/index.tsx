@@ -7,6 +7,7 @@ import ListTeacher from "@/components/Recommend/ListTeacher";
 import ProjectDetail from "@/components/Confirm/ProjectDetail";
 import ShowDetail from "@/components/Confirm/ShowDetail";
 import FormStudent from "@/components/Form/FormStudent";
+import ProcessBar from "@/components/ProcessBar";
 
 export default function create() {
   const handleSubmit = (
@@ -17,7 +18,6 @@ export default function create() {
     console.log(values);
     console.log(`tags : ${tagsOfProjectStudent}`); //ใน list คือ tags ที่ถูกเลือก
   };
-  const handleClick = () => {};
   return (
     <div className="flex flex-col bg-white w-screen h-screen overflow-hidden">
       <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,7 +27,7 @@ export default function create() {
       />
       <Sidebar />
       <Navbar />
-      <button onClick={handleClick}>Click to login</button>
+        <ProcessBar/>
       <FormStudent submitStd={handleSubmit} />
     </div>
   );

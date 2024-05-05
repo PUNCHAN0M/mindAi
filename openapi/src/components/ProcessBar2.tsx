@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import { useState } from "react";
 
-const ProcessBar = () => {
-  const [handlePreviousBtn, setHandlePreviousBtn] = useState<string>('form');
+const ProcessBar2 = () => {
+  const [handlePreviousBtn, setHandlePreviousBtn] = useState<string>('confirm');
   return (
     <div className="flex flex-col justify-center items-center mt-[10vh]">
       {/* <Navbar /> */}
@@ -46,4 +46,4 @@ const ProcessBar = () => {
     </div>
   );
 };
-export default ProcessBar;
+export default ProcessBar2;

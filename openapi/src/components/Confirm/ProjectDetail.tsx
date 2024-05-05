@@ -11,6 +11,7 @@ import SvgCircle from "../SVG/SvgCircle";
 import SvgChecked from "../SVG/SvgChecked";
 import SvgWhiteBox from "../SVG/SvgWhiteBox";
 import Image from "next/image";
+import ProcessBar2 from "../ProcessBar2";
 
 interface CardDetailProp {
   imageProfile: any;
@@ -69,7 +70,7 @@ const CardProjectDetail: React.FC<CardDetailProp> = ({
       </div>
       </div>
       <div className="Card-container-pdc-background ">
-        <div className="Title-Edit-ProjectDetails pt-[vh]">
+        <div className="Title-Edit-ProjectDetails">
           <div className="title-PDC">
             <div className="inside-title flex justify-between ">
               <div className="text-[2.5vh] ml-[1.5vw] text-white mt-[1vh]">

@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar";
 import ProjectDetail from "@/components/Confirm/ProjectDetail";
 import Sidebar from "@/components/Sidebar";
+import ProcessBar2 from "@/components/ProcessBar2";
 
 export default function create() {
   return (
@@ -12,6 +13,7 @@ export default function create() {
       />
       <Sidebar/>
       <Navbar />
+      <ProcessBar2/>
       <ProjectDetail/>
     </div>
   );
