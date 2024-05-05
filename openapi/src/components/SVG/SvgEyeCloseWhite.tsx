@@ -1,6 +1,6 @@
 const SvgEyeCloseWhite = () => (
   <svg
-    className="w-[2.5vh] h-[2.5vh] text-white"
+    className="w-[2.5vh] h-[2.5vh] text-white cursor-pointer"
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -9,7 +9,7 @@ const SvgEyeCloseWhite = () => (
     viewBox="0 0 24 24"
   >
     <path
-      stroke="currentColor"
+      stroke="white"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="1.5"

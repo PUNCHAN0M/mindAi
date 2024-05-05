@@ -7,8 +7,18 @@ import SvgPluse from "../SVG/SvgPluse";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
+import SvgLeftArrow from "../SVG/SvgLeftArrow";
+import SvgRightArrow from "../SVG/SvgRightArrow";
 
-const FormImage = () => {
+const FormImage = ({ onFileSelect }: any) => {
+  
+  const maxPicture: number = 5;
+
+  const handleFileChange = (e: any) => {
+    const selectedFiles = e.target.files;
+    onFileSelect(selectedFiles);
+  };
+
   const [Allfiles, setAllFiles] = useState<File[]>([]);
 
   useEffect(() => {
@@ -23,14 +33,14 @@ const FormImage = () => {
           try {
             const newFiles = Array.from(selectedFiles).slice(
               0,
-              5 - Allfiles.length
+              maxPicture - Allfiles.length
             );
 
             if (newFiles.length > 0) {
               const updatedFiles = [...Allfiles, ...newFiles];
 
-              if (updatedFiles.length > 5) {
-                const newAllFiles = updatedFiles.slice(0, 5);
+              if (updatedFiles.length > maxPicture) {
+                const newAllFiles = updatedFiles.slice(0, maxPicture);
                 setAllFiles(newAllFiles);
               } else {
                 setAllFiles(updatedFiles);
@@ -48,53 +58,194 @@ const FormImage = () => {
   const handleClick = (val: number) => {
     setIndImage(indImage + val);
   };
+  const handleClickDelete = () => {
+    const newArray = [...Allfiles]; // Create a copy of the original array
+    newArray.splice(indImage, 1); // Remove one element at the specified index
+    setAllFiles(newArray); // Update the state with the new array
+  };
   return (
-    <div className="flex flex-col text-black justify-center items-center z-1">
-      <div className="relative  flex flex-col bg-white shadow-searchresearch  rounded-lg w-[100%] h-[25vh] justify-center">
-        <label
-          htmlFor="fileInput"
-          className="flex flex-col items-center w-[100%] h-[100%] justify-center"
-        >
-          <input
-            type="file"
-            name="image"
-            id="fileInput"
-            hidden
-            className="fileInput  "
-            accept="image/png, image/jpeg"
-            multiple
-          />
-          <SvgPluse />
-          <span className="text-[0.7vw] mx-[50px] mt-[30px] font-bold z-20">
-            ลาก & วางไฟล์ของคุณ or เปิดโฟลเดอร์ เพิ่มเติม
-          </span>
-        </label>
-      </div>
-      <div className="flex flex-row justify-between items-center mt-[5px]">
-        <Svgimg />
-        <span className="text-[0.5vw] ">
-          ประเภทไฟล์ที่รองรับ JPG , PNG ขนาดสูงสุงครั้งละ 200 M
-        </span>
-      </div>
-      <div className="flex flex-col justify-center  w-[20vw] ">
-        {Allfiles.length > 0 && (
-          <div className="relative inline-block justify-center w-[100%] aspect-[4/3]">
-            {Allfiles.map((file, index) => (
-              <Image
-                key={index}
-                fill
-                src={URL.createObjectURL(file)}
-                alt={`Image ${index}`}
-                className={clsx("object-cover rounded-lg mt-[1vw]",{ hidden: index !== indImage })}
-              />
-            ))}
-          </div>
+    <div className="flex flex-row text-black justify-center items-center space-x-[1vh]">
+      {/* strat prebious btn */}
+      <div
+        className={clsx(
+          "flex   rounded-full",
+          indImage === 0 ? "hidden" : "block"
         )}
-        <div className={clsx("flex absolute mt-[45vh] w-[20vw] text-white font-black ", indImage === 0 ? "justify-end" : "justify-between")}>
-          <div className={clsx("flex p-[1vw] bg-green-500 shadow-searchresearch rounded-full",indImage === 0 ? "hidden" : "block")} onClick={() => handleClick(-1)}>{`<`}</div>
-          <div className={clsx("flex p-[1vw] bg-green-500 shadow-searchresearch rounded-full",Allfiles.length == 0 ? "hidden" : "" , indImage === Allfiles.length - 1 ? "hidden" : "block")} onClick={() => handleClick(1)}>{`>`}</div>
+        onClick={() => handleClick(-1)}
+      >
+        <SvgLeftArrow />
+      </div>
+      {/* end prebious btn */}
+      {/* strat inputbox */}
+      <div>
+        <div className="relative  flex flex-col bg-white rounded-lg w-[100%] h-[30vh] justify-center ">
+          {/*strat If input is max must be in put */}
+          {Allfiles.length == maxPicture ? (
+            <label className=" relative flex flex-col items-center w-[100%] h-[100%] justify-center inputImageForm">
+              {Allfiles.length > 0 && (
+                <div className="absolute justify-center w-full h-full z-50 ">
+                  {Allfiles.map((file, index) => (
+                    <Image
+                      key={index}
+                      fill
+                      src={URL.createObjectURL(file)}
+                      alt={`Image ${index}`}
+                      className={clsx("object-cover rounded-lg", {
+                        hidden: index !== indImage,
+                      })}
+                    />
+                  ))}
+                </div>
+              )}
+
+              <span className="flex text-[80%] mx-[50px] mt-[30px] font-bold z-20">
+                ลาก & วางไฟล์ของคุณ or{" "}
+                <p className="flex text-[100%] text-blue-400 border-b-1 w-fit mx-[0.5vw]">
+                  เปิดโฟลเดอร์
+                </p>{" "}
+                เพิ่มเติม
+              </span>
+            </label>
+          ) : (
+            <label
+              htmlFor="fileInput"
+              className=" relative flex flex-col items-center w-[100%] h-[100%] justify-center cursor-pointer shadow-searchresearch rounded-lg hover:bg-gray-10 hover:rounded-lg hover:border-1 hover:border-gray-200 "
+            >
+              {Allfiles.length > 0 && (
+                <div className="absolute justify-center w-full h-full z-50">
+                  {Allfiles.map((file, index) => (
+                    <Image
+                      key={index}
+                      fill
+                      src={URL.createObjectURL(file)}
+                      alt={`Image ${index}`}
+                      className={clsx("object-cover rounded-lg", {
+                        hidden: index !== indImage,
+                      })}
+                    />
+                  ))}
+                </div>
+              )}
+              <input
+                type="file"
+                name="imageOfProject"
+                id="fileInput"
+                hidden
+                className="fileInput  "
+                accept="image/png, image/jpeg"
+                multiple
+                onChange={(e)=>{handleFileChange(e)}}
+              />
+              <SvgPluse />
+              <span className="flex text-[80%] mx-[50px] mt-[30px] font-bold z-20">
+                ลาก & วางไฟล์ของคุณ or{" "}
+                <p className="flex text-[100%] text-blue-400 border-b-1 w-fit mx-[0.5vw]">
+                  เปิดโฟลเดอร์
+                </p>{" "}
+                เพิ่มเติม
+              </span>
+            </label>
+          )}
+          {/*end If input is max must be in put */}
+          {/*start delete btn*/}
+          {Allfiles && Allfiles.length > 0 && Allfiles.length > indImage && (
+            <div
+              className={clsx(
+                "absolute bg-gray-10 w-[1vw] h-[1vw] right-[1vw] top-[1vh] rounded-full z-50"
+              )}
+              onClick={() => {
+                handleClickDelete();
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-[1.3vw] h-[1.3vw]"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                />
+              </svg>
+            </div>
+          )}
+
+          {/*end delete btn*/}
+        </div>
+        <div className="flex flex-row justify-between items-center mt-[1vh] space-x-[0.5vw]">
+          {Allfiles.length == maxPicture ? (
+            <span className="flex space-x-[1vw]">
+              <label className="flex text-[70%] font-bold  space-x-[0.2vw]">
+                <Svgimg />
+                <p className="flex text-[100%] text-blue-400 border-b-1">
+                  เลื่อกรูปภาพ
+                </p>
+                <p className="flex text-[100%]">เพิ่มเติม</p>
+                <p
+                  className={clsx(
+                    "flex text-[100%]",
+                    Allfiles.length == maxPicture ? "text-red" : ""
+                  )}
+                >
+                  {" "}
+                  ({Allfiles.length}/{maxPicture})
+                </p>
+              </label>
+
+              <span className="flex text-[70%] ">
+                ประเภทไฟล์ที่รองรับ JPG , PNG ขนาดสูงสุงครั้งละ 200 M
+              </span>
+            </span>
+          ) : (
+            <span className="flex space-x-[1vw]">
+              <label
+                htmlFor="fileInput"
+                className="flex text-[70%] font-bold  space-x-[0.2vw] hover:cursor-pointer"
+              >
+                <Svgimg />
+                <p className="flex text-[100%] text-blue-400 border-b-1">
+                  เลื่อกรูปภาพ
+                </p>
+                <p className="flex text-[100%]">เพิ่มเติม</p>
+                <p
+                  className={clsx(
+                    "flex text-[100%]",
+                    Allfiles.length == maxPicture ? "text-red" : ""
+                  )}
+                >
+                  {" "}
+                  ({Allfiles.length}/{maxPicture})
+                </p>
+              </label>
+
+              <span className="flex text-[70%] ">
+                ประเภทไฟล์ที่รองรับ JPG , PNG ขนาดสูงสุงครั้งละ 200 M
+              </span>
+            </span>
+          )}
         </div>
       </div>
+      {/* end inputbox */}
+      {/*start  next btn*/}
+      {Allfiles.length == indImage ? (
+        <></>
+      ) : (
+        <div
+          className={clsx(
+            "flex  rounded-full",
+            Allfiles.length == 0 ? "hidden" : "",
+            indImage === Allfiles.length - 1 ? "hidden" : "block"
+          )}
+          onClick={() => handleClick(1)}
+        >
+          <SvgRightArrow />
+        </div>
+      )}
+      {/*end  next btn*/}
     </div>
   );
 };
