@@ -165,7 +165,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
               {/* End text input */}
               {/* Start Next Btn  */}
               <div className={clsx("relative flex justify-center")}>
-                <button
+                <button id="search-pfc-btn"
                   className={clsx(
                     "flex bg-yellow-100 justify-center rounded-full mt-[5%] w-[10%] p-[0.2%] fixed"
                   )}
