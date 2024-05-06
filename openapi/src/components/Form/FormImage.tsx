@@ -58,6 +58,7 @@ const FormImage = ({ onFileSelect }: any) => {
   const handleClick = (val: number) => {
     setIndImage(indImage + val);
   };
+  
   const handleClickDelete = () => {
     const newArray = [...Allfiles]; // Create a copy of the original array
     newArray.splice(indImage, 1); // Remove one element at the specified index

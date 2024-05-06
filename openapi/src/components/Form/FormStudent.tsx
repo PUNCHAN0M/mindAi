@@ -393,7 +393,7 @@ const FormStudent = ({ submitStd }: FormikProps): JSX.Element => {
 
             {/* Start Next Btn  */}
             <div className={clsx("flex justify-end")}>
-              <button
+              <button id="next-form-std"
                 className={clsx(
                   "flex bg-[#F6F6CD] justify-center rounded-full mr-[5%] mt-[10px] w-[8%] p-[0.5vh]"
                 )}
