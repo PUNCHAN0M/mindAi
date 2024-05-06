@@ -40,7 +40,7 @@ const FormText = ({ submit }: FormikProps): JSX.Element => {
         <Form>
           <div className="flex flex-col text-black text-[0.8vw] bg-white-100 h-screen items-center">
             <div className="flex flex-col mt-[60px] text-[2vh]">
-            ค้นหา อาจารย์ที่ปรึกษาในงานวิจัย ใน มหาวิทยาลัยสงขลานครินทร์
+            <p>ค้นหา อาจารย์ที่ปรึกษาในงานวิจัย ใน มหาวิทยาลัยสงขลานครินทร์</p>
             </div>
             {/* Start insert text and date */}
             <div className="flex flex-col bg-white rounded-xl p-[5%] w-[73%] h-[67%] overflow-auto mt-[2%] shadow-searchresearch space-y-[3%]">

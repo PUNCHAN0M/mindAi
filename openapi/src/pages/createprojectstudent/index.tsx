@@ -8,16 +8,24 @@ import ProjectDetail from "@/components/Confirm/ProjectDetail";
 import ShowDetail from "@/components/Confirm/ShowDetail";
 import FormStudent from "@/components/Form/FormStudent";
 import ProcessBar from "@/components/ProcessBar";
+import { image } from "@nextui-org/theme";
+import { number } from "zod";
 
 export default function create() {
+  const maxPicture :number = 5
+
   const handleSubmit = (
     values: formStudentSchema,
-    tagsOfProjectStudent: string[]
+    tagsOfProjectStudent: string[],
+    imageOfProject: any[]
   ): void => {
     //value ที่ได้จากการกรอกฟอร์ม
     console.log(values);
     console.log(`tags : ${tagsOfProjectStudent}`); //ใน list คือ tags ที่ถูกเลือก
-  };
+    console.log(`image pass : ${imageOfProject}`);
+
+
+  }
   return (
     <div className="flex flex-col bg-white w-screen h-screen overflow-hidden">
       <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,7 +35,7 @@ export default function create() {
       />
       <Sidebar />
       <Navbar />
-        <ProcessBar/>
+      <ProcessBar />
       <FormStudent submitStd={handleSubmit} />
     </div>
   );

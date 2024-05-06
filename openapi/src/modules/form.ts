@@ -25,7 +25,6 @@ export const formSchemaImage = z.object({
 export type formImageSchema = z.infer<typeof formSchemaImage>;
 
 export const formStudent = z.object({
-  imageOfProject: z.any().array().optional(),
   nameOfProjectStudent: z
     .string({
       required_error: "ต้องใส่งานวิจัย",
